@@ -1,7 +1,6 @@
 # Verifying Declared AI Workloads from GPU Supply Current
 
-Code, results and paper for *Verifying Declared AI Workloads from GPU Supply Current*
-(Tom Kimpson, 2026). The paper asks whether an external observer can tell that a GPU
+Code, results and paper for *Verifying Declared AI Workloads from GPU Supply Current*. The paper asks whether an external observer can tell that a GPU
 runs only the work its operator declared, using a clamp-on probe on the GPU's supply
 current. A one-class model learns only from recordings of the declared work.
 
