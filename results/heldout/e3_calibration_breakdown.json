@@ -1,0 +1,523 @@
+{
+ "generated_by": "scripts/e3_calibration_breakdown.py",
+ "spec_task": "12.1",
+ "preregistered": false,
+ "exploratory": true,
+ "promoted_from": "notes/2026-11-07-framing-checks/calibration_breakdown.py",
+ "generated_at": "2026-11-07T23:42:29+00:00",
+ "repo_commit": "6a8566e5dbb02ae6057c469b8adfa0841105090b",
+ "sources": {
+  "r1_scores.json": "53f9463bd0eb9d773989a71563caab9a58c0c852",
+  "thresholds.json": "42e2539d5d48e6b93d1c63324579c0b1d9b65a01",
+  "windows/manifest.json": "018c3a271ff0aabb75d9ade8692d172f96ffa2d7"
+ },
+ "numpy": "2.2.6",
+ "source": "results/heldout/r1_scores.json",
+ "repo_commit_of_source": "53f9463bd0eb9d773989a71563caab9a58c0c852",
+ "tau_full": 0.6289591641951192,
+ "tau_decode_only": {
+  "pooled": 0.7863618952424948,
+  "decode": 0.5686988562666614
+ },
+ "decode_windows_flagged_full_fit": {
+  "declared development serving-decode": {
+   "runs": [
+    {
+     "run_id": "panel-core-serving-decode-r1",
+     "session": "2026-09-23",
+     "n": 170
+    },
+    {
+     "run_id": "panel-serving-decode",
+     "session": "2026-09-21",
+     "n": 170
+    }
+   ],
+   "run_start_index": [
+    0,
+    170
+   ],
+   "n": 340,
+   "flagged_index": [
+    0,
+    170
+   ],
+   "every_flag_is_a_run_start": true,
+   "runs_with_first_window_flagged": 2
+  },
+  "declared calibration serving-decode": {
+   "runs": [
+    {
+     "run_id": "panel-core-serving-decode-r4",
+     "session": "2026-09-25",
+     "n": 170
+    }
+   ],
+   "run_start_index": [
+    0
+   ],
+   "n": 170,
+   "flagged_index": [
+    0
+   ],
+   "every_flag_is_a_run_start": true,
+   "runs_with_first_window_flagged": 1
+  },
+  "declared test serving-decode": {
+   "runs": [
+    {
+     "run_id": "panel-core-serving-decode-r2",
+     "session": "2026-09-24",
+     "n": 170
+    },
+    {
+     "run_id": "panel-core-serving-decode-r3",
+     "session": "2026-09-24",
+     "n": 170
+    }
+   ],
+   "run_start_index": [
+    0,
+    170
+   ],
+   "n": 340,
+   "flagged_index": [
+    0,
+    170
+   ],
+   "every_flag_is_a_run_start": true,
+   "runs_with_first_window_flagged": 2
+  }
+ },
+ "decode_summary": {
+  "n_runs": 5,
+  "n_sessions": 4,
+  "n_windows": 850,
+  "n_flagged": 5,
+  "runs_with_first_window_flagged": 5,
+  "every_flag_is_a_run_start": true
+ },
+ "score_band_min_median_max": {
+  "full": {
+   "declared development serving-decode": [
+    0.3936,
+    0.4246,
+    0.6801
+   ],
+   "declared development serving-prefill": [
+    0.4442,
+    0.48805,
+    0.6494
+   ],
+   "declared development idle": [
+    0.4528,
+    0.4959,
+    0.6304
+   ],
+   "declared calibration serving-decode": [
+    0.4078,
+    0.43625,
+    0.6702
+   ],
+   "declared calibration idle": [
+    0.5623,
+    0.60165,
+    0.6576
+   ],
+   "declared test serving-decode": [
+    0.4057,
+    0.43975,
+    0.6681
+   ],
+   "declared test idle": [
+    0.4629,
+    0.5499,
+    0.6463
+   ],
+   "co-location panel-mixture-concurrent-0p25": [
+    0.7039,
+    0.70865,
+    0.712
+   ],
+   "co-location panel-mixture-concurrent-0p5": [
+    0.6581,
+    0.6633,
+    0.6708
+   ],
+   "co-location panel-mixture-concurrent-0p75": [
+    0.6677,
+    0.67105,
+    0.6742
+   ],
+   "honest training": [
+    0.6802,
+    0.6935,
+    0.7026
+   ],
+   "non-AI": [
+    0.6785,
+    0.6884,
+    0.7069
+   ]
+  },
+  "decode_only": {
+   "declared development serving-decode": [
+    0.3707,
+    0.40754999999999997,
+    0.8042
+   ],
+   "declared development serving-prefill": [
+    0.7484,
+    0.7717,
+    0.7758
+   ],
+   "declared development idle": [
+    0.7722,
+    0.7835,
+    0.7853
+   ],
+   "declared calibration serving-decode": [
+    0.3854,
+    0.42315,
+    0.7786
+   ],
+   "declared calibration idle": [
+    0.7782,
+    0.7849,
+    0.7864
+   ],
+   "declared test serving-decode": [
+    0.3859,
+    0.42735,
+    0.7818
+   ],
+   "declared test idle": [
+    0.7698,
+    0.7838,
+    0.7864
+   ],
+   "co-location panel-mixture-concurrent-0p25": [
+    0.7589,
+    0.7682,
+    0.7757
+   ],
+   "co-location panel-mixture-concurrent-0p5": [
+    0.7505,
+    0.7609,
+    0.7677
+   ],
+   "co-location panel-mixture-concurrent-0p75": [
+    0.7509,
+    0.762,
+    0.7677
+   ],
+   "honest training": [
+    0.7585,
+    0.7832,
+    0.7902
+   ],
+   "non-AI": [
+    0.757,
+    0.7803,
+    0.7961
+   ]
+  }
+ },
+ "decode_only_flag_rates": {
+  "declared development serving-decode": {
+   "pooled": 0.0058823529411764705,
+   "decode": 0.023529411764705882
+  },
+  "declared development serving-prefill": {
+   "pooled": 0.0,
+   "decode": 1.0
+  },
+  "declared development idle": {
+   "pooled": 0.0,
+   "decode": 1.0
+  },
+  "declared calibration serving-decode": {
+   "pooled": 0.0,
+   "decode": 0.052941176470588235
+  },
+  "declared calibration idle": {
+   "pooled": 0.11764705882352941,
+   "decode": 1.0
+  },
+  "declared test serving-decode": {
+   "pooled": 0.0,
+   "decode": 0.05
+  },
+  "declared test idle": {
+   "pooled": 0.000333667000333667,
+   "decode": 1.0
+  },
+  "co-location panel-mixture-concurrent-0p25": {
+   "pooled": 0.0,
+   "decode": 1.0
+  },
+  "co-location panel-mixture-concurrent-0p5": {
+   "pooled": 0.0,
+   "decode": 1.0
+  },
+  "co-location panel-mixture-concurrent-0p75": {
+   "pooled": 0.0,
+   "decode": 1.0
+  },
+  "honest training": {
+   "pooled": 0.0017211703958691911,
+   "decode": 1.0
+  },
+  "non-AI": {
+   "pooled": 0.2555066079295154,
+   "decode": 1.0
+  }
+ },
+ "dev_prefill_in_fit": {
+  "n": 170,
+  "n_flagged": 1,
+  "rate": 0.0058823529411764705
+ },
+ "unpaced_margin": {
+  "run_min": 0.6581,
+  "tau": 0.6289591641951192,
+  "tau_ci95_hi": 0.6409114254599361,
+  "margin_over_tau": 0.029140835804880805,
+  "margin_over_tau_ci95_hi": 0.01718857454006395,
+  "tau_ci95_source": "thresholds.json r1.stability.ci95"
+ },
+ "declared_above_unpaced_min": {
+  "windows": {
+   "declared development serving-decode": [
+    0,
+    170
+   ],
+   "declared development serving-prefill": [],
+   "declared development idle": [],
+   "declared calibration serving-decode": [
+    0
+   ],
+   "declared calibration idle": [],
+   "declared test serving-decode": [
+    0,
+    170
+   ],
+   "declared test idle": []
+  },
+  "n": 5,
+  "all_are_decode_run_starts": true
+ },
+ "calibration_windows": 340,
+ "breakdown_by_alpha": {
+  "0.01": {
+   "tau_clean": 0.646942,
+   "n_windows": 4,
+   "share_of_calibration": 0.011627906976744186,
+   "seconds_at_hop": 20,
+   "tau": 0.6821414999999998,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 0.9965576592082617,
+    "non-AI": 0.9574155653450808
+   }
+  },
+  "0.02": {
+   "tau_clean": 0.64433,
+   "n_windows": 7,
+   "share_of_calibration": 0.020172910662824207,
+   "seconds_at_hop": 35,
+   "tau": 0.6717759999999997,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.28823529411764703,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "0.05": {
+   "tau_clean": 0.62897,
+   "n_windows": 18,
+   "share_of_calibration": 0.05027932960893855,
+   "seconds_at_hop": 90,
+   "tau": 0.6726899999999997,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.1411764705882353,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "0.1": {
+   "tau_clean": 0.6207400000000001,
+   "n_windows": 38,
+   "share_of_calibration": 0.10052910052910052,
+   "seconds_at_hop": 190,
+   "tau": 0.6748200000000002,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  }
+ },
+ "breakdown_honest_min": 0.9965576592082617,
+ "curve_alpha_0.05": {
+  "0": {
+   "n_windows": 0,
+   "tau": 0.62897,
+   "rates": {
+    "declared test serving-decode": 0.0058823529411764705,
+    "declared test idle": 0.0011678345011678344,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 1.0,
+    "co-location panel-mixture-concurrent-0p75": 1.0,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "1": {
+   "n_windows": 3,
+   "tau": 0.6367099999999999,
+   "rates": {
+    "declared test serving-decode": 0.0058823529411764705,
+    "declared test idle": 0.000333667000333667,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 1.0,
+    "co-location panel-mixture-concurrent-0p75": 1.0,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "2": {
+   "n_windows": 7,
+   "tau": 0.64025,
+   "rates": {
+    "declared test serving-decode": 0.0058823529411764705,
+    "declared test idle": 0.0001668335001668335,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 1.0,
+    "co-location panel-mixture-concurrent-0p75": 1.0,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "3": {
+   "n_windows": 11,
+   "tau": 0.6447499999999999,
+   "rates": {
+    "declared test serving-decode": 0.0058823529411764705,
+    "declared test idle": 0.0001668335001668335,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 1.0,
+    "co-location panel-mixture-concurrent-0p75": 1.0,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "4": {
+   "n_windows": 14,
+   "tau": 0.6463699999999999,
+   "rates": {
+    "declared test serving-decode": 0.0058823529411764705,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 1.0,
+    "co-location panel-mixture-concurrent-0p75": 1.0,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "5": {
+   "n_windows": 18,
+   "tau": 0.6727049999999997,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.12941176470588237,
+    "honest training": 1.0,
+    "non-AI": 1.0
+   }
+  },
+  "6": {
+   "n_windows": 22,
+   "tau": 0.6909949999999999,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 0.8395869191049914,
+    "non-AI": 0.2643171806167401
+   }
+  },
+  "8": {
+   "n_windows": 30,
+   "tau": 0.692625,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 0.6337349397590362,
+    "non-AI": 0.25844346549192365
+   }
+  },
+  "10": {
+   "n_windows": 38,
+   "tau": 0.6935074999999999,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 0.49225473321858865,
+    "non-AI": 0.2525697503671072
+   }
+  },
+  "20": {
+   "n_windows": 85,
+   "tau": 0.6945,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 0.246815834767642,
+    "non-AI": 0.2511013215859031
+   }
+  },
+  "50": {
+   "n_windows": 340,
+   "tau": 0.6967,
+   "rates": {
+    "declared test serving-decode": 0.0,
+    "declared test idle": 0.0,
+    "co-location panel-mixture-concurrent-0p25": 1.0,
+    "co-location panel-mixture-concurrent-0p5": 0.0,
+    "co-location panel-mixture-concurrent-0p75": 0.0,
+    "honest training": 0.09053356282271945,
+    "non-AI": 0.24963289280469897
+   }
+  }
+ }
+}

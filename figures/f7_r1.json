@@ -1,0 +1,108 @@
+{
+ "generated_by": "scripts/plot_f7_r1.py",
+ "source": "results/heldout/r1_scores.json",
+ "source_repo_commit": "53f9463bd0eb9d773989a71563caab9a58c0c852",
+ "annotated": {
+  "r1": {
+   "thresholds_drawn": {
+    "declared": 0.6289591641951192
+   },
+   "percent_above_thresholds": {
+    "decode (dev)": [
+     "0.6"
+    ],
+    "prefill (dev)": [
+     "0.6"
+    ],
+    "idle (dev)": [
+     "0.6"
+    ],
+    "decode (cal)": [
+     "0.6"
+    ],
+    "idle (cal)": [
+     "9"
+    ],
+    "decode (test)": [
+     "0.6"
+    ],
+    "idle (test)": [
+     "0.1"
+    ],
+    "$\\rho$ = 0.25": [
+     "100"
+    ],
+    "$\\rho$ = 0.5, unthrottled": [
+     "100"
+    ],
+    "$\\rho$ = 0.75": [
+     "100"
+    ],
+    "honest training (dev)": [
+     "100"
+    ],
+    "non-AI (dev)": [
+     "100"
+    ]
+   },
+   "auc_unpaced_vs_test_decode": 0.994,
+   "frac_test_decode_above_unpaced_min": 0.0059
+  },
+  "decode_only": {
+   "thresholds_drawn": {
+    "pooled calibration": 0.7863618952424948,
+    "decode calibration": 0.5686988562666614
+   },
+   "percent_above_thresholds": {
+    "decode (dev)": [
+     "0.6",
+     "2"
+    ],
+    "prefill (dev)": [
+     "0",
+     "100"
+    ],
+    "idle (dev)": [
+     "0",
+     "100"
+    ],
+    "decode (cal)": [
+     "0",
+     "5"
+    ],
+    "idle (cal)": [
+     "12",
+     "100"
+    ],
+    "decode (test)": [
+     "0",
+     "5"
+    ],
+    "idle (test)": [
+     "<0.1",
+     "100"
+    ],
+    "$\\rho$ = 0.25": [
+     "0",
+     "100"
+    ],
+    "$\\rho$ = 0.5, unthrottled": [
+     "0",
+     "100"
+    ],
+    "$\\rho$ = 0.75": [
+     "0",
+     "100"
+    ],
+    "honest training (dev)": [
+     "0.2",
+     "100"
+    ],
+    "non-AI (dev)": [
+     "26",
+     "100"
+    ]
+   }
+  }
+ }
+}

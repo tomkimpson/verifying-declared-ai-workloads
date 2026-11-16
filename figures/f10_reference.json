@@ -1,0 +1,23 @@
+{
+ "generated_by": "scripts/plot_f10_reference.py",
+ "schematic": true,
+ "data": null,
+ "rows": [
+  {
+   "title": "Complete reference",
+   "verdict": "works"
+  },
+  {
+   "title": "Declared workload missing from both parts",
+   "verdict": "loud"
+  },
+  {
+   "title": "Declared workload in the threshold set only",
+   "verdict": "silent"
+  },
+  {
+   "title": "Training in the reference (here, in the fit)",
+   "verdict": "silent"
+  }
+ ]
+}

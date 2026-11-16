@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Julia
+Manifest.toml
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.bcf
+
+# Large binary data formats (not tracked)
+*.hdf5
+*.h5
+*.fits
+*.pkl
+*.npy
+*.npz
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets
+.env
+*.key
+credentials.*
+
+# Regenerable intermediates (scripts/sprint_windows.py)
+results/sprint/windows.jsonl
+
+# Regenerable windows (scripts/make_windows.py)
+results/windows/*.jsonl
+
+# review and latexdiff by-products
+paper/diff.*
+paper/annotaed-versions/
+paper/*-annotated.pdf
+tmp-*.md
+paper/main-copy-*.pdf

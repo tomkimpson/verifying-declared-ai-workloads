@@ -1,0 +1,1017 @@
+# Every number cited in the paper's prose (spec task 8.3).
+# One [[n]] per LaTeX macro: name (letters only), src (repo-relative JSON),
+# path (keys / list indices), fmt (str.format), optional scale, minus, len.
+# Regenerate paper/numbers.tex with scripts/paper_numbers.py.
+
+[check]
+# Literal strings allowed in prose: definitions and protocol constants that are
+# not results. Keep this short.
+allow = [
+  # Ranges first: the "95%" entry below would otherwise eat half of "5--95%".
+  "25--75\\%",
+  "1--99\\%",
+  "5--95\\%",
+  "\\vskip 0.3in",
+  "\\setcounter{table}{0}",
+  "\\setcounter{figure}{0}",
+  "3-of-5",
+  "2-of-3",
+  "5-of-5",
+  # The alpha grid of the sensitivity runs: a protocol constant.
+  "from 1\\% to 10\\%",
+  "3 of 5",
+  "F_1",
+  "1-\\alpha",
+  "1 + m(t)",
+  "H_0",
+  "H_1",
+  "95\\%",
+  "90\\%",
+  "SHA-256",
+  "L1",
+  "L2",
+  "R1",
+  "^{-1}",
+  "0 & \\text{otherwise}",
+  "$s_C^{\\mathrm{dev}} = 0$",
+  "$s_C^{\\mathrm{rep}} = 0$",
+  "S_{t-1}",
+  "S_0 = 0",
+  "\\max(0,",
+  # Figures cited from other papers in the introduction, not our results.
+  "97\\%",
+  "98\\%",
+  "48--88\\%",
+  "43\\%",
+  "96\\%",
+  "a 1\\% false-alarm rate",
+  # Feature names, plot ranges and axis limits in captions.
+  "\\texttt{env\\_frac\\_150\\_250hz}",
+  "\\texttt{env\\_p99\\_over\\_p50}",
+  "\\texttt{env\\_ac\\_lag1}",
+  "10^{-3}",
+]
+
+# --- H2 (F3, results/heldout/) ----------------------------------------------
+[[n]]
+name = "Ztwo"
+src = "results/heldout/h2.json"
+path = ["headline", "Z_r1", "detection"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "Xprime"
+src = "results/heldout/h2.json"
+path = ["headline", "X_prime_classifier", "detection"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "TauRone"
+src = "results/heldout/thresholds.json"
+path = ["r1", "threshold"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "TauClf"
+src = "results/heldout/thresholds.json"
+path = ["classifier", "fits", "co-location", "threshold"]
+fmt = "{:.1f}"
+
+[[n]]
+name = "FprRoneDecode"
+src = "results/heldout/h2.json"
+path = ["headline", "r1_test_fpr", "serving-decode"]
+fmt = "{:.1f}"
+scale = 100
+
+[[n]]
+name = "FprRoneIdle"
+src = "results/heldout/h2.json"
+path = ["headline", "r1_test_fpr", "idle"]
+fmt = "{:.1f}"
+scale = 100
+
+# --- H3 (T2, F4, results/monitor/) ------------------------------------------
+[[n]]
+name = "ExpDecodeH"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "r1", "exposure_h"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "FRoneDecode"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "r1", "F_per_h"]
+fmt = "{:.1f}"
+
+[[n]]
+name = "FupRoneDecode"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "r1", "F_upper95_poisson_model"]
+fmt = "{:.1f}"
+
+[[n]]
+name = "FClfDecode"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "classifier", "F_per_h"]
+fmt = "{:.1f}"
+
+[[n]]
+name = "AClfDecode"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "classifier", "A"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "ARoneBusy"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "non-AI busy", "r1", "A"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "EpDelayRone"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "pooled_median_delay_s"]
+fmt = "{:.1f}"
+
+[[n]]
+name = "LminRone"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "Lmin_s"]
+fmt = "{:.1f}"
+
+# --- T5 (results/gk/t5.json) ------------------------------------------------
+[[n]]
+name = "GkHardPrefill"
+src = "results/gk/t5.json"
+path = ["forests", "hardened", "gate_inference", "by_condition", "serving-prefill", "flag_rate"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "GkGenPrefill"
+src = "results/gk/t5.json"
+path = ["forests", "genuine", "gate_inference", "by_condition", "serving-prefill", "flag_rate"]
+fmt = "{:.1f}"
+scale = 100
+
+[[n]]
+name = "GkGenMiss"
+src = "results/gk/t5.json"
+path = ["forests", "genuine", "co-location", "per_run", "panel-mixture-concurrent-0p5", "detection"]
+fmt = "{:.0f}"
+scale = 100
+
+# --- setting (paper/setup.json: fixed facts with cited sources) ---------------
+[[n]]
+name = "GPU"
+src = "paper/setup.json"
+path = ["gpu", "name"]
+
+[[n]]
+name = "Probe"
+src = "paper/setup.json"
+path = ["probe", "model"]
+
+[[n]]
+name = "ProbeSens"
+src = "paper/setup.json"
+path = ["probe", "sensitivity_mV_per_A"]
+
+[[n]]
+name = "ProbeLo"
+src = "paper/setup.json"
+path = ["probe", "band_lo_hz"]
+
+[[n]]
+name = "ProbeHi"
+src = "paper/setup.json"
+path = ["probe", "band_hi_mhz"]
+
+[[n]]
+name = "Fs"
+src = "paper/setup.json"
+path = ["sample_rate_sps"]
+fmt = "{:,}"
+
+[[n]]
+name = "EnvFrame"
+src = "paper/setup.json"
+path = ["envelope_frame_ms"]
+
+[[n]]
+name = "ModelParams"
+src = "paper/setup.json"
+path = ["model", "params_millions"]
+
+[[n]]
+name = "PosControlMin"
+src = "paper/setup.json"
+path = ["r1_positive_control_min_pct"]
+
+[[n]]
+name = "ModelLayers"
+src = "paper/setup.json"
+path = ["model", "n_layer"]
+
+[[n]]
+name = "ModelWidth"
+src = "paper/setup.json"
+path = ["model", "d_model"]
+
+[[n]]
+name = "RhoLo"
+src = "paper/setup.json"
+path = ["colocation_share", "low"]
+
+[[n]]
+name = "RhoMid"
+src = "paper/setup.json"
+path = ["colocation_share", "mid"]
+
+[[n]]
+name = "RhoHi"
+src = "paper/setup.json"
+path = ["colocation_share", "high"]
+
+[[n]]
+name = "DefaultDecision"
+src = "paper/setup.json"
+path = ["default_decision"]
+
+[[n]]
+name = "GkNFeat"
+src = "paper/setup.json"
+path = ["gk", "n_features"]
+
+[[n]]
+name = "GkRate"
+src = "paper/setup.json"
+path = ["gk", "rate_msps"]
+
+[[n]]
+name = "GkRateApprox"
+src = "paper/setup.json"
+path = ["gk", "rate_msps"]
+fmt = "{:.0f}"
+
+[[n]]
+name = "GkDecimated"
+src = "paper/setup.json"
+path = ["gk", "decimated_ksps"]
+
+[[n]]
+name = "GkFone"
+src = "paper/setup.json"
+path = ["gk", "macro_f1"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "GkAcc"
+src = "paper/setup.json"
+path = ["gk", "accuracy"]
+fmt = "{:.2f}"
+
+[[n]]
+name = "GkAliasKhz"
+src = "paper/setup.json"
+path = ["gk", "alias_khz"]
+
+# --- corpus and windows (results/windows/manifest.json) ----------------------
+[[n]]
+name = "NCaptures"
+src = "results/windows/manifest.json"
+path = ["n_captures"]
+
+[[n]]
+name = "CorpusHours"
+src = "results/windows/manifest.json"
+path = ["captures"]
+fmt = "{:.1f}"
+each = ["scored_s"]
+reduce = "sum"
+scale = 0.0002777777777777778
+
+[[n]]
+name = "Win"
+src = "results/windows/manifest.json"
+path = ["window_s"]
+fmt = "{:.0f}"
+
+[[n]]
+name = "HopSnap"
+src = "results/windows/manifest.json"
+path = ["hops_s", 0]
+fmt = "{:.0f}"
+
+[[n]]
+name = "HopMon"
+src = "results/windows/manifest.json"
+path = ["hops_s", 1]
+fmt = "{:.0f}"
+
+[[n]]
+name = "CorpusCommit"
+src = "results/windows/manifest.json"
+path = ["corpus_commit"]
+fmt = "{:.7}"
+
+# --- detectors and S1 ---------------------------------------------------------
+[[n]]
+name = "NFeat"
+src = "results/replication/t3.json"
+path = ["n_features"]
+
+[[n]]
+name = "NRepTraces"
+src = "results/replication/t3.json"
+path = ["n_traces"]
+
+[[n]]
+name = "SoneFone"
+src = "results/replication/t3.json"
+path = ["two_stage", "macro_f1"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "Alpha"
+src = "results/heldout/h2.json"
+path = ["alpha"]
+
+# --- section 4 -----------------------------------------------------------------
+[[n]]
+name = "FracCalZero"
+src = "results/heldout/thresholds.json"
+path = ["classifier", "fits", "co-location", "frac_calibration_zero"]
+fmt = "{:.1f}"
+scale = 100
+
+[[n]]
+name = "RoneMinGroup"
+src = "results/heldout/h2.json"
+path = ["r1", "detection"]
+fmt = "{:.1f}"
+each = ["all", "pooled", "detection"]
+reduce = "min"
+scale = 100
+
+[[n]]
+name = "ClfJitterWorst"
+src = "results/heldout/h2.json"
+path = ["classifier", "jitter", "detection", "all", "per_run"]
+fmt = "{:.0f}"
+each = ["detection"]
+reduce = "min"
+scale = 100
+
+[[n]]
+name = "GateTrain"
+src = "results/gk/t5.json"
+path = ["forests", "hardened", "gate", "training_min"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "GateInf"
+src = "results/gk/t5.json"
+path = ["forests", "hardened", "gate", "inference_max"]
+fmt = "{:.0f}"
+scale = 100
+
+# --- section 5 -----------------------------------------------------------------
+[[n]]
+name = "Rearm"
+src = "results/monitor/false_alarms.json"
+path = ["rule", "rearm"]
+
+[[n]]
+name = "ExpIdleH"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "idle", "r1", "exposure_h"]
+fmt = "{:.2f}"
+
+[[n]]
+name = "EpTotal"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "cells"]
+each = ["n_episodes"]
+reduce = "sum"
+
+[[n]]
+name = "EpMinDur"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "cells"]
+fmt = "{:.1f}"
+each = ["nominal_s"]
+reduce = "min"
+
+[[n]]
+name = "EpMaxDur"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "cells"]
+fmt = "{:.0f}"
+each = ["nominal_s"]
+reduce = "max"
+
+[[n]]
+name = "Grace"
+src = "results/monitor/episodes.json"
+path = ["rule", "grace_s"]
+fmt = "{:.0f}"
+
+[[n]]
+name = "EpTruncated"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "counts", "truncated"]
+
+[[n]]
+name = "EpScored"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "cells"]
+each = ["n_episodes"]
+reduce = "sum"
+minus = { path = ["detectors", "r1", "counts", "truncated"] }
+
+[[n]]
+name = "LminLevel"
+src = "results/monitor/episodes.json"
+path = ["rule", "lmin_level"]
+
+# --- discussion and appendices ------------------------------------------------
+[[n]]
+name = "TfourMisCoPooled"
+src = "results/robustness/t4.json"
+path = ["misspecified_declaration", "pooled", "h2", "r1", "co-location", "pooled"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "TfourMisCoDeclared"
+src = "results/robustness/t4.json"
+path = ["misspecified_declaration", "declared", "h2", "r1", "co-location", "pooled"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "GkNTraces"
+src = "results/gk/t5.json"
+path = ["forests", "hardened", "n_fit_traces"]
+
+[[n]]
+name = "GkOwnFone"
+src = "results/gk/t5.json"
+path = ["own_check", "macro_f1_mean"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "GkOwnFoneLo"
+src = "results/gk/t5.json"
+path = ["own_check", "macro_f1_range", 0]
+fmt = "{:.3f}"
+
+[[n]]
+name = "GkOwnFoneHi"
+src = "results/gk/t5.json"
+path = ["own_check", "macro_f1_range", 1]
+fmt = "{:.3f}"
+
+[[n]]
+name = "GkOwnAcc"
+src = "results/gk/t5.json"
+path = ["own_check", "accuracy_mean"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "GkShuffle"
+src = "results/gk/t5.json"
+path = ["own_check", "negative_control", "macro_f1"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "GapGuard"
+src = "results/monitor/episodes.json"
+path = ["rule", "gap_guard"]
+
+[[n]]
+name = "ARoneDecode"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "r1", "A"]
+fmt = "{:.0f}"
+
+[[n]]
+name = "XzeroPrime"
+src = "results/heldout/operating_point.json"
+path = ["replica", "tau_alpha", "detection_per_run", "panel-mixture-concurrent-0p5"]
+fmt = "{:.1f}"
+scale = 100
+
+[[n]]
+name = "RepPrefill"
+src = "results/heldout/operating_point.json"
+path = ["replica", "tau_alpha", "fpr", "development", "serving-prefill"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "ClfDevPrefill"
+src = "results/heldout/operating_point.json"
+path = ["classifier", "tau_alpha", "fpr", "development", "serving-prefill"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "EpPreRone"
+src = "results/monitor/episodes.json"
+path = ["detectors", "r1", "counts", "pre-alarmed"]
+
+# --- Data design vs prior work (paper/setup.json; intro) --------------------
+[[n]]
+name = "GkTraceS"
+src = "paper/setup.json"
+path = ["gk", "trace_s"]
+
+[[n]]
+name = "RtWinLo"
+src = "paper/setup.json"
+path = ["rt_window_s", 0]
+
+[[n]]
+name = "RtWinHi"
+src = "paper/setup.json"
+path = ["rt_window_s", 1]
+
+[[n]]
+name = "ChainBelowBand"
+src = "paper/setup.json"
+path = ["chain_check", "train_var_frac_below_20khz"]
+fmt = "{:.1f}"
+scale = 100
+
+[[n]]
+name = "ChainBandKhz"
+src = "paper/setup.json"
+path = ["chain_check", "band_khz"]
+
+[[n]]
+name = "ChainEnvPct"
+src = "paper/setup.json"
+path = ["chain_check", "envelope_match_pct_vs_2msps"]
+fmt = "{:.1f}"
+
+# --- Phase 9 (amendment 2026-10-14; exploratory except FupClfDecode) ------
+[[n]]
+name = "FupClfDecode"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds", "declared inference", "classifier", "F_upper95_poisson_model"]
+fmt = "{:.1f}"
+
+# results[6] is the frozen choice: iforest, R1, alpha 0.05 (choice.json)
+[[n]]
+name = "RonePrefillHoldout"
+src = "results/declaration/heldout.json"
+path = ["results", 6, "check4", "per_run", "panel-serving-prefill", "fp_rate"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "TauDecOnlyPooled"
+src = "results/heldout/r1_scores.json"
+path = ["thresholds", "decode_only", "pooled calibration"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "TauDecOnlyDecode"
+src = "results/heldout/r1_scores.json"
+path = ["thresholds", "decode_only", "decode calibration"]
+fmt = "{:.3f}"
+
+# --- Phase 10 (amendment 2026-10-14) -------------------------------------------
+
+# F7: the unpaced run against test decode under R1 (computed by plot_f7_r1.py)
+[[n]]
+name = "RoneAucDecode"
+src = "figures/f7_r1.json"
+path = ["annotated", "r1", "auc_unpaced_vs_test_decode"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "RoneDecodeAboveMin"
+src = "figures/f7_r1.json"
+path = ["annotated", "r1", "frac_test_decode_above_unpaced_min"]
+fmt = "{:.1f}"
+scale = 100
+
+# results[6] is the frozen choice: R1's achieved rate on calibration idle
+[[n]]
+name = "RoneCalIdle"
+src = "results/declaration/heldout.json"
+path = ["results", 6, "cal_fp_by_workload", "idle"]
+fmt = "{:.0f}"
+scale = 100
+
+# --- third-party review (2026-10-16) ----------------------------------------
+[[n]]
+name = "Digitiser"
+src = "paper/setup.json"
+path = ["digitiser", "model"]
+
+[[n]]
+name = "DigBits"
+src = "paper/setup.json"
+path = ["digitiser", "bits"]
+
+[[n]]
+name = "BurstRate"
+src = "paper/setup.json"
+path = ["aliasing", "burst_rate_msps"]
+
+[[n]]
+name = "AliasTrainPct"
+src = "paper/setup.json"
+path = ["aliasing", "train_folded_pct"]
+fmt = "{:.2f}"
+
+[[n]]
+name = "AliasIdleX"
+src = "paper/setup.json"
+path = ["aliasing", "idle_folded_ratio"]
+fmt = "{:.0f}"
+
+[[n]]
+name = "BootBlock"
+src = "paper/setup.json"
+path = ["intervals", "block_windows"]
+
+[[n]]
+name = "BootBlockS"
+src = "paper/setup.json"
+path = ["intervals", "block_s"]
+
+[[n]]
+name = "NBoot"
+src = "paper/setup.json"
+path = ["intervals", "n_boot"]
+fmt = "{:,}"
+
+[[n]]
+name = "EpBlock"
+src = "paper/setup.json"
+path = ["intervals", "episode_block"]
+
+[[n]]
+name = "OnsetBlockMin"
+src = "paper/setup.json"
+path = ["intervals", "onset_block_min"]
+
+[[n]]
+name = "TfourIdleADecode"
+src = "results/robustness/t4.json"
+path = ["misspecified_declaration", "declared", "h3", "r1", "false_alarms", "idle", "A"]
+fmt = "{:.2f}"
+scale = 100
+
+[[n]]
+name = "NBootBound"
+src = "paper/setup.json"
+path = ["intervals", "n_boot_bound"]
+fmt = "{:,}"
+
+[[n]]
+name = "ForestTrees"
+src = "paper/setup.json"
+path = ["forest_trees"]
+
+# R1 threshold under a run-level bootstrap of the two calibration runs (review F1)
+[[n]]
+name = "TauRoneLo"
+src = "results/heldout/thresholds.json"
+path = ["r1", "stability", "ci95", 0]
+fmt = "{:.3f}"
+
+[[n]]
+name = "TauRoneHi"
+src = "results/heldout/thresholds.json"
+path = ["r1", "stability", "ci95", 1]
+fmt = "{:.3f}"
+
+# alpha in percent, beside FPRs given in percent
+[[n]]
+name = "AlphaPct"
+src = "results/heldout/h2.json"
+path = ["alpha"]
+fmt = "{:.0f}"
+scale = 100
+
+# --- Phase 12 (amendment 2026-11-08): E3 and the stability/specificity facts ---
+# E3, exploratory: honest-training windows in the calibration set that take the
+# unpaced run to 0%, per alpha (T8).
+[[n]]
+name = "EthreeKOne"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["breakdown_by_alpha", "0.01", "n_windows"]
+
+[[n]]
+name = "EthreeKFive"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["breakdown_by_alpha", "0.05", "n_windows"]
+
+[[n]]
+name = "EthreeKTen"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["breakdown_by_alpha", "0.1", "n_windows"]
+
+[[n]]
+name = "EthreeCalWindows"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["calibration_windows"]
+
+[[n]]
+name = "EthreeHonestMin"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["breakdown_honest_min"]
+fmt = "{:.2f}"
+scale = 100
+
+# Stability over time: R1's flags on every decode run (full declaration).
+[[n]]
+name = "DecodeRuns"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["decode_summary", "n_runs"]
+
+[[n]]
+name = "DecodeSessions"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["decode_summary", "n_sessions"]
+
+[[n]]
+name = "DecodeWindows"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["decode_summary", "n_windows"]
+
+[[n]]
+name = "DecodeFlagged"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["decode_summary", "n_flagged"]
+
+# Granularity: development prefill, in R1's fit, at tau_alpha.
+[[n]]
+name = "PrefillInFitFlagged"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["dev_prefill_in_fit", "n_flagged"]
+
+[[n]]
+name = "PrefillInFitN"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["dev_prefill_in_fit", "n"]
+
+# Specificity: the unpaced run's lowest R1 score, and its margin over the upper
+# end of tau_alpha's run-level bootstrap interval (TauRoneHi).
+[[n]]
+name = "RoneUnpacedMin"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["unpaced_margin", "run_min"]
+fmt = "{:.3f}"
+
+[[n]]
+name = "RoneMargin"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["unpaced_margin", "margin_over_tau_ci95_hi"]
+fmt = "{:.3f}"
+
+# Specificity: R1 score bands under the full declaration (descriptive). Declared:
+# every declared set; hidden: the co-location runs, honest training and non-AI.
+[[n]]
+name = "DeclBandLo"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["score_band_min_median_max", "full"]
+keys = ["declared development serving-decode", "declared development serving-prefill", "declared development idle", "declared calibration serving-decode", "declared calibration idle", "declared test serving-decode", "declared test idle"]
+each = [0]
+reduce = "min"
+fmt = "{:.2f}"
+
+[[n]]
+name = "DeclBandHi"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["score_band_min_median_max", "full"]
+keys = ["declared development serving-decode", "declared development serving-prefill", "declared development idle", "declared calibration serving-decode", "declared calibration idle", "declared test serving-decode", "declared test idle"]
+each = [2]
+reduce = "max"
+fmt = "{:.2f}"
+
+[[n]]
+name = "HidBandLo"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["score_band_min_median_max", "full"]
+keys = ["co-location panel-mixture-concurrent-0p25", "co-location panel-mixture-concurrent-0p5", "co-location panel-mixture-concurrent-0p75", "honest training", "non-AI"]
+each = [0]
+reduce = "min"
+fmt = "{:.2f}"
+
+[[n]]
+name = "HidBandHi"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["score_band_min_median_max", "full"]
+keys = ["co-location panel-mixture-concurrent-0p25", "co-location panel-mixture-concurrent-0p5", "co-location panel-mixture-concurrent-0p75", "honest training", "non-AI"]
+each = [2]
+reduce = "max"
+fmt = "{:.2f}"
+
+# --- Phase 13 (spec 13.5, amendment 2026-11-13b): E4 in §3.3, exploratory ---
+# Grid index 6 is k = 50, 8 is k = 200, 9 is k = 500, 10 is k = 1000.
+[[n]]
+name = "EfourKHonest"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 6, "k"]
+
+[[n]]
+name = "EfourShareHonest"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 6, "share_of_fit"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "EfourFullCal"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 6, "calibration_honest_by_run", "panel-core-training-r4", "median"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "EfourLoraCal"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 6, "calibration_honest_by_run", "panel-core-lora-r4", "median"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "EfourKHalf"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["smallest_k", "0.5", "k"]
+
+[[n]]
+name = "EfourKGone"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["smallest_k", "0.05", "k"]
+
+[[n]]
+name = "EfourShareGone"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["smallest_k", "0.05", "share_of_fit"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "EfourNDraws"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 6, "n_draws"]
+
+[[n]]
+name = "EfourNDeclared"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["n_declared_fit"]
+
+# T4 positive control and the decode-calibration row's pre-alarmed episodes (T7).
+[[n]]
+name = "TfourPosCtrl"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["decode_only_flag_rates", "honest training", "pooled"]
+fmt = "{:.2f}"
+scale = 100
+
+# §3.3: honest training under the full declaration, and prefill masked by idle (pooled row).
+[[n]]
+name = "RoneHonestFull"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["curve_alpha_0.05", "0", "rates", "honest training"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "DecOnlyPrefillPooled"
+src = "results/heldout/e3_calibration_breakdown.json"
+path = ["decode_only_flag_rates", "declared development serving-prefill", "pooled"]
+fmt = "{:.0f}"
+scale = 100
+[[n]]
+name = "EfourHalfDet"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 9, "unpaced_detection", "median"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "EfourGoneDet"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 10, "unpaced_detection", "median"]
+fmt = "{:.0f}"
+scale = 100
+
+# --- Phase 13 (spec 13.6): the Limits and the mechanism appendix ---
+# Session check (13.3, exploratory): one-session reference, same-run vs other-day FP.
+[[n]]
+name = "SessSame"
+src = "results/heldout/session_check.json"
+path = ["results", "iforest", "pooled", "S"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "SessOther"
+src = "results/heldout/session_check.json"
+path = ["results", "iforest", "pooled", "O"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "SessPair"
+src = "results/heldout/session_check.json"
+path = ["results", "iforest", "per_run", "panel-core-serving-decode-r1", "other_run_fp_by_run", "panel-core-serving-decode-r4"]
+fmt = "{:.0f}"
+scale = 100
+
+[[n]]
+name = "SessRefWindows"
+src = "results/heldout/session_check.json"
+path = ["design", "n_ref"]
+
+[[n]]
+name = "SessRuns"
+src = "results/heldout/session_check.json"
+path = ["decode_runs"]
+len = true
+
+[[n]]
+name = "FeightBin"
+src = "results/monitor/traces.json"
+path = ["envelope", "bin_s"]
+fmt = "{:.2f}"
+
+# --- Appendix cut (2026-11-16): t4 sensitivity stated in prose ---
+[[n]]
+name = "RobCoMin"
+src = "results/robustness/t4.json"
+path = ["alpha_sweep"]
+each = ["h2", "r1", "co-location", "pooled"]
+reduce = "min"
+scale = 100
+fmt = "{:.0f}"
+
+[[n]]
+name = "RobOnDecAlpha"
+src = "results/robustness/t4.json"
+path = ["alpha_sweep"]
+each = ["h3", "r1", "false_alarms", "declared inference", "onsets"]
+reduce = "max"
+
+[[n]]
+name = "RobOnIdleAlpha"
+src = "results/robustness/t4.json"
+path = ["alpha_sweep"]
+each = ["h3", "r1", "false_alarms", "idle", "onsets"]
+reduce = "max"
+
+[[n]]
+name = "RobOnDecPers"
+src = "results/robustness/t4.json"
+path = ["persistence"]
+each = ["r1", "false_alarms", "declared inference", "onsets"]
+reduce = "max"
+
+[[n]]
+name = "RobOnIdlePers"
+src = "results/robustness/t4.json"
+path = ["persistence"]
+each = ["r1", "false_alarms", "idle", "onsets"]
+reduce = "max"
+
+
+[[n]]
+# §3.2: in-sample flag rate on the fit's declared windows, clean fit and largest k (amendment 2026-11-16b).
+name = "EfourDeclZero"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", 0, "declared_fit_flag_rate", "median"]
+fmt = "{:.1f}"
+scale = 100
+
+[[n]]
+name = "EfourDeclEnd"
+src = "results/heldout/e4_fit_contamination.json"
+path = ["grid", -1, "declared_fit_flag_rate", "median"]
+fmt = "{:.1f}"
+scale = 100
+
+# --- AC RMS amplitude (results/heldout/ac_rms.json): Limits, exploratory ---
+[[n]]
+name = "AcRmsUnpaced"
+src = "results/heldout/ac_rms.json"
+path = ["runs", "panel-mixture-concurrent-0p5", "median_a"]
+fmt = "{:.1f}"
+
+[[n]]
+name = "AcRmsDecode"
+src = "results/heldout/ac_rms.json"
+path = ["runs", "panel-serving-decode", "median_a"]
+fmt = "{:.1f}"

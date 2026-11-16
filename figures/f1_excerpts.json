@@ -1,0 +1,46 @@
+{
+ "generated_by": "scripts/plot_f1_excerpts.py",
+ "repo_commit": "a7acf012541efbff5ee0bdc4c6e747c70c611a25",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "excerpt_s": 2.0,
+ "offset_s": 30.0,
+ "lead_s": 0.1,
+ "panels": {
+  "declared inference": {
+   "run": "panel-serving-decode",
+   "t0_s": 48.96973483409728,
+   "env_cv": 0.10402749569391698,
+   "n_step_ends": 0
+  },
+  "honest training": {
+   "run": "panel-training-arm1",
+   "t0_s": 49.075486275100204,
+   "env_cv": 0.5086570298030345,
+   "n_step_ends": 6
+  },
+  "time-shared training": {
+   "run": "panel-mixture-timeshared-0p5",
+   "t0_s": 58.868288672221524,
+   "env_cv": 0.4920378683977951,
+   "n_step_ends": 5
+  },
+  "panel-mixture-concurrent-0p25": {
+   "run": "panel-mixture-concurrent-0p25",
+   "t0_s": 51.0625990099301,
+   "env_cv": 0.3468711881148027,
+   "n_step_ends": 1
+  },
+  "panel-mixture-concurrent-0p5": {
+   "run": "panel-mixture-concurrent-0p5",
+   "t0_s": 48.86443534819034,
+   "env_cv": 0.23825447479072087,
+   "n_step_ends": 3
+  },
+  "panel-mixture-concurrent-0p75": {
+   "run": "panel-mixture-concurrent-0p75",
+   "t0_s": 49.22942927323504,
+   "env_cv": 0.510224494262649,
+   "n_step_ends": 5
+  }
+ }
+}

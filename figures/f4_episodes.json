@@ -1,0 +1,5 @@
+{
+ "generated_by": "scripts/plot_f4_episodes.py",
+ "source": "results/monitor/episodes.json",
+ "source_repo_commit": "c57416631a890a837ba8309c070a9be9d1503492"
+}

@@ -1,0 +1,1693 @@
+{
+ "generated_by": "scripts/t5_gk_transfer.py",
+ "generated_at": "2026-10-09T04:03:26+00:00",
+ "spec_task": "7.5",
+ "repo_commit": "44949269e6931ca5f193e3d3d5ee7f74df58d04f",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "preregistration_sha256": "b6b0a2c968a1fe86b6a9672806422061f361f9be5d1c71ceb6fbfd24dd20e725",
+ "dataset": "simgar/h200-power-workload-traces-10MHz_5s",
+ "revision": "bcd3f8dd7873e481d0467cccfb09fb8e6ce89568",
+ "features_generated_at": "2026-10-09T02:14:02+00:00",
+ "own_check": {
+  "macro_f1_mean": 0.89108124263341,
+  "macro_f1_range": [
+   0.8448701453925255,
+   0.9453008085568966
+  ],
+  "accuracy_mean": 0.9084677419354839,
+  "negative_control": {
+   "label_permutation_seed": 0,
+   "fold_seed": 0,
+   "forest_seed": 0,
+   "macro_f1": 0.30583586661784645,
+   "accuracy": 0.5010752688172043,
+   "failed": true
+  },
+  "gk_reported": {
+   "accuracy": 0.97,
+   "macro_f1": 0.955,
+   "protocol": "five-fold CV grouped by family, shuffled, averaged over four splits and two seeds; 30 features at 10 MHz (dataset README)"
+  },
+  "n_runs": 8
+ },
+ "windows": {
+  "development": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "018c3a271ff0aabb75d9ade8692d172f96ffa2d7"
+  },
+  "calibration": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "018c3a271ff0aabb75d9ade8692d172f96ffa2d7"
+  },
+  "test": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "018c3a271ff0aabb75d9ade8692d172f96ffa2d7"
+  }
+ },
+ "features": [
+  "env_cv",
+  "env_skew",
+  "env_kurtosis",
+  "env_p10_over_p50",
+  "env_p90_over_p50",
+  "env_p99_over_p50",
+  "env_iqr_over_median",
+  "env_ac_lag1",
+  "env_ac_peak",
+  "env_ac_peak_lag_s",
+  "env_spec_flatness",
+  "env_frac_0p5_2hz",
+  "env_frac_2_10hz",
+  "env_frac_10_50hz",
+  "env_frac_50_150hz",
+  "env_frac_150_250hz",
+  "wav_spec_flatness",
+  "wav_spec_centroid_hz",
+  "wav_spec_rolloff95_hz",
+  "wav_frac_34_100hz",
+  "wav_frac_100hz_1khz",
+  "wav_frac_1_10khz",
+  "wav_frac_10_20khz",
+  "wav_frac_20_50khz",
+  "wav_frac_50_100khz"
+ ],
+ "forest": {
+  "n_estimators": 500,
+  "random_state": 0,
+  "n_jobs": -1
+ },
+ "headline_forest": "hardened",
+ "flag": "predict == 'training'; detection over windows labelled training, partial excluded; inference flag rate over all windows",
+ "forests": {
+  "genuine": {
+   "n_fit_traces": 930,
+   "fit_class_counts": {
+    "inference": 170,
+    "non-ai": 250,
+    "training": 510
+   },
+   "gate": {
+    "training_detection": 1.0,
+    "training_min": 0.8,
+    "inference_flag_rate": 0.00392156862745098,
+    "inference_max": 0.2,
+    "passed": true
+   },
+   "gate_training": {
+    "pooled": {
+     "n_runs": 12,
+     "n_training": 2040,
+     "detection": 1.0,
+     "interval_method": "run-level",
+     "detection_ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "per_run": {
+     "panel-cadence-baseline-jitter-0p05": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p2": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p4": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-pad-half": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-23",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r2": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r3": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r4": {
+      "condition": "training",
+      "split": "calibration",
+      "session": "2026-09-25",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min-nosampler": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     }
+    }
+   },
+   "honest_group": {
+    "pooled": {
+     "n_runs": 20,
+     "n_training": 3925,
+     "detection": 0.9974522292993631,
+     "interval_method": "run-level",
+     "detection_ci95": [
+      0.9939698492462311,
+      1.0
+     ]
+    },
+    "per_run": {
+     "panel-cadence-baseline-jitter-0p05": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p2": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p4": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-pad-half": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r1": {
+      "condition": "lora",
+      "split": "development",
+      "session": "2026-09-23",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r2": {
+      "condition": "lora",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r3": {
+      "condition": "lora",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r4": {
+      "condition": "lora",
+      "split": "calibration",
+      "session": "2026-09-25",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-23",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r2": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r3": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r4": {
+      "condition": "training",
+      "split": "calibration",
+      "session": "2026-09-25",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-lora": {
+      "condition": "lora",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min-nosampler": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm2": {
+      "condition": "training-discarded",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm3": {
+      "condition": "training-copying",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-checkpoint-eval-60min": {
+      "condition": "training-checkpoint-eval",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 695,
+      "n_training": 695,
+      "n_partial": 0,
+      "detection": 0.9856115107913669,
+      "detection_ci95": [
+       0.9769784172661871,
+       0.9928057553956835
+      ],
+      "flag_rate_all": 0.9856115107913669,
+      "predicted": {
+       "non-ai": 10,
+       "training": 685
+      }
+     }
+    }
+   },
+   "gate_inference": {
+    "n_windows": 1020,
+    "flag_rate": 0.00392156862745098,
+    "by_condition": {
+     "serving-decode": {
+      "n_windows": 850,
+      "flag_rate": 0.0,
+      "predicted": {
+       "non-ai": 850
+      }
+     },
+     "serving-prefill": {
+      "n_windows": 170,
+      "flag_rate": 0.023529411764705882,
+      "predicted": {
+       "inference": 166,
+       "training": 4
+      }
+     }
+    }
+   },
+   "co-location": {
+    "pooled": {
+     "n_runs": 3,
+     "n_training": 510,
+     "detection": 0.6666666666666666,
+     "interval_method": "run-level",
+     "detection_ci95": [
+      0.0,
+      1.0
+     ]
+    },
+    "per_run": {
+     "panel-mixture-concurrent-0p25": {
+      "condition": "mixture-concurrent-0p25",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-mixture-concurrent-0p5": {
+      "condition": "mixture-concurrent-0p5",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 0.0,
+      "detection_ci95": [
+       0.0,
+       0.0
+      ],
+      "flag_rate_all": 0.0,
+      "predicted": {
+       "inference": 170
+      }
+     },
+     "panel-mixture-concurrent-0p75": {
+      "condition": "mixture-concurrent-0p75",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     }
+    }
+   }
+  },
+  "hardened": {
+   "n_fit_traces": 1610,
+   "fit_class_counts": {
+    "inference": 170,
+    "non-ai": 250,
+    "training": 1190
+   },
+   "gate": {
+    "training_detection": 1.0,
+    "training_min": 0.8,
+    "inference_flag_rate": 0.16666666666666666,
+    "inference_max": 0.2,
+    "passed": true
+   },
+   "gate_training": {
+    "pooled": {
+     "n_runs": 12,
+     "n_training": 2040,
+     "detection": 1.0,
+     "interval_method": "run-level",
+     "detection_ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "per_run": {
+     "panel-cadence-baseline-jitter-0p05": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p2": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p4": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-pad-half": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-23",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r2": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r3": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r4": {
+      "condition": "training",
+      "split": "calibration",
+      "session": "2026-09-25",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min-nosampler": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     }
+    }
+   },
+   "honest_group": {
+    "pooled": {
+     "n_runs": 20,
+     "n_training": 3925,
+     "detection": 0.9974522292993631,
+     "interval_method": "run-level",
+     "detection_ci95": [
+      0.9939698492462311,
+      1.0
+     ]
+    },
+    "per_run": {
+     "panel-cadence-baseline-jitter-0p05": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p2": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-jitter-0p4": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-cadence-baseline-pad-half": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r1": {
+      "condition": "lora",
+      "split": "development",
+      "session": "2026-09-23",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r2": {
+      "condition": "lora",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r3": {
+      "condition": "lora",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-lora-r4": {
+      "condition": "lora",
+      "split": "calibration",
+      "session": "2026-09-25",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-23",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r2": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r3": {
+      "condition": "training",
+      "split": "test",
+      "session": "2026-09-24",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-core-training-r4": {
+      "condition": "training",
+      "split": "calibration",
+      "session": "2026-09-25",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-lora": {
+      "condition": "lora",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-15min-nosampler": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm1": {
+      "condition": "training",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm2": {
+      "condition": "training-discarded",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-arm3": {
+      "condition": "training-copying",
+      "split": "development",
+      "session": "2026-09-21",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-training-checkpoint-eval-60min": {
+      "condition": "training-checkpoint-eval",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 695,
+      "n_training": 695,
+      "n_partial": 0,
+      "detection": 0.9856115107913669,
+      "detection_ci95": [
+       0.9769784172661871,
+       0.9928057553956835
+      ],
+      "flag_rate_all": 0.9856115107913669,
+      "predicted": {
+       "non-ai": 10,
+       "training": 685
+      }
+     }
+    }
+   },
+   "gate_inference": {
+    "n_windows": 1020,
+    "flag_rate": 0.16666666666666666,
+    "by_condition": {
+     "serving-decode": {
+      "n_windows": 850,
+      "flag_rate": 0.0,
+      "predicted": {
+       "non-ai": 850
+      }
+     },
+     "serving-prefill": {
+      "n_windows": 170,
+      "flag_rate": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     }
+    }
+   },
+   "co-location": {
+    "pooled": {
+     "n_runs": 3,
+     "n_training": 510,
+     "detection": 1.0,
+     "interval_method": "run-level",
+     "detection_ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "per_run": {
+     "panel-mixture-concurrent-0p25": {
+      "condition": "mixture-concurrent-0p25",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-mixture-concurrent-0p5": {
+      "condition": "mixture-concurrent-0p5",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     },
+     "panel-mixture-concurrent-0p75": {
+      "condition": "mixture-concurrent-0p75",
+      "split": "development",
+      "session": "2026-09-22",
+      "n_windows": 170,
+      "n_training": 170,
+      "n_partial": 0,
+      "detection": 1.0,
+      "detection_ci95": [
+       1.0,
+       1.0
+      ],
+      "flag_rate_all": 1.0,
+      "predicted": {
+       "training": 170
+      }
+     }
+    }
+   }
+  }
+ },
+ "fit_manifests": {
+  "genuine": [
+   "apertus8b_inference_bs8_seq512",
+   "apertus8b_training_accum_bs8_seq512",
+   "apertus8b_training_full_bs8_seq512",
+   "apertus8b_training_lora_bs8_seq512",
+   "dsv2lite_inference_bs8_seq512",
+   "dsv2lite_training_accum_bs8_seq512",
+   "dsv2lite_training_full_bs8_seq512",
+   "dsv2lite_training_lora_bs8_seq512",
+   "falcon10b_inference_bs8_seq512",
+   "falcon10b_training_accum_bs8_seq512",
+   "falcon10b_training_full_bs8_seq512",
+   "falcon10b_training_lora_bs8_seq512",
+   "gemma9b_inference_bs4_seq512",
+   "gemma9b_training_accum_bs4_seq512",
+   "gemma9b_training_full_bs4_seq512",
+   "gemma9b_training_lora_bs4_seq512",
+   "granite8b_inference_bs8_seq512",
+   "granite8b_training_accum_bs8_seq512",
+   "granite8b_training_full_bs8_seq512",
+   "granite8b_training_lora_bs8_seq512",
+   "llama8b_inference_bs8_seq512",
+   "llama8b_training_accum_bs8_seq512",
+   "llama8b_training_full_bs8_seq512",
+   "llama8b_training_lora_bs8_seq512",
+   "mistral7b_inference_bs8_seq512",
+   "mistral7b_training_accum_bs8_seq512",
+   "mistral7b_training_full_bs8_seq512",
+   "mistral7b_training_lora_bs8_seq512",
+   "nemo12b_inference_bs4_seq512",
+   "nemo12b_training_accum_bs4_seq512",
+   "nemo12b_training_full_bs4_seq512",
+   "nemo12b_training_lora_bs4_seq512",
+   "olmo13b_inference_bs8_seq512",
+   "olmo13b_training_accum2_bs4_seq512",
+   "olmo13b_training_full_bs8_seq512",
+   "olmo13b_training_lora_bs8_seq512",
+   "ossmoe20b_inference_bs4_seq512",
+   "ossmoe20b_training_accum3_bs2_seq512",
+   "ossmoe20b_training_full_bs4_seq512",
+   "ossmoe20b_training_lora_bs4_seq512",
+   "other_atomics_contended",
+   "other_conv2d",
+   "other_cufft_c2c",
+   "other_cufft_r2c",
+   "other_cumsum",
+   "other_elementwise",
+   "other_gather_random",
+   "other_histogram",
+   "other_idle",
+   "other_l2_thrash",
+   "other_layernorm_only",
+   "other_matmul_bf16",
+   "other_matmul_fp16",
+   "other_matmul_int8",
+   "other_matmul_tall",
+   "other_memcpy_d2d",
+   "other_pcie_h2d",
+   "other_reduce_sum",
+   "other_rng_normal",
+   "other_scatter_random",
+   "other_softmax_large",
+   "other_sort",
+   "other_spmv_csr",
+   "other_topk",
+   "other_transpose",
+   "phi4_inference_bs8_seq512",
+   "phi4_training_accum_bs8_seq512",
+   "phi4_training_full_bs8_seq512",
+   "phi4_training_lora_bs8_seq512",
+   "qwen14b_inference_bs8_seq512",
+   "qwen14b_training_accum2_bs8_seq512",
+   "qwen14b_training_full_bs8_seq512",
+   "qwen14b_training_lora_bs8_seq512",
+   "qwen4b_inference_bs8_seq512",
+   "qwen4b_training_accum_bs8_seq512",
+   "qwen4b_training_full_bs8_seq512",
+   "qwen4b_training_lora_bs8_seq512",
+   "qwen8b_inference_bs8_seq512",
+   "qwen8b_training_accum_bs8_seq512",
+   "qwen8b_training_full_bs8_seq512",
+   "qwen8b_training_lora_bs8_seq512",
+   "stablelm12b_inference_bs8_seq512",
+   "stablelm12b_training_accum_bs8_seq512",
+   "stablelm12b_training_full_bs8_seq512",
+   "stablelm12b_training_lora_bs8_seq512",
+   "starcoder15b_inference_bs2_seq512",
+   "starcoder15b_training_accum_bs2_seq512",
+   "starcoder15b_training_full_bs2_seq512",
+   "starcoder15b_training_lora_bs2_seq512",
+   "yi9b_inference_bs8_seq512",
+   "yi9b_training_accum_bs8_seq512",
+   "yi9b_training_full_bs8_seq512",
+   "yi9b_training_lora_bs8_seq512"
+  ],
+  "hardened": [
+   "apertus8b_advchunked_opt_bs8_seq512",
+   "apertus8b_advdilute_bs8_seq512",
+   "apertus8b_advlora_dilute_bs8_seq512",
+   "apertus8b_advthrottle_bs8_seq512",
+   "apertus8b_inference_bs8_seq512",
+   "apertus8b_training_accum_bs8_seq512",
+   "apertus8b_training_full_bs8_seq512",
+   "apertus8b_training_lora_bs8_seq512",
+   "dsv2lite_advchunked_opt_bs8_seq512",
+   "dsv2lite_advdilute_bs8_seq512",
+   "dsv2lite_advlora_dilute_bs8_seq512",
+   "dsv2lite_advthrottle_bs8_seq512",
+   "dsv2lite_inference_bs8_seq512",
+   "dsv2lite_training_accum_bs8_seq512",
+   "dsv2lite_training_full_bs8_seq512",
+   "dsv2lite_training_lora_bs8_seq512",
+   "falcon10b_advchunked_opt_bs8_seq512",
+   "falcon10b_advdilute_bs8_seq512",
+   "falcon10b_advlora_dilute_bs8_seq512",
+   "falcon10b_advthrottle_bs8_seq512",
+   "falcon10b_inference_bs8_seq512",
+   "falcon10b_training_accum_bs8_seq512",
+   "falcon10b_training_full_bs8_seq512",
+   "falcon10b_training_lora_bs8_seq512",
+   "gemma9b_advchunked_opt_bs4_seq512",
+   "gemma9b_advdilute_bs4_seq512",
+   "gemma9b_advlora_dilute_bs4_seq512",
+   "gemma9b_advthrottle_bs4_seq512",
+   "gemma9b_inference_bs4_seq512",
+   "gemma9b_training_accum_bs4_seq512",
+   "gemma9b_training_full_bs4_seq512",
+   "gemma9b_training_lora_bs4_seq512",
+   "granite8b_advchunked_opt_bs8_seq512",
+   "granite8b_advdilute_bs8_seq512",
+   "granite8b_advlora_dilute_bs8_seq512",
+   "granite8b_advthrottle_bs8_seq512",
+   "granite8b_inference_bs8_seq512",
+   "granite8b_training_accum_bs8_seq512",
+   "granite8b_training_full_bs8_seq512",
+   "granite8b_training_lora_bs8_seq512",
+   "llama8b_advchunked_opt_bs8_seq512",
+   "llama8b_advdilute_bs8_seq512",
+   "llama8b_advlora_dilute_bs8_seq512",
+   "llama8b_advthrottle_bs8_seq512",
+   "llama8b_inference_bs8_seq512",
+   "llama8b_training_accum_bs8_seq512",
+   "llama8b_training_full_bs8_seq512",
+   "llama8b_training_lora_bs8_seq512",
+   "mistral7b_advchunked_opt_bs8_seq512",
+   "mistral7b_advdilute_bs8_seq512",
+   "mistral7b_advlora_dilute_bs8_seq512",
+   "mistral7b_advthrottle_bs8_seq512",
+   "mistral7b_inference_bs8_seq512",
+   "mistral7b_training_accum_bs8_seq512",
+   "mistral7b_training_full_bs8_seq512",
+   "mistral7b_training_lora_bs8_seq512",
+   "nemo12b_advchunked_opt_bs4_seq512",
+   "nemo12b_advdilute_bs4_seq512",
+   "nemo12b_advlora_dilute_bs4_seq512",
+   "nemo12b_advthrottle_bs4_seq512",
+   "nemo12b_inference_bs4_seq512",
+   "nemo12b_training_accum_bs4_seq512",
+   "nemo12b_training_full_bs4_seq512",
+   "nemo12b_training_lora_bs4_seq512",
+   "olmo13b_advchunked_opt_bs8_seq512",
+   "olmo13b_advdilute_bs8_seq512",
+   "olmo13b_advlora_dilute_bs8_seq512",
+   "olmo13b_advthrottle_bs8_seq512",
+   "olmo13b_inference_bs8_seq512",
+   "olmo13b_training_accum2_bs4_seq512",
+   "olmo13b_training_full_bs8_seq512",
+   "olmo13b_training_lora_bs8_seq512",
+   "ossmoe20b_advchunked_opt_bs4_seq512",
+   "ossmoe20b_advdilute_bs4_seq512",
+   "ossmoe20b_advlora_dilute_bs4_seq512",
+   "ossmoe20b_advthrottle_bs4_seq512",
+   "ossmoe20b_inference_bs4_seq512",
+   "ossmoe20b_training_accum3_bs2_seq512",
+   "ossmoe20b_training_full_bs4_seq512",
+   "ossmoe20b_training_lora_bs4_seq512",
+   "other_atomics_contended",
+   "other_conv2d",
+   "other_cufft_c2c",
+   "other_cufft_r2c",
+   "other_cumsum",
+   "other_elementwise",
+   "other_gather_random",
+   "other_histogram",
+   "other_idle",
+   "other_l2_thrash",
+   "other_layernorm_only",
+   "other_matmul_bf16",
+   "other_matmul_fp16",
+   "other_matmul_int8",
+   "other_matmul_tall",
+   "other_memcpy_d2d",
+   "other_pcie_h2d",
+   "other_reduce_sum",
+   "other_rng_normal",
+   "other_scatter_random",
+   "other_softmax_large",
+   "other_sort",
+   "other_spmv_csr",
+   "other_topk",
+   "other_transpose",
+   "phi4_advchunked_opt_bs8_seq512",
+   "phi4_advdilute_bs8_seq512",
+   "phi4_advlora_dilute_bs8_seq512",
+   "phi4_advthrottle_bs8_seq512",
+   "phi4_inference_bs8_seq512",
+   "phi4_training_accum_bs8_seq512",
+   "phi4_training_full_bs8_seq512",
+   "phi4_training_lora_bs8_seq512",
+   "qwen14b_advchunked_opt_bs8_seq512",
+   "qwen14b_advdilute_bs8_seq512",
+   "qwen14b_advlora_dilute_bs8_seq512",
+   "qwen14b_advthrottle_bs8_seq512",
+   "qwen14b_inference_bs8_seq512",
+   "qwen14b_training_accum2_bs8_seq512",
+   "qwen14b_training_full_bs8_seq512",
+   "qwen14b_training_lora_bs8_seq512",
+   "qwen4b_advchunked_opt_bs8_seq512",
+   "qwen4b_advdilute_bs8_seq512",
+   "qwen4b_advlora_dilute_bs8_seq512",
+   "qwen4b_advthrottle_bs8_seq512",
+   "qwen4b_inference_bs8_seq512",
+   "qwen4b_training_accum_bs8_seq512",
+   "qwen4b_training_full_bs8_seq512",
+   "qwen4b_training_lora_bs8_seq512",
+   "qwen8b_advchunked_opt_bs8_seq512",
+   "qwen8b_advdilute_bs8_seq512",
+   "qwen8b_advlora_dilute_bs8_seq512",
+   "qwen8b_advthrottle_bs8_seq512",
+   "qwen8b_inference_bs8_seq512",
+   "qwen8b_training_accum_bs8_seq512",
+   "qwen8b_training_full_bs8_seq512",
+   "qwen8b_training_lora_bs8_seq512",
+   "stablelm12b_advchunked_opt_bs8_seq512",
+   "stablelm12b_advdilute_bs8_seq512",
+   "stablelm12b_advlora_dilute_bs8_seq512",
+   "stablelm12b_advthrottle_bs8_seq512",
+   "stablelm12b_inference_bs8_seq512",
+   "stablelm12b_training_accum_bs8_seq512",
+   "stablelm12b_training_full_bs8_seq512",
+   "stablelm12b_training_lora_bs8_seq512",
+   "starcoder15b_advchunked_opt_bs2_seq512",
+   "starcoder15b_advdilute_bs2_seq512",
+   "starcoder15b_advlora_dilute_bs2_seq512",
+   "starcoder15b_advthrottle_bs2_seq512",
+   "starcoder15b_inference_bs2_seq512",
+   "starcoder15b_training_accum_bs2_seq512",
+   "starcoder15b_training_full_bs2_seq512",
+   "starcoder15b_training_lora_bs2_seq512",
+   "yi9b_advchunked_opt_bs8_seq512",
+   "yi9b_advdilute_bs8_seq512",
+   "yi9b_advlora_dilute_bs8_seq512",
+   "yi9b_advthrottle_bs8_seq512",
+   "yi9b_inference_bs8_seq512",
+   "yi9b_training_accum_bs8_seq512",
+   "yi9b_training_full_bs8_seq512",
+   "yi9b_training_lora_bs8_seq512"
+  ]
+ }
+}

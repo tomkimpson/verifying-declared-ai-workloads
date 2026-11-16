@@ -1,0 +1,578 @@
+{
+ "generated_at": "2026-10-02T06:31:10+00:00",
+ "generated_by": "scripts/declaration_killcheck.py",
+ "spec_task": "2.5",
+ "repo_commit": "224de6055434930b181cf636a04c4ce9283045e0",
+ "choice_repo_commit": "3e7e41ce136657c310269ae1dbe1386c41b6fde7",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "windows_repo_commit": {
+  "development": "970f9fc226c6377e56633d8e3590517a871b9589",
+  "calibration": "970f9fc226c6377e56633d8e3590517a871b9589"
+ },
+ "frozen": {
+  "family": "iforest",
+  "variant": "R1",
+  "alpha": 0.05,
+  "amplitude": false,
+  "threshold_rule": "(1 - alpha) quantile of calibration declared windows (D3 primary)",
+  "threshold": 0.6289591641951192,
+  "iforest_kwargs": {
+   "n_estimators": 500,
+   "random_state": 0,
+   "n_jobs": -1
+  },
+  "features": [
+   "env_cv",
+   "env_skew",
+   "env_kurtosis",
+   "env_p10_over_p50",
+   "env_p90_over_p50",
+   "env_p99_over_p50",
+   "env_iqr_over_median",
+   "env_ac_lag1",
+   "env_ac_peak",
+   "env_ac_peak_lag_s",
+   "env_spec_flatness",
+   "env_frac_0p5_2hz",
+   "env_frac_2_10hz",
+   "env_frac_10_50hz",
+   "env_frac_50_150hz",
+   "env_frac_150_250hz",
+   "wav_spec_flatness",
+   "wav_spec_centroid_hz",
+   "wav_spec_rolloff95_hz",
+   "wav_frac_34_100hz",
+   "wav_frac_100hz_1khz",
+   "wav_frac_1_10khz",
+   "wav_frac_10_20khz",
+   "wav_frac_20_50khz",
+   "wav_frac_50_100khz"
+  ],
+  "fit_runs": [
+   "panel-core-idle-r1",
+   "panel-core-serving-decode-r1",
+   "panel-serving-decode",
+   "panel-serving-prefill"
+  ],
+  "calibration_runs": [
+   "panel-core-idle-r4",
+   "panel-core-serving-decode-r4"
+  ],
+  "hop_s": 5.0
+ },
+ "verdict": {
+  "colocation_detection": 1.0,
+  "colocation_min": 0.5,
+  "colocation_clause_fires": false,
+  "fp_3alpha_like_for_like_fires": false,
+  "fp_3alpha_literal_fires": true,
+  "kill_fires": false
+ },
+ "by_group": {
+  "honest": {
+   "runs": [
+    "panel-cadence-baseline-jitter-0p05",
+    "panel-cadence-baseline-jitter-0p1",
+    "panel-cadence-baseline-jitter-0p2",
+    "panel-cadence-baseline-jitter-0p4",
+    "panel-cadence-baseline-pad-half",
+    "panel-core-lora-r1",
+    "panel-core-training-r1",
+    "panel-lora",
+    "panel-training-15min",
+    "panel-training-15min-nosampler",
+    "panel-training-arm1",
+    "panel-training-arm2",
+    "panel-training-arm3",
+    "panel-training-checkpoint-eval-60min"
+   ],
+   "detection_training": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "jitter": {
+   "runs": [
+    "panel-cadence-jitter-0p05",
+    "panel-cadence-jitter-0p1",
+    "panel-cadence-jitter-0p2",
+    "panel-cadence-jitter-0p4"
+   ],
+   "detection_training": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "padding": {
+   "runs": [
+    "panel-cadence-pad-half"
+   ],
+   "detection_training": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "co-location": {
+   "runs": [
+    "panel-mixture-concurrent-0p25",
+    "panel-mixture-concurrent-0p5",
+    "panel-mixture-concurrent-0p75"
+   ],
+   "detection_training": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "time-sharing": {
+   "runs": [
+    "panel-mixture-timeshared-0p25",
+    "panel-mixture-timeshared-0p5",
+    "panel-mixture-timeshared-0p75"
+   ],
+   "detection_training": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "power cap": {
+   "runs": [
+    "panel-powercap-50",
+    "panel-powercap-70"
+   ],
+   "detection_training": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "per_run": {
+  "panel-cadence-baseline-jitter-0p05": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-baseline-jitter-0p1": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-baseline-jitter-0p2": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-baseline-jitter-0p4": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-baseline-pad-half": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-jitter-0p05": {
+   "condition": "cadence-jitter-0p05",
+   "group": "jitter",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-jitter-0p1": {
+   "condition": "cadence-jitter-0p1",
+   "group": "jitter",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-jitter-0p2": {
+   "condition": "cadence-jitter-0p2",
+   "group": "jitter",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-cadence-jitter-0p4": {
+   "condition": "cadence-jitter-0p4",
+   "group": "jitter",
+   "session": "2026-09-22",
+   "n_windows": 168,
+   "n_training": 147,
+   "n_partial": 1,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 0.9642857142857143
+  },
+  "panel-cadence-pad-half": {
+   "condition": "cadence-pad-half",
+   "group": "padding",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-core-lora-r1": {
+   "condition": "lora",
+   "group": "honest",
+   "session": "2026-09-23",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-core-memory-bound-r1": {
+   "condition": "memory-bound",
+   "group": "negatives",
+   "session": "2026-09-23",
+   "n_windows": 170,
+   "n_training": 0,
+   "n_partial": 0,
+   "detection_training": null,
+   "detection_training_ci95": null,
+   "flag_rate_all": 1.0
+  },
+  "panel-core-steady-gemm-r1": {
+   "condition": "steady-gemm",
+   "group": "negatives",
+   "session": "2026-09-23",
+   "n_windows": 170,
+   "n_training": 0,
+   "n_partial": 0,
+   "detection_training": null,
+   "detection_training_ci95": null,
+   "flag_rate_all": 1.0
+  },
+  "panel-core-training-r1": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-23",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-lora": {
+   "condition": "lora",
+   "group": "honest",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-mixture-concurrent-0p25": {
+   "condition": "mixture-concurrent-0p25",
+   "group": "co-location",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-mixture-concurrent-0p5": {
+   "condition": "mixture-concurrent-0p5",
+   "group": "co-location",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-mixture-concurrent-0p75": {
+   "condition": "mixture-concurrent-0p75",
+   "group": "co-location",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-mixture-timeshared-0p25": {
+   "condition": "mixture-timeshared-0p25",
+   "group": "time-sharing",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 44,
+   "n_partial": 44,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 0.2647058823529412
+  },
+  "panel-mixture-timeshared-0p5": {
+   "condition": "mixture-timeshared-0p5",
+   "group": "time-sharing",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 88,
+   "n_partial": 43,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 0.6647058823529411
+  },
+  "panel-mixture-timeshared-0p75": {
+   "condition": "mixture-timeshared-0p75",
+   "group": "time-sharing",
+   "session": "2026-09-22",
+   "n_windows": 170,
+   "n_training": 131,
+   "n_partial": 39,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 0.7764705882352941
+  },
+  "panel-periodic-0p5s": {
+   "condition": "periodic-gemm-0.5s",
+   "group": "negatives",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 0,
+   "n_partial": 0,
+   "detection_training": null,
+   "detection_training_ci95": null,
+   "flag_rate_all": 1.0
+  },
+  "panel-periodic-5s": {
+   "condition": "periodic-gemm-5s",
+   "group": "negatives",
+   "session": "2026-09-21",
+   "n_windows": 171,
+   "n_training": 0,
+   "n_partial": 0,
+   "detection_training": null,
+   "detection_training_ci95": null,
+   "flag_rate_all": 1.0
+  },
+  "panel-powercap-50": {
+   "condition": "powercap-50",
+   "group": "power cap",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-powercap-70": {
+   "condition": "powercap-70",
+   "group": "power cap",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-training-15min": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-training-15min-nosampler": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-training-arm1": {
+   "condition": "training",
+   "group": "honest",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-training-arm2": {
+   "condition": "training-discarded",
+   "group": "honest",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-training-arm3": {
+   "condition": "training-copying",
+   "group": "honest",
+   "session": "2026-09-21",
+   "n_windows": 170,
+   "n_training": 170,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  },
+  "panel-training-checkpoint-eval-60min": {
+   "condition": "training-checkpoint-eval",
+   "group": "honest",
+   "session": "2026-09-22",
+   "n_windows": 695,
+   "n_training": 695,
+   "n_partial": 0,
+   "detection_training": 1.0,
+   "detection_training_ci95": [
+    1.0,
+    1.0
+   ],
+   "flag_rate_all": 1.0
+  }
+ }
+}

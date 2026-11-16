@@ -1,0 +1,89 @@
+{
+ "generated_by": "scripts/plot_f8_monitors.py",
+ "source": "results/monitor/traces.json",
+ "source_repo_commit": "31c1f576e42ed097513b67c3f5f3ebca0306c26e",
+ "repo_commit": "7ae419324b4097231ebbe5aaa2833befc421eaf6",
+ "excerpts": [
+  {
+   "name": "idle",
+   "capture_id": "panel-core-idle-r2",
+   "t0_s": 18.951389800840065,
+   "duration_s": 120.0
+  },
+  {
+   "name": "declared decode",
+   "capture_id": "panel-core-serving-decode-r2",
+   "t0_s": 18.950050430127327,
+   "duration_s": 240.0
+  },
+  {
+   "name": "episodes",
+   "capture_id": "panel-episodes-timeshared-0p5-slot120",
+   "t0_s": 18.96845659157254,
+   "duration_s": 480.0
+  }
+ ],
+ "thresholds_drawn": {
+  "full": 0.6289591641951192,
+  "loud": 0.5686988562666614,
+  "silent": 0.7863618952424948
+ },
+ "annotated": {
+  "full": {
+   "line": "whole test day: 188 of 188 episodes detected; in alarm 0% of decode, <0.1% of idle",
+   "scored_episodes": 188,
+   "truncated": 4,
+   "unscorable": 0,
+   "pre-alarmed": 47,
+   "detected": 141,
+   "missed": 0,
+   "A_decode": 0.0,
+   "A_idle": 0.00023682251843832466,
+   "source": "results/monitor/episodes.json, results/monitor/false_alarms.json"
+  },
+  "loud": {
+   "line": "whole test day: 164 of 188 episodes start in alarm; in alarm 5.3% of decode, 99.97% of idle",
+   "scored_episodes": 188,
+   "truncated": 4,
+   "unscorable": 0,
+   "pre-alarmed": 164,
+   "detected": 24,
+   "missed": 0,
+   "A_decode": 0.05282112845138055,
+   "A_idle": 0.9997293456932134,
+   "source": "results/robustness/t4.json misspecified_declaration.declared"
+  },
+  "silent": {
+   "line": "whole test day: 0 of 188 episodes detected; in alarm 0% of decode, 0% of idle",
+   "scored_episodes": 188,
+   "truncated": 4,
+   "unscorable": 0,
+   "pre-alarmed": 0,
+   "detected": 0,
+   "missed": 188,
+   "A_decode": 0.0,
+   "A_idle": 0.0,
+   "source": "results/robustness/t4.json misspecified_declaration.pooled"
+  }
+ },
+ "positive_control": {
+  "source": "results/heldout/r1_scores.json",
+  "source_repo_commit": "53f9463bd0eb9d773989a71563caab9a58c0c852",
+  "windows": "development honest training, 5 s window, 5 s hop",
+  "full": {
+   "threshold": 0.6289591641951192,
+   "n_windows": 2905,
+   "flagged": 1.0
+  },
+  "loud": {
+   "threshold": 0.5686988562666614,
+   "n_windows": 2905,
+   "flagged": 1.0
+  },
+  "silent": {
+   "threshold": 0.7863618952424948,
+   "n_windows": 2905,
+   "flagged": 0.0017211703958691911
+  }
+ }
+}

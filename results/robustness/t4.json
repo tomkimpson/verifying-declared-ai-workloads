@@ -1,0 +1,3803 @@
+{
+ "generated_by": "scripts/t4_robustness.py",
+ "spec_task": "5.4",
+ "generated_at": "2026-10-05T08:27:33+00:00",
+ "repo_commit": "16588098df531be69913838bb6018a7acde223ff",
+ "thresholds_repo_commit": "42e2539d5d48e6b93d1c63324579c0b1d9b65a01",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "preregistration_sha256": "b6b0a2c968a1fe86b6a9672806422061f361f9be5d1c71ceb6fbfd24dd20e725",
+ "note": "sensitivity only; no variant replaces a headline number. CUSUM is R1 only: the classifier's calibration scores are almost all 0, so its reference k would be 0 and its CUSUM could never fall (amendment 2026-10-05)",
+ "alpha_sweep": {
+  "0.01": {
+   "thresholds": {
+    "r1": 0.646958786797275,
+    "classifier": {
+     "time-sharing": 0.0,
+     "co-location": 0.0012200000000000273,
+     "jitter": 0.0,
+     "padding": 0.0,
+     "power cap": 0.0
+    }
+   },
+   "h2": {
+    "r1": {
+     "time-sharing": {
+      "pooled": 0.9961389961389961,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 0.9777777777777777,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 0.9930555555555556,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 1.0
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "classifier": {
+     "time-sharing": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 1.0,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 0.9467275494672754,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 0.7619047619047619
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "r1_test_fpr": {
+     "serving-decode": 0.0058823529411764705,
+     "idle": 0.0
+    },
+    "classifier_test_fpr": {
+     "serving-decode": 0.014705882352941176,
+     "idle": 0.0
+    }
+   },
+   "h3": {
+    "r1": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 0,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 6.304189055209741,
+       "A": 0.0
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 46,
+       "detected": 142,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 3.981859144569569,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.9824155696849175
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9090909090909091,
+        "median_delay_s": 3.98190276569602
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.98214698331833
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.982071414161055
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.980967190188551
+       }
+      }
+     }
+    },
+    "classifier": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 0,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 3.15199035850479,
+       "A": 0.0
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    },
+    "or": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    }
+   }
+  },
+  "0.02": {
+   "thresholds": {
+    "r1": 0.6443541656436393,
+    "classifier": {
+     "time-sharing": 0.0,
+     "co-location": 0.0,
+     "jitter": 0.0,
+     "padding": 0.0,
+     "power cap": 0.0
+    }
+   },
+   "h2": {
+    "r1": {
+     "time-sharing": {
+      "pooled": 0.9961389961389961,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 0.9777777777777777,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 0.9930555555555556,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 1.0
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "classifier": {
+     "time-sharing": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 1.0,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 0.9467275494672754,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 0.7619047619047619
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "r1_test_fpr": {
+     "serving-decode": 0.0058823529411764705,
+     "idle": 0.0001668335001668335
+    },
+    "classifier_test_fpr": {
+     "serving-decode": 0.014705882352941176,
+     "idle": 0.0
+    }
+   },
+   "h3": {
+    "r1": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 0,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 6.304189055209741,
+       "A": 0.0
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 46,
+       "detected": 142,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 3.9812432735605796,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.9824155696849175
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9090909090909091,
+        "median_delay_s": 3.981117128814901
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.98214698331833
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 3.981573352655232
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9908700543235796
+       }
+      }
+     }
+    },
+    "classifier": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 0,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 3.15199035850479,
+       "A": 0.0
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    },
+    "or": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    }
+   }
+  },
+  "0.05": {
+   "thresholds": {
+    "r1": 0.6289591641951192,
+    "classifier": {
+     "time-sharing": 0.0,
+     "co-location": 0.0,
+     "jitter": 0.0,
+     "padding": 0.0,
+     "power cap": 0.0
+    }
+   },
+   "h2": {
+    "r1": {
+     "time-sharing": {
+      "pooled": 0.999034749034749,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 0.9965277777777778,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 1.0
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "classifier": {
+     "time-sharing": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 1.0,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 0.9467275494672754,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 0.7619047619047619
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "r1_test_fpr": {
+     "serving-decode": 0.0058823529411764705,
+     "idle": 0.0011678345011678344
+    },
+    "classifier_test_fpr": {
+     "serving-decode": 0.014705882352941176,
+     "idle": 0.0
+    }
+   },
+   "h3": {
+    "r1": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 0,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 6.304189055209741,
+       "A": 0.0
+      },
+      "idle": {
+       "onsets": 1,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.11976024763610502,
+       "F_upper95_poisson_model": 0.5681263894745876,
+       "A": 0.00023682251843832466
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 47,
+       "detected": 141,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9827839590566327,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0007429420505200594,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0026666666666666666,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.005128205128205128,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.8863636363636364,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0018083182640144665,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.003703703703703704,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.983097232565683
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.0019035532994923859,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.002421307506053269,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982637480317365
+       }
+      }
+     }
+    },
+    "classifier": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 0,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 3.15199035850479,
+       "A": 0.0
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    },
+    "or": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 1,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.11976024763610502,
+       "F_upper95_poisson_model": 0.5681263894745876,
+       "A": 0.00023682251843832466
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    }
+   }
+  },
+  "0.1": {
+   "thresholds": {
+    "r1": 0.6207889040842699,
+    "classifier": {
+     "time-sharing": 0.0,
+     "co-location": 0.0,
+     "jitter": 0.0,
+     "padding": 0.0,
+     "power cap": 0.0
+    }
+   },
+   "h2": {
+    "r1": {
+     "time-sharing": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 1.0,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 1.0
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "classifier": {
+     "time-sharing": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 1.0,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 0.9467275494672754,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 0.7619047619047619
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "r1_test_fpr": {
+     "serving-decode": 0.0058823529411764705,
+     "idle": 0.0025025025025025025
+    },
+    "classifier_test_fpr": {
+     "serving-decode": 0.014705882352941176,
+     "idle": 0.0
+    }
+   },
+   "h3": {
+    "r1": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 0,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 6.304189055209741,
+       "A": 0.0
+      },
+      "idle": {
+       "onsets": 4,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.47904099054442006,
+       "F_upper95_poisson_model": 1.0962277053719147,
+       "A": 0.0007781311320116381
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 47,
+       "detected": 141,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9827839590566327,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0007429420505200594,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0026666666666666666,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.005128205128205128,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.8863636363636364,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0018083182640144665,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.007407407407407408,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.983097232565683
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.002220812182741117,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.002421307506053269,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982637480317365
+       }
+      }
+     }
+    },
+    "classifier": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 0,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 3.15199035850479,
+       "A": 0.0
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    },
+    "or": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 4,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.47904099054442006,
+       "F_upper95_poisson_model": 1.0962277053719147,
+       "A": 0.0007781311320116381
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "persistence": {
+  "2-of-3": {
+   "r1": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 2,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 4.208780010725564,
+      "F_upper95_poisson_model": 13.248805173694164,
+      "A": 0.006002400960384154
+     },
+     "idle": {
+      "onsets": 4,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.47904099054442006,
+      "F_upper95_poisson_model": 1.0962277053719147,
+      "A": 0.0007781311320116381
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9987995198079231
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 47,
+      "detected": 141,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 1.9827839590566327,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0007429420505200594,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0026666666666666666,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.005128205128205128,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.8863636363636364,
+       "median_delay_s": 1.9828082174970518
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.0018083182640144665,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.003703703703703704,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.0019035532994923859,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 5.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.002421307506053269,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.982637480317365
+      }
+     }
+    }
+   },
+   "classifier": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 3,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 6.313170016088347,
+      "F_upper95_poisson_model": 16.31671730239752,
+      "A": 0.013205282112845138
+     },
+     "idle": {
+      "onsets": 0,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 0.35876963893229774,
+      "A": 0.0
+     },
+     "non-AI busy": {
+      "onsets": 1,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 1.0521602301815252,
+      "F_upper95_poisson_model": 4.9913055836198,
+      "A": 0.0015006002400960385
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 64,
+      "detected": 124,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 1.9827960882768423,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 0.8571428571428571,
+       "median_delay_s": 3.9904132877846337
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 1.9828082174970518
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.8620689655172413,
+       "median_delay_s": 1.9831316271334458
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 5.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9090909090909091,
+       "median_delay_s": 1.982589069401456
+      }
+     }
+    }
+   },
+   "or": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 3,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 6.313170016088347,
+      "F_upper95_poisson_model": 16.31671730239752,
+      "A": 0.013205282112845138
+     },
+     "idle": {
+      "onsets": 4,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.47904099054442006,
+      "F_upper95_poisson_model": 1.0962277053719147,
+      "A": 0.0007781311320116381
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9987995198079231
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 64,
+      "detected": 124,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 1.9827960882768423,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 0.8571428571428571,
+       "median_delay_s": 3.9904132877846337
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 1.9828082174970518
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 1.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.8620689655172413,
+       "median_delay_s": 1.9831316271334458
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 5.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9090909090909091,
+       "median_delay_s": 1.982589069401456
+      }
+     }
+    }
+   }
+  },
+  "3-of-5": {
+   "r1": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 0,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 6.304189055209741,
+      "A": 0.0
+     },
+     "idle": {
+      "onsets": 1,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.11976024763610502,
+      "F_upper95_poisson_model": 0.5681263894745876,
+      "A": 0.00023682251843832466
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9975990396158463
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 47,
+      "detected": 141,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 2.9827839590566327,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0007429420505200594,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0026666666666666666,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.005128205128205128,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.8863636363636364,
+       "median_delay_s": 2.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.0018083182640144665,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.003703703703703704,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.0019035532994923859,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 6.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.002421307506053269,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.982637480317365
+      }
+     }
+    }
+   },
+   "classifier": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 3,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 6.313170016088347,
+      "F_upper95_poisson_model": 16.31671730239752,
+      "A": 0.01020408163265306
+     },
+     "idle": {
+      "onsets": 0,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 0.35876963893229774,
+      "A": 0.0
+     },
+     "non-AI busy": {
+      "onsets": 0,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 3.15199035850479,
+      "A": 0.0
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 60,
+      "detected": 128,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 2.9826190168100197,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 2.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.9310344827586207,
+       "median_delay_s": 2.982462438108655
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 6.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9318181818181818,
+       "median_delay_s": 2.9825814055363935
+      }
+     }
+    }
+   },
+   "or": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 3,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 6.313170016088347,
+      "F_upper95_poisson_model": 16.31671730239752,
+      "A": 0.01020408163265306
+     },
+     "idle": {
+      "onsets": 1,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.11976024763610502,
+      "F_upper95_poisson_model": 0.5681263894745876,
+      "A": 0.00023682251843832466
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9975990396158463
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 60,
+      "detected": 128,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 2.9826190168100197,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 2.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.9310344827586207,
+       "median_delay_s": 2.982462438108655
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 6.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9318181818181818,
+       "median_delay_s": 2.9825814055363935
+      }
+     }
+    }
+   }
+  },
+  "4-of-5": {
+   "r1": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 0,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 6.304189055209741,
+      "A": 0.0
+     },
+     "idle": {
+      "onsets": 1,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.11976024763610502,
+      "F_upper95_poisson_model": 0.5681263894745876,
+      "A": 0.00016915894174166047
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9963985594237695
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 47,
+      "detected": 141,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 3.9827839590566327,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0007429420505200594,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0026666666666666666,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.005128205128205128,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.8863636363636364,
+       "median_delay_s": 3.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.0018083182640144665,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.003703703703703704,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.0019035532994923859,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 7.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.002421307506053269,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.982637480317365
+      }
+     }
+    }
+   },
+   "classifier": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 1,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 2.104390005362782,
+      "F_upper95_poisson_model": 9.982941079296259,
+      "A": 0.003001200480192077
+     },
+     "idle": {
+      "onsets": 0,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 0.35876963893229774,
+      "A": 0.0
+     },
+     "non-AI busy": {
+      "onsets": 0,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 3.15199035850479,
+      "A": 0.0
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 59,
+      "detected": 129,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 3.982633732757563,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 3.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.9310344827586207,
+       "median_delay_s": 3.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 7.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9545454545454546,
+       "median_delay_s": 3.9824854189629946
+      }
+     }
+    }
+   },
+   "or": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 1,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 2.104390005362782,
+      "F_upper95_poisson_model": 9.982941079296259,
+      "A": 0.003001200480192077
+     },
+     "idle": {
+      "onsets": 1,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.11976024763610502,
+      "F_upper95_poisson_model": 0.5681263894745876,
+      "A": 0.00016915894174166047
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9963985594237695
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 59,
+      "detected": 129,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 3.982633732757563,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.9840503009746726
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 3.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 3.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.9310344827586207,
+       "median_delay_s": 3.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 7.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9545454545454546,
+       "median_delay_s": 3.9824854189629946
+      }
+     }
+    }
+   }
+  },
+  "5-of-5": {
+   "r1": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 0,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 6.304189055209741,
+      "A": 0.0
+     },
+     "idle": {
+      "onsets": 0,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 0.35876963893229774,
+      "A": 0.0
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9951980792316927
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 47,
+      "detected": 141,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 4.982783959056633,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0007429420505200594,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.0026666666666666666,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.984050300974673
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.005128205128205128,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.8863636363636364,
+       "median_delay_s": 4.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.0018083182640144665,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.003703703703703704,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.0019035532994923859,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 8.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.002421307506053269,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.982637480317365
+      }
+     }
+    }
+   },
+   "classifier": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 0,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 6.304189055209741,
+      "A": 0.0
+     },
+     "idle": {
+      "onsets": 0,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 0.35876963893229774,
+      "A": 0.0
+     },
+     "non-AI busy": {
+      "onsets": 0,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 3.15199035850479,
+      "A": 0.0
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 59,
+      "detected": 129,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 4.982678227368211,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.984050300974673
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 4.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.9310344827586207,
+       "median_delay_s": 4.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 8.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9545454545454546,
+       "median_delay_s": 4.982589069401456
+      }
+     }
+    }
+   },
+   "or": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 0,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 6.304189055209741,
+      "A": 0.0
+     },
+     "idle": {
+      "onsets": 0,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.0,
+      "F_upper95_poisson_model": 0.35876963893229774,
+      "A": 0.0
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9951980792316927
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 59,
+      "detected": 129,
+      "missed": 0
+     },
+     "Lmin_s": 5.1,
+     "pooled_median_delay_s": 4.982678227368211,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.02674591381872214,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.056,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.6518363448688392,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.984050300974673
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 0.07179487179487179,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.7045454545454546,
+       "median_delay_s": 4.982808217497052
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.039783001808318265,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 4.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.08888888888888889,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9018553723227043,
+       "onset_only_rate": 0.9310344827586207,
+       "median_delay_s": 4.983097232565683
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.046954314720812185,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.9327032465861321,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 8.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.07506053268765134,
+       "headline_metric": "P",
+       "rate": 1.0,
+       "lower": 0.934181228855066,
+       "onset_only_rate": 0.9545454545454546,
+       "median_delay_s": 4.982589069401456
+      }
+     }
+    }
+   }
+  }
+ },
+ "misspecified_declaration": {
+  "fit_runs": [
+   "panel-core-serving-decode-r1",
+   "panel-serving-decode"
+  ],
+  "note": "Two calibrations (amendment 2026-10-05b). 'pooled' is pre-registration \u00a73's rule read literally (both calibration declared runs). Calibration idle is undeclared under this declaration and scores near the fit's ceiling (calibration_score_quantiles), so it sets the threshold above every co-location and time-sharing window; its idle stress rate is circular and not reported, and its test idle FPR shares that circularity. 'declared' calibrates on the declaration's own calibration run (serving-decode) only; under it idle is stress, not a false positive.",
+  "pooled": {
+   "threshold": 0.7863618952424948,
+   "dev_stress_fpr": {
+    "serving-prefill": 0.0
+   },
+   "h2": {
+    "r1": {
+     "time-sharing": {
+      "pooled": 0.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 0.0,
+       "panel-episodes-timeshared-0p25-slot60": 0.0,
+       "panel-episodes-timeshared-0p5": 0.0,
+       "panel-episodes-timeshared-0p5-slot120": 0.0,
+       "panel-episodes-timeshared-0p5-slot30": 0.0,
+       "panel-episodes-timeshared-0p5-slot480": 0.0,
+       "panel-episodes-timeshared-0p75": 0.0,
+       "panel-mixture-timeshared-0p25": 0.0,
+       "panel-mixture-timeshared-0p5": 0.0,
+       "panel-mixture-timeshared-0p75": 0.0
+      }
+     },
+     "co-location": {
+      "pooled": 0.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 0.0,
+       "panel-mixture-concurrent-0p5": 0.0,
+       "panel-mixture-concurrent-0p75": 0.0
+      }
+     },
+     "jitter": {
+      "pooled": 0.7579908675799086,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 0.6352941176470588,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 0.9647058823529412,
+       "panel-cadence-jitter-0p4": 0.38095238095238093
+      }
+     },
+     "padding": {
+      "pooled": 0.5176470588235295,
+      "per_run": {
+       "panel-cadence-pad-half": 0.5176470588235295
+      }
+     },
+     "power cap": {
+      "pooled": 0.01764705882352941,
+      "per_run": {
+       "panel-powercap-50": 0.03529411764705882,
+       "panel-powercap-70": 0.0
+      }
+     }
+    },
+    "r1_test_fpr": {
+     "serving-decode": 0.0,
+     "idle": 0.0
+    }
+   },
+   "h3": {
+    "r1": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 0,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 6.304189055209741,
+       "A": 0.0
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 1,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 1.0521602301815252,
+       "F_upper95_poisson_model": 4.9913055836198,
+       "A": 0.0015006002400960385
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 0,
+       "detected": 0,
+       "missed": 188
+      },
+      "Lmin_s": null,
+      "pooled_median_delay_s": null,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.0,
+        "headline_metric": "P",
+        "rate": 0.0,
+        "lower": 0.0,
+        "onset_only_rate": 0.0,
+        "median_delay_s": null
+       }
+      }
+     }
+    },
+    "or": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 3,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 6.313170016088347,
+       "F_upper95_poisson_model": 16.31671730239752,
+       "A": 0.01020408163265306
+      },
+      "idle": {
+       "onsets": 0,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.0,
+       "F_upper95_poisson_model": 0.35876963893229774,
+       "A": 0.0
+      },
+      "non-AI busy": {
+       "onsets": 1,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 1.0521602301815252,
+       "F_upper95_poisson_model": 4.9913055836198,
+       "A": 0.0015006002400960385
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 60,
+       "detected": 128,
+       "missed": 0
+      },
+      "Lmin_s": 5.1,
+      "pooled_median_delay_s": 2.9826190168100197,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.02674591381872214,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.056,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6518363448688392,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9840503009746726
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.07179487179487179,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.7045454545454546,
+        "median_delay_s": 2.982808217497052
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.039783001808318265,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.8189637274779153,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.982443587966202
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.08888888888888889,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9018553723227043,
+        "onset_only_rate": 0.9310344827586207,
+        "median_delay_s": 2.982462438108655
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.046954314720812185,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.9327032465861321,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.07506053268765134,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.934181228855066,
+        "onset_only_rate": 0.9318181818181818,
+        "median_delay_s": 2.9825814055363935
+       }
+      }
+     }
+    }
+   }
+  },
+  "declared": {
+   "threshold": 0.5686988562666614,
+   "dev_stress_fpr": {
+    "serving-prefill": 1.0,
+    "idle": 1.0
+   },
+   "h2": {
+    "r1": {
+     "time-sharing": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-episodes-timeshared-0p25": 1.0,
+       "panel-episodes-timeshared-0p25-slot60": 1.0,
+       "panel-episodes-timeshared-0p5": 1.0,
+       "panel-episodes-timeshared-0p5-slot120": 1.0,
+       "panel-episodes-timeshared-0p5-slot30": 1.0,
+       "panel-episodes-timeshared-0p5-slot480": 1.0,
+       "panel-episodes-timeshared-0p75": 1.0,
+       "panel-mixture-timeshared-0p25": 1.0,
+       "panel-mixture-timeshared-0p5": 1.0,
+       "panel-mixture-timeshared-0p75": 1.0
+      }
+     },
+     "co-location": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-mixture-concurrent-0p25": 1.0,
+       "panel-mixture-concurrent-0p5": 1.0,
+       "panel-mixture-concurrent-0p75": 1.0
+      }
+     },
+     "jitter": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-jitter-0p05": 1.0,
+       "panel-cadence-jitter-0p1": 1.0,
+       "panel-cadence-jitter-0p2": 1.0,
+       "panel-cadence-jitter-0p4": 1.0
+      }
+     },
+     "padding": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-cadence-pad-half": 1.0
+      }
+     },
+     "power cap": {
+      "pooled": 1.0,
+      "per_run": {
+       "panel-powercap-50": 1.0,
+       "panel-powercap-70": 1.0
+      }
+     }
+    },
+    "r1_test_fpr": {
+     "serving-decode": 0.05,
+     "idle": 1.0
+    }
+   },
+   "h3": {
+    "r1": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 2,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 4.208780010725564,
+       "F_upper95_poisson_model": 13.248805173694164,
+       "A": 0.05282112845138055
+      },
+      "idle": {
+       "onsets": 4,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.47904099054442006,
+       "F_upper95_poisson_model": 1.0962277053719147,
+       "A": 0.9997293456932134
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 164,
+       "detected": 24,
+       "missed": 0
+      },
+      "Lmin_s": 240.2,
+      "pooled_median_delay_s": 2.983036121203021,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.10772659732540862,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.9706666666666667,
+        "headline_metric": "onset",
+        "rate": 0.14285714285714285,
+        "lower": 0.0,
+        "onset_only_rate": 0.14285714285714285,
+        "median_delay_s": 6.9995900031696685
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.7589743589743589,
+        "headline_metric": "onset",
+        "rate": 0.022727272727272728,
+        "lower": 0.0,
+        "onset_only_rate": 0.022727272727272728,
+        "median_delay_s": 6.999529705954515
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.6075949367088608,
+        "headline_metric": "onset",
+        "rate": 0.4666666666666667,
+        "lower": 0.13333333333333333,
+        "onset_only_rate": 0.4666666666666667,
+        "median_delay_s": 2.9916453832096295
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.7555555555555555,
+        "headline_metric": "onset",
+        "rate": 0.06896551724137931,
+        "lower": 0.0,
+        "onset_only_rate": 0.06896551724137931,
+        "median_delay_s": 4.490849365443257
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.45336294416243655,
+        "headline_metric": "onset",
+        "rate": 0.023255813953488372,
+        "lower": 0.0,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.5617433414043583,
+        "headline_metric": "onset",
+        "rate": 0.13636363636363635,
+        "lower": 0.0,
+        "onset_only_rate": 0.13636363636363635,
+        "median_delay_s": 2.981555843558702
+       }
+      }
+     }
+    },
+    "or": {
+     "false_alarms": {
+      "declared inference": {
+       "onsets": 2,
+       "exposure_h": 0.4751970867812627,
+       "F_per_h": 4.208780010725564,
+       "F_upper95_poisson_model": 13.248805173694164,
+       "A": 0.05282112845138055
+      },
+      "idle": {
+       "onsets": 4,
+       "exposure_h": 8.350016134222843,
+       "F_per_h": 0.47904099054442006,
+       "F_upper95_poisson_model": 1.0962277053719147,
+       "A": 0.9997293456932134
+      },
+      "non-AI busy": {
+       "onsets": 4,
+       "exposure_h": 0.9504255828292177,
+       "F_per_h": 4.208640920726101,
+       "F_upper95_poisson_model": 9.63096868603796,
+       "A": 0.9975990396158463
+      }
+     },
+     "episodes": {
+      "counts": {
+       "truncated": 4,
+       "unscorable": 0,
+       "pre-alarmed": 165,
+       "detected": 23,
+       "missed": 0
+      },
+      "Lmin_s": 240.2,
+      "pooled_median_delay_s": 2.9832006051911577,
+      "cells": {
+       "panel-episodes-timeshared-0p5-slot480": {
+        "nominal_s": 240.2,
+        "duty": 0.5,
+        "gap_flag_rate": 0.11961367013372957,
+        "headline_metric": "P",
+        "rate": 1.0,
+        "lower": 0.6069622310029174,
+        "onset_only_rate": 1.0,
+        "median_delay_s": 2.9825007438205375
+       },
+       "panel-episodes-timeshared-0p5-slot120": {
+        "nominal_s": 60.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.9706666666666667,
+        "headline_metric": "onset",
+        "rate": 0.14285714285714285,
+        "lower": 0.0,
+        "onset_only_rate": 0.14285714285714285,
+        "median_delay_s": 6.9995900031696685
+       },
+       "panel-episodes-timeshared-0p5": {
+        "nominal_s": 10.3,
+        "duty": 0.5,
+        "gap_flag_rate": 0.7589743589743589,
+        "headline_metric": "onset",
+        "rate": 0.022727272727272728,
+        "lower": 0.0,
+        "onset_only_rate": 0.022727272727272728,
+        "median_delay_s": 6.999529705954515
+       },
+       "panel-episodes-timeshared-0p25-slot60": {
+        "nominal_s": 15.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.6112115732368897,
+        "headline_metric": "onset",
+        "rate": 0.4666666666666667,
+        "lower": 0.13333333333333333,
+        "onset_only_rate": 0.4666666666666667,
+        "median_delay_s": 2.9916453832096295
+       },
+       "panel-episodes-timeshared-0p5-slot30": {
+        "nominal_s": 15.1,
+        "duty": 0.5,
+        "gap_flag_rate": 0.7703703703703704,
+        "headline_metric": "onset",
+        "rate": 0.034482758620689655,
+        "lower": 0.0,
+        "onset_only_rate": 0.034482758620689655,
+        "median_delay_s": 6.999627316725459
+       },
+       "panel-episodes-timeshared-0p75": {
+        "nominal_s": 15.1,
+        "duty": 0.75,
+        "gap_flag_rate": 0.46256345177664976,
+        "headline_metric": "onset",
+        "rate": 0.023255813953488372,
+        "lower": 0.0,
+        "onset_only_rate": 0.023255813953488372,
+        "median_delay_s": 6.999555724909769
+       },
+       "panel-episodes-timeshared-0p25": {
+        "nominal_s": 5.1,
+        "duty": 0.25,
+        "gap_flag_rate": 0.5786924939467313,
+        "headline_metric": "onset",
+        "rate": 0.13636363636363635,
+        "lower": 0.0,
+        "onset_only_rate": 0.13636363636363635,
+        "median_delay_s": 2.981555843558702
+       }
+      }
+     }
+    }
+   }
+  },
+  "calibration_runs": {
+   "pooled": [
+    "panel-core-idle-r4",
+    "panel-core-serving-decode-r4"
+   ],
+   "declared": [
+    "panel-core-serving-decode-r4"
+   ]
+  },
+  "calibration_score_quantiles": {
+   "panel-core-idle-r4": {
+    "0.05": 0.7828582485781823,
+    "0.5": 0.7848735886909526,
+    "0.95": 0.7863618952424948
+   },
+   "panel-core-serving-decode-r4": {
+    "0.05": 0.3959486254209777,
+    "0.5": 0.42317303939843565,
+    "0.95": 0.5686988562666614
+   }
+  },
+  "phase2_unseen_workload_holdouts": {
+   "0.01": {
+    "panel-core-idle-r1": 0.0,
+    "panel-serving-prefill": 1.0
+   },
+   "0.02": {
+    "panel-core-idle-r1": 0.0,
+    "panel-serving-prefill": 1.0
+   },
+   "0.05": {
+    "panel-core-idle-r1": 0.0,
+    "panel-serving-prefill": 1.0
+   },
+   "0.1": {
+    "panel-core-idle-r1": 0.0,
+    "panel-serving-prefill": 1.0
+   }
+  }
+ },
+ "cusum": {
+  "rule": "R1 only. S_t = max(0, S_{t-1} + s_t - k), reset per capture; k = R1's frozen threshold; h = (1 - alpha) quantile of S over 1 s-hop calibration declared windows; flag iff S_t > h; then the 3-of-5 monitor (amendment 2026-10-05)",
+  "k": 0.6289591641951192,
+  "h": 0.005743453230832973,
+  "calibration_frac_S_positive": 0.06302521008403361,
+  "h3": {
+   "r1": {
+    "false_alarms": {
+     "declared inference": {
+      "onsets": 2,
+      "exposure_h": 0.4751970867812627,
+      "F_per_h": 4.208780010725564,
+      "F_upper95_poisson_model": 13.248805173694164,
+      "A": 0.006002400960384154
+     },
+     "idle": {
+      "onsets": 2,
+      "exposure_h": 8.350016134222843,
+      "F_per_h": 0.23952049527221003,
+      "F_upper95_poisson_model": 0.7539858032211999,
+      "A": 0.0004736450368766493
+     },
+     "non-AI busy": {
+      "onsets": 4,
+      "exposure_h": 0.9504255828292177,
+      "F_per_h": 4.208640920726101,
+      "F_upper95_poisson_model": 9.63096868603796,
+      "A": 0.9975990396158463
+     }
+    },
+    "episodes": {
+     "counts": {
+      "truncated": 4,
+      "unscorable": 0,
+      "pre-alarmed": 121,
+      "detected": 67,
+      "missed": 0
+     },
+     "Lmin_s": 240.2,
+     "pooled_median_delay_s": 2.9826043008624765,
+     "cells": {
+      "panel-episodes-timeshared-0p5-slot480": {
+       "nominal_s": 240.2,
+       "duty": 0.5,
+       "gap_flag_rate": 0.49405646359583955,
+       "headline_metric": "onset",
+       "rate": 1.0,
+       "lower": 0.6069622310029174,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.9825007438205375
+      },
+      "panel-episodes-timeshared-0p5-slot120": {
+       "nominal_s": 60.1,
+       "duty": 0.5,
+       "gap_flag_rate": 0.832,
+       "headline_metric": "onset",
+       "rate": 0.8571428571428571,
+       "lower": 0.4792970264086929,
+       "onset_only_rate": 0.8571428571428571,
+       "median_delay_s": 4.990413287784634
+      },
+      "panel-episodes-timeshared-0p5": {
+       "nominal_s": 10.3,
+       "duty": 0.5,
+       "gap_flag_rate": 1.0,
+       "headline_metric": "onset",
+       "rate": 0.022727272727272728,
+       "lower": 0.0,
+       "onset_only_rate": 0.022727272727272728,
+       "median_delay_s": 6.999529705954515
+      },
+      "panel-episodes-timeshared-0p25-slot60": {
+       "nominal_s": 15.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.2857142857142857,
+       "headline_metric": "onset",
+       "rate": 1.0,
+       "lower": 0.8189637274779153,
+       "onset_only_rate": 1.0,
+       "median_delay_s": 2.982443587966202
+      },
+      "panel-episodes-timeshared-0p5-slot30": {
+       "nominal_s": 15.1,
+       "duty": 0.5,
+       "gap_flag_rate": 1.0,
+       "headline_metric": "onset",
+       "rate": 0.034482758620689655,
+       "lower": 0.0,
+       "onset_only_rate": 0.034482758620689655,
+       "median_delay_s": 6.999627316725459
+      },
+      "panel-episodes-timeshared-0p75": {
+       "nominal_s": 15.1,
+       "duty": 0.75,
+       "gap_flag_rate": 0.5697969543147208,
+       "headline_metric": "onset",
+       "rate": 0.023255813953488372,
+       "lower": 0.0,
+       "onset_only_rate": 0.023255813953488372,
+       "median_delay_s": 6.999555724909769
+      },
+      "panel-episodes-timeshared-0p25": {
+       "nominal_s": 5.1,
+       "duty": 0.25,
+       "gap_flag_rate": 0.4745762711864407,
+       "headline_metric": "onset",
+       "rate": 0.8409090909090909,
+       "lower": 0.7218545792025229,
+       "onset_only_rate": 0.8409090909090909,
+       "median_delay_s": 2.9825814055363935
+      }
+     }
+    }
+   }
+  }
+ }
+}

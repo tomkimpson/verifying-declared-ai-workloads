@@ -1,0 +1,59 @@
+{
+ "generated_by": "scripts/mechanism_cv_split.py",
+ "spec_task": "13.6",
+ "preregistered": false,
+ "generated_at": "2026-11-13T01:30:40+00:00",
+ "repo_commit": "c3fc902418affba8ecf565a4c0c8179b835e4244",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "windows": {
+  "window_s": 5.0,
+  "hop_s": 5.0,
+  "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+ },
+ "splits_read": [
+  "development"
+ ],
+ "feature": "env_cv",
+ "quantile": 0.5,
+ "notes": [
+  "descriptive; splits the 'declared inference' pool of mechanism.json",
+  "pooled and unthrottled medians asserted equal to mechanism.json"
+ ],
+ "mechanism_repo_commit": "21758db2a3e0485411a1dd65361c409c46987e04",
+ "pooled_declared_inference": {
+  "runs": [
+   "panel-core-serving-decode-r1",
+   "panel-serving-decode",
+   "panel-serving-prefill"
+  ],
+  "n_windows": 510,
+  "median": 0.10301742891081847
+ },
+ "by_workload": {
+  "serving-decode": {
+   "runs": [
+    "panel-core-serving-decode-r1",
+    "panel-serving-decode"
+   ],
+   "n_windows": 340,
+   "median": 0.10194452229113656
+  },
+  "serving-prefill": {
+   "runs": [
+    "panel-serving-prefill"
+   ],
+   "n_windows": 170,
+   "median": 0.23999464357942912
+  }
+ },
+ "by_run": {
+  "panel-core-serving-decode-r1": 0.10174431744846257,
+  "panel-serving-decode": 0.1021621092774379,
+  "panel-serving-prefill": 0.23999464357942912
+ },
+ "unthrottled": {
+  "run": "panel-mixture-concurrent-0p5",
+  "n_windows": 170,
+  "median": 0.22863747025502354
+ }
+}

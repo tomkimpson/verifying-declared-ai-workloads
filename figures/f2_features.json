@@ -1,0 +1,17 @@
+{
+ "generated_by": "scripts/plot_f2_features.py",
+ "source": "results/coverage/mechanism.json",
+ "source_repo_commit": "21758db2a3e0485411a1dd65361c409c46987e04",
+ "features": [
+  "env_frac_150_250hz",
+  "env_p99_over_p50",
+  "env_cv",
+  "env_ac_lag1"
+ ],
+ "importances": {
+  "env_frac_150_250hz": 0.19,
+  "env_p99_over_p50": 0.15,
+  "env_cv": 0.13,
+  "env_ac_lag1": 0.12
+ }
+}

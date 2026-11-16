@@ -1,0 +1,64 @@
+{
+ "generated_at": "2026-10-01T02:41:10.679407+00:00",
+ "generated_by": "scripts/check_gk_dataset.py",
+ "spec_task": "1.6",
+ "dataset": "simgar/h200-power-workload-traces-10MHz_5s",
+ "revision_sha": "bcd3f8dd7873e481d0467cccfb09fb8e6ce89568",
+ "last_modified": "2026-09-21T22:14:01.000Z",
+ "n_files": 14657,
+ "total_bytes": 157260834583,
+ "bytes_by_subset": {
+  ".gitattributes": 2504,
+  ".gitignore": 72,
+  "README.md": 21283,
+  "adversarial_10MSs_5s": 66410391623,
+  "corpus_wide_10MSs_5s": 90847258775,
+  "features_930.parquet": 1840368,
+  "features_adv_680.parquet": 1319958
+ },
+ "bytes_by_kind": {
+  "gitattributes": 2504,
+  "gitignore": 72,
+  "md": 21283,
+  "json": 29606698,
+  "channel:nvml.gpu_utilization_pct": 212520,
+  "channel:nvml.memory_clock_mhz": 212520,
+  "channel:nvml.memory_utilization_pct": 212520,
+  "channel:nvml.power_w": 212520,
+  "channel:nvml.sm_clock_mhz": 212520,
+  "channel:nvml.temperature_c": 212520,
+  "channel:power": 157226768580,
+  "parquet": 3160326
+ },
+ "files_by_kind": {
+  "gitattributes": 1,
+  "gitignore": 1,
+  "md": 1,
+  "json": 3382,
+  "channel:nvml.gpu_utilization_pct": 1610,
+  "channel:nvml.memory_clock_mhz": 1610,
+  "channel:nvml.memory_utilization_pct": 1610,
+  "channel:nvml.power_w": 1610,
+  "channel:nvml.sm_clock_mhz": 1610,
+  "channel:nvml.temperature_c": 1610,
+  "channel:power": 1610,
+  "parquet": 2
+ },
+ "n_labels": 161,
+ "largest_kind": "channel:power",
+ "decimated_variant_published": false,
+ "decimated_variant_note": "no decimated waveform is published; the only small artefacts are features_930.parquet and features_adv_680.parquet, their own 30 features at 10 MHz, which are not comparable with our 25 features at 200 kS/s",
+ "estimated_bytes_after_decimation_to_200kSs": 3144535371.6,
+ "budget_bytes": 200000000000.0,
+ "within_budget": true,
+ "free_bytes_now": {
+  "laptop": 15960502272,
+  "ssd": 19463229440
+ },
+ "fits_free_space_whole": {
+  "laptop": false,
+  "ssd": false
+ },
+ "verdict": "go",
+ "verdict_note": "the whole download does not fit the free space on any volume today, so Phase 7 must stream: fetch, decimate, keep the 200 kS/s copy, delete the 10 MHz file"
+}

@@ -1,0 +1,402 @@
+{
+ "generated_by": "scripts/h2_thresholds.py",
+ "spec_task": "5.1",
+ "generated_at": "2026-10-05T06:35:03+00:00",
+ "repo_commit": "42e2539d5d48e6b93d1c63324579c0b1d9b65a01",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "preregistration_sha256": "b6b0a2c968a1fe86b6a9672806422061f361f9be5d1c71ceb6fbfd24dd20e725",
+ "windows_repo_commit": {
+  "development": "970f9fc226c6377e56633d8e3590517a871b9589",
+  "calibration": "970f9fc226c6377e56633d8e3590517a871b9589"
+ },
+ "splits_read": [
+  "development",
+  "calibration"
+ ],
+ "alpha": 0.05,
+ "rule": "(1 - alpha) quantile (numpy default) of the 5 s-hop calibration declared windows; flag iff score > threshold",
+ "calibration_runs": [
+  "panel-core-idle-r4",
+  "panel-core-serving-decode-r4"
+ ],
+ "features": [
+  "env_cv",
+  "env_skew",
+  "env_kurtosis",
+  "env_p10_over_p50",
+  "env_p90_over_p50",
+  "env_p99_over_p50",
+  "env_iqr_over_median",
+  "env_ac_lag1",
+  "env_ac_peak",
+  "env_ac_peak_lag_s",
+  "env_spec_flatness",
+  "env_frac_0p5_2hz",
+  "env_frac_2_10hz",
+  "env_frac_10_50hz",
+  "env_frac_50_150hz",
+  "env_frac_150_250hz",
+  "wav_spec_flatness",
+  "wav_spec_centroid_hz",
+  "wav_spec_rolloff95_hz",
+  "wav_frac_34_100hz",
+  "wav_frac_100hz_1khz",
+  "wav_frac_1_10khz",
+  "wav_frac_10_20khz",
+  "wav_frac_20_50khz",
+  "wav_frac_50_100khz"
+ ],
+ "r1": {
+  "family": "iforest",
+  "score": "-score_samples",
+  "threshold": 0.6289591641951192,
+  "alpha_grid": {
+   "0.01": 0.646958786797275,
+   "0.02": 0.6443541656436393,
+   "0.05": 0.6289591641951192,
+   "0.1": 0.6207889040842699
+  },
+  "calibration_quantiles": {
+   "0.5": 0.5654475342204273,
+   "0.9": 0.6207889040842699,
+   "0.95": 0.6289591641951192,
+   "0.99": 0.646958786797275
+  },
+  "frac_calibration_zero": 0.0,
+  "stability": {
+   "ci95": [
+    0.5451767282953002,
+    0.6409114254599361
+   ],
+   "per_run_quantile": {
+    "panel-core-idle-r4": 0.6406699847549466,
+    "panel-core-serving-decode-r4": 0.5407773550416267
+   },
+   "ratio_hi_lo": 1.1756030516269218
+  }
+ },
+ "classifier": {
+  "score": "p_training",
+  "fits": {
+   "time-sharing": {
+    "held_out_group": "time-sharing",
+    "held_out_runs": [],
+    "threshold": 0.0,
+    "alpha_grid": {
+     "0.01": 0.0,
+     "0.02": 0.0,
+     "0.05": 0.0,
+     "0.1": 0.0
+    },
+    "calibration_quantiles": {
+     "0.5": 0.0,
+     "0.9": 0.0,
+     "0.95": 0.0,
+     "0.99": 0.0
+    },
+    "frac_calibration_zero": 0.9970588235294118,
+    "stability": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "per_run_quantile": {
+      "panel-core-idle-r4": 0.0,
+      "panel-core-serving-decode-r4": 0.0
+     },
+     "ratio_hi_lo": null
+    }
+   },
+   "co-location": {
+    "held_out_group": "co-location",
+    "held_out_runs": [],
+    "threshold": 0.0,
+    "alpha_grid": {
+     "0.01": 0.0012200000000000273,
+     "0.02": 0.0,
+     "0.05": 0.0,
+     "0.1": 0.0
+    },
+    "calibration_quantiles": {
+     "0.5": 0.0,
+     "0.9": 0.0,
+     "0.95": 0.0,
+     "0.99": 0.0012200000000000273
+    },
+    "frac_calibration_zero": 0.9882352941176471,
+    "stability": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "per_run_quantile": {
+      "panel-core-idle-r4": 0.0,
+      "panel-core-serving-decode-r4": 0.0
+     },
+     "ratio_hi_lo": null
+    }
+   },
+   "jitter": {
+    "held_out_group": "jitter",
+    "held_out_runs": [],
+    "threshold": 0.0,
+    "alpha_grid": {
+     "0.01": 0.0,
+     "0.02": 0.0,
+     "0.05": 0.0,
+     "0.1": 0.0
+    },
+    "calibration_quantiles": {
+     "0.5": 0.0,
+     "0.9": 0.0,
+     "0.95": 0.0,
+     "0.99": 0.0
+    },
+    "frac_calibration_zero": 0.9970588235294118,
+    "stability": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "per_run_quantile": {
+      "panel-core-idle-r4": 0.0,
+      "panel-core-serving-decode-r4": 0.0
+     },
+     "ratio_hi_lo": null
+    }
+   },
+   "padding": {
+    "held_out_group": "padding",
+    "held_out_runs": [],
+    "threshold": 0.0,
+    "alpha_grid": {
+     "0.01": 0.0,
+     "0.02": 0.0,
+     "0.05": 0.0,
+     "0.1": 0.0
+    },
+    "calibration_quantiles": {
+     "0.5": 0.0,
+     "0.9": 0.0,
+     "0.95": 0.0,
+     "0.99": 0.0
+    },
+    "frac_calibration_zero": 0.9970588235294118,
+    "stability": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "per_run_quantile": {
+      "panel-core-idle-r4": 0.0,
+      "panel-core-serving-decode-r4": 0.0
+     },
+     "ratio_hi_lo": null
+    }
+   },
+   "power cap": {
+    "held_out_group": "power cap",
+    "held_out_runs": [],
+    "threshold": 0.0,
+    "alpha_grid": {
+     "0.01": 0.0,
+     "0.02": 0.0,
+     "0.05": 0.0,
+     "0.1": 0.0
+    },
+    "calibration_quantiles": {
+     "0.5": 0.0,
+     "0.9": 0.0,
+     "0.95": 0.0,
+     "0.99": 0.0
+    },
+    "frac_calibration_zero": 0.9970588235294118,
+    "stability": {
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "per_run_quantile": {
+      "panel-core-idle-r4": 0.0,
+      "panel-core-serving-decode-r4": 0.0
+     },
+     "ratio_hi_lo": null
+    }
+   }
+  }
+ },
+ "fit_manifests": {
+  "time-sharing": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-lora-r1",
+   "panel-core-memory-bound-r1",
+   "panel-core-serving-decode-r1",
+   "panel-core-steady-gemm-r1",
+   "panel-core-training-r1",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "co-location": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-lora-r1",
+   "panel-core-memory-bound-r1",
+   "panel-core-serving-decode-r1",
+   "panel-core-steady-gemm-r1",
+   "panel-core-training-r1",
+   "panel-lora",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "jitter": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-lora-r1",
+   "panel-core-memory-bound-r1",
+   "panel-core-serving-decode-r1",
+   "panel-core-steady-gemm-r1",
+   "panel-core-training-r1",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "padding": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-core-idle-r1",
+   "panel-core-lora-r1",
+   "panel-core-memory-bound-r1",
+   "panel-core-serving-decode-r1",
+   "panel-core-steady-gemm-r1",
+   "panel-core-training-r1",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "power cap": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-lora-r1",
+   "panel-core-memory-bound-r1",
+   "panel-core-serving-decode-r1",
+   "panel-core-steady-gemm-r1",
+   "panel-core-training-r1",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ]
+ }
+}

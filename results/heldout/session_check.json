@@ -1,0 +1,733 @@
+{
+ "generated_by": "scripts/session_check.py",
+ "spec_task": "13.3",
+ "preregistered": false,
+ "generated_at": "2026-11-13T02:11:07+00:00",
+ "repo_commit": "a67932eec1cf30278058aed38a01475886fc2668",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "windows": {
+  "development": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  },
+  "calibration": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  }
+ },
+ "splits_read": [
+  "development",
+  "calibration"
+ ],
+ "features": [
+  "env_cv",
+  "env_skew",
+  "env_kurtosis",
+  "env_p10_over_p50",
+  "env_p90_over_p50",
+  "env_p99_over_p50",
+  "env_iqr_over_median",
+  "env_ac_lag1",
+  "env_ac_peak",
+  "env_ac_peak_lag_s",
+  "env_spec_flatness",
+  "env_frac_0p5_2hz",
+  "env_frac_2_10hz",
+  "env_frac_10_50hz",
+  "env_frac_50_150hz",
+  "env_frac_150_250hz",
+  "wav_spec_flatness",
+  "wav_spec_centroid_hz",
+  "wav_spec_rolloff95_hz",
+  "wav_frac_34_100hz",
+  "wav_frac_100hz_1khz",
+  "wav_frac_1_10khz",
+  "wav_frac_10_20khz",
+  "wav_frac_20_50khz",
+  "wav_frac_50_100khz"
+ ],
+ "design": {
+  "block_starts": [
+   0,
+   40,
+   80,
+   120
+  ],
+  "block_span": 50,
+  "block_stride": 5,
+  "n_ref": 10,
+  "order": "decode windows of a run sorted by (interval, t0_s)",
+  "rule": "flag z iff it outscores every held-out reference window under that window's own model (fitted on the other 9)",
+  "iforest_kwargs": {
+   "n_estimators": 200,
+   "random_state": 0,
+   "n_jobs": -1
+  },
+  "nearest": "minimum Euclidean distance after scaling by the reference sd"
+ },
+ "verdict_rule": {
+  "source": "spec amendment 2026-11-13",
+  "primary": "iforest",
+  "nominal": 0.09090909090909091,
+  "ratio": 2.0,
+  "ceiling": 0.2,
+  "rule": "b = max(S, nominal); low iff O <= ratio*b and O <= ceiling"
+ },
+ "verdict_applied": "high",
+ "notes": [
+  "exploratory, not pre-registered",
+  "rates are fractions of windows",
+  "the verdict rests on 3 runs x 4 blocks x 2 other runs, and a run's windows score almost alike, so these are about 6 near-binary trials",
+  "same-run 'rest' includes windows interleaved with the reference block, which overlap reference windows in time if window_s > hop_s",
+  "nearest-neighbour is a diagnostic; the forest's verdict is applied"
+ ],
+ "decode_runs": {
+  "panel-core-serving-decode-r1": {
+   "session": "2026-09-23",
+   "split": "development",
+   "n_windows": 170
+  },
+  "panel-core-serving-decode-r4": {
+   "session": "2026-09-25",
+   "split": "calibration",
+   "n_windows": 170
+  },
+  "panel-serving-decode": {
+   "session": "2026-09-21",
+   "split": "development",
+   "n_windows": 170
+  }
+ },
+ "targets": {
+  "rho.5 (unpaced)": {
+   "n_windows": 170,
+   "runs": [
+    "panel-mixture-concurrent-0p5"
+   ]
+  },
+  "rho.25": {
+   "n_windows": 170,
+   "runs": [
+    "panel-mixture-concurrent-0p25"
+   ]
+  },
+  "rho.75": {
+   "n_windows": 170,
+   "runs": [
+    "panel-mixture-concurrent-0p75"
+   ]
+  },
+  "lora (dev+cal)": {
+   "n_windows": 510,
+   "runs": [
+    "panel-core-lora-r1",
+    "panel-core-lora-r4",
+    "panel-lora"
+   ]
+  },
+  "training (dev)": {
+   "n_windows": 1530,
+   "runs": [
+    "panel-cadence-baseline-jitter-0p05",
+    "panel-cadence-baseline-jitter-0p1",
+    "panel-cadence-baseline-jitter-0p2",
+    "panel-cadence-baseline-jitter-0p4",
+    "panel-cadence-baseline-pad-half",
+    "panel-core-training-r1",
+    "panel-training-15min",
+    "panel-training-15min-nosampler",
+    "panel-training-arm1"
+   ]
+  }
+ },
+ "results": {
+  "iforest": {
+   "pooled": {
+    "S": 0.10572916666666667,
+    "O": 0.2946078431372549,
+    "baseline_b": 0.10572916666666667,
+    "limit": 0.2,
+    "verdict": "high"
+   },
+   "per_run": {
+    "panel-core-serving-decode-r1": {
+     "session": "2026-09-23",
+     "n_blocks": 4,
+     "same_run_fp": 0.0828125,
+     "other_run_fp": 0.21985294117647058,
+     "other_run_fp_by_run": {
+      "panel-core-serving-decode-r4": 0.21911764705882353,
+      "panel-serving-decode": 0.22058823529411764
+     },
+     "detection": {
+      "rho.5 (unpaced)": 0.7544117647058823,
+      "rho.25": 0.75,
+      "rho.75": 0.9823529411764707,
+      "lora (dev+cal)": 0.9995098039215686,
+      "training (dev)": 0.9996732026143791
+     },
+     "verdict": {
+      "S": 0.0828125,
+      "O": 0.21985294117647058,
+      "baseline_b": 0.09090909090909091,
+      "limit": 0.18181818181818182,
+      "verdict": "high"
+     },
+     "blocks": [
+      {
+       "start": 0,
+       "n_ref": 10,
+       "same_run_fp": 0.0,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.01764705882352941,
+        "panel-serving-decode": 0.0058823529411764705
+       },
+       "other_run_fp_mean": 0.011764705882352941,
+       "detection": {
+        "rho.5 (unpaced)": 0.01764705882352941,
+        "rho.25": 0.0,
+        "rho.75": 0.9294117647058824,
+        "lora (dev+cal)": 0.9980392156862745,
+        "training (dev)": 0.9986928104575163
+       }
+      },
+      {
+       "start": 40,
+       "n_ref": 10,
+       "same_run_fp": 0.06875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.11176470588235295,
+        "panel-serving-decode": 0.1
+       },
+       "other_run_fp_mean": 0.10588235294117648,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 80,
+       "n_ref": 10,
+       "same_run_fp": 0.11875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.28823529411764703,
+        "panel-serving-decode": 0.4823529411764706
+       },
+       "other_run_fp_mean": 0.3852941176470588,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 120,
+       "n_ref": 10,
+       "same_run_fp": 0.14375,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.4588235294117647,
+        "panel-serving-decode": 0.29411764705882354
+       },
+       "other_run_fp_mean": 0.3764705882352941,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      }
+     ]
+    },
+    "panel-core-serving-decode-r4": {
+     "session": "2026-09-25",
+     "n_blocks": 4,
+     "same_run_fp": 0.159375,
+     "other_run_fp": 0.3205882352941176,
+     "other_run_fp_by_run": {
+      "panel-core-serving-decode-r1": 0.21911764705882353,
+      "panel-serving-decode": 0.42205882352941176
+     },
+     "detection": {
+      "rho.5 (unpaced)": 0.7573529411764706,
+      "rho.25": 0.8647058823529412,
+      "rho.75": 0.8602941176470589,
+      "lora (dev+cal)": 0.961764705882353,
+      "training (dev)": 1.0
+     },
+     "verdict": {
+      "S": 0.159375,
+      "O": 0.3205882352941176,
+      "baseline_b": 0.159375,
+      "limit": 0.2,
+      "verdict": "high"
+     },
+     "blocks": [
+      {
+       "start": 0,
+       "n_ref": 10,
+       "same_run_fp": 0.01875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.0,
+        "panel-serving-decode": 0.0058823529411764705
+       },
+       "other_run_fp_mean": 0.0029411764705882353,
+       "detection": {
+        "rho.5 (unpaced)": 0.029411764705882353,
+        "rho.25": 0.4588235294117647,
+        "rho.75": 0.4411764705882353,
+        "lora (dev+cal)": 0.8470588235294118,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 40,
+       "n_ref": 10,
+       "same_run_fp": 0.18125,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.18823529411764706,
+        "panel-serving-decode": 0.4823529411764706
+       },
+       "other_run_fp_mean": 0.33529411764705885,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 80,
+       "n_ref": 10,
+       "same_run_fp": 0.18125,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.23529411764705882,
+        "panel-serving-decode": 0.4647058823529412
+       },
+       "other_run_fp_mean": 0.35,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 120,
+       "n_ref": 10,
+       "same_run_fp": 0.25625,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.45294117647058824,
+        "panel-serving-decode": 0.7352941176470589
+       },
+       "other_run_fp_mean": 0.5941176470588235,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      }
+     ]
+    },
+    "panel-serving-decode": {
+     "session": "2026-09-21",
+     "n_blocks": 4,
+     "same_run_fp": 0.075,
+     "other_run_fp": 0.34338235294117647,
+     "other_run_fp_by_run": {
+      "panel-core-serving-decode-r1": 0.29411764705882354,
+      "panel-core-serving-decode-r4": 0.3926470588235294
+     },
+     "detection": {
+      "rho.5 (unpaced)": 1.0,
+      "rho.25": 1.0,
+      "rho.75": 1.0,
+      "lora (dev+cal)": 1.0,
+      "training (dev)": 1.0
+     },
+     "verdict": {
+      "S": 0.075,
+      "O": 0.34338235294117647,
+      "baseline_b": 0.09090909090909091,
+      "limit": 0.18181818181818182,
+      "verdict": "high"
+     },
+     "blocks": [
+      {
+       "start": 0,
+       "n_ref": 10,
+       "same_run_fp": 0.0,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.0,
+        "panel-core-serving-decode-r4": 0.0
+       },
+       "other_run_fp_mean": 0.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 40,
+       "n_ref": 10,
+       "same_run_fp": 0.03125,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.2647058823529412,
+        "panel-core-serving-decode-r4": 0.4588235294117647
+       },
+       "other_run_fp_mean": 0.36176470588235293,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 80,
+       "n_ref": 10,
+       "same_run_fp": 0.04375,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.5294117647058824,
+        "panel-core-serving-decode-r4": 0.6588235294117647
+       },
+       "other_run_fp_mean": 0.5941176470588235,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 120,
+       "n_ref": 10,
+       "same_run_fp": 0.225,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.38235294117647056,
+        "panel-core-serving-decode-r4": 0.45294117647058824
+       },
+       "other_run_fp_mean": 0.41764705882352937,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      }
+     ]
+    }
+   }
+  },
+  "nearest": {
+   "pooled": {
+    "S": 0.14010416666666667,
+    "O": 0.6389705882352942,
+    "baseline_b": 0.14010416666666667,
+    "limit": 0.2,
+    "verdict": "high"
+   },
+   "per_run": {
+    "panel-core-serving-decode-r1": {
+     "session": "2026-09-23",
+     "n_blocks": 4,
+     "same_run_fp": 0.165625,
+     "other_run_fp": 0.6544117647058824,
+     "other_run_fp_by_run": {
+      "panel-core-serving-decode-r4": 0.5588235294117647,
+      "panel-serving-decode": 0.75
+     },
+     "detection": {
+      "rho.5 (unpaced)": 1.0,
+      "rho.25": 1.0,
+      "rho.75": 1.0,
+      "lora (dev+cal)": 1.0,
+      "training (dev)": 1.0
+     },
+     "verdict": {
+      "S": 0.165625,
+      "O": 0.6544117647058824,
+      "baseline_b": 0.165625,
+      "limit": 0.2,
+      "verdict": "high"
+     },
+     "blocks": [
+      {
+       "start": 0,
+       "n_ref": 10,
+       "same_run_fp": 0.0,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.0,
+        "panel-serving-decode": 0.0
+       },
+       "other_run_fp_mean": 0.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 40,
+       "n_ref": 10,
+       "same_run_fp": 0.15,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.35294117647058826,
+        "panel-serving-decode": 1.0
+       },
+       "other_run_fp_mean": 0.6764705882352942,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 80,
+       "n_ref": 10,
+       "same_run_fp": 0.31875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 1.0,
+        "panel-serving-decode": 1.0
+       },
+       "other_run_fp_mean": 1.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 120,
+       "n_ref": 10,
+       "same_run_fp": 0.19375,
+       "other_run_fp": {
+        "panel-core-serving-decode-r4": 0.8823529411764706,
+        "panel-serving-decode": 1.0
+       },
+       "other_run_fp_mean": 0.9411764705882353,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      }
+     ]
+    },
+    "panel-core-serving-decode-r4": {
+     "session": "2026-09-25",
+     "n_blocks": 4,
+     "same_run_fp": 0.11249999999999999,
+     "other_run_fp": 0.5110294117647058,
+     "other_run_fp_by_run": {
+      "panel-core-serving-decode-r1": 0.2720588235294118,
+      "panel-serving-decode": 0.75
+     },
+     "detection": {
+      "rho.5 (unpaced)": 1.0,
+      "rho.25": 1.0,
+      "rho.75": 1.0,
+      "lora (dev+cal)": 1.0,
+      "training (dev)": 1.0
+     },
+     "verdict": {
+      "S": 0.11249999999999999,
+      "O": 0.5110294117647058,
+      "baseline_b": 0.11249999999999999,
+      "limit": 0.2,
+      "verdict": "high"
+     },
+     "blocks": [
+      {
+       "start": 0,
+       "n_ref": 10,
+       "same_run_fp": 0.0,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.0,
+        "panel-serving-decode": 0.0
+       },
+       "other_run_fp_mean": 0.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 40,
+       "n_ref": 10,
+       "same_run_fp": 0.11875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.21176470588235294,
+        "panel-serving-decode": 1.0
+       },
+       "other_run_fp_mean": 0.6058823529411764,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 80,
+       "n_ref": 10,
+       "same_run_fp": 0.2,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.6823529411764706,
+        "panel-serving-decode": 1.0
+       },
+       "other_run_fp_mean": 0.8411764705882353,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 120,
+       "n_ref": 10,
+       "same_run_fp": 0.13125,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.19411764705882353,
+        "panel-serving-decode": 1.0
+       },
+       "other_run_fp_mean": 0.5970588235294118,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      }
+     ]
+    },
+    "panel-serving-decode": {
+     "session": "2026-09-21",
+     "n_blocks": 4,
+     "same_run_fp": 0.14218750000000002,
+     "other_run_fp": 0.7514705882352941,
+     "other_run_fp_by_run": {
+      "panel-core-serving-decode-r1": 0.7514705882352941,
+      "panel-core-serving-decode-r4": 0.7514705882352941
+     },
+     "detection": {
+      "rho.5 (unpaced)": 1.0,
+      "rho.25": 1.0,
+      "rho.75": 1.0,
+      "lora (dev+cal)": 1.0,
+      "training (dev)": 1.0
+     },
+     "verdict": {
+      "S": 0.14218750000000002,
+      "O": 0.7514705882352941,
+      "baseline_b": 0.14218750000000002,
+      "limit": 0.2,
+      "verdict": "high"
+     },
+     "blocks": [
+      {
+       "start": 0,
+       "n_ref": 10,
+       "same_run_fp": 0.0,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 0.0058823529411764705,
+        "panel-core-serving-decode-r4": 0.0058823529411764705
+       },
+       "other_run_fp_mean": 0.0058823529411764705,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 40,
+       "n_ref": 10,
+       "same_run_fp": 0.16875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 1.0,
+        "panel-core-serving-decode-r4": 1.0
+       },
+       "other_run_fp_mean": 1.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 80,
+       "n_ref": 10,
+       "same_run_fp": 0.23125,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 1.0,
+        "panel-core-serving-decode-r4": 1.0
+       },
+       "other_run_fp_mean": 1.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      },
+      {
+       "start": 120,
+       "n_ref": 10,
+       "same_run_fp": 0.16875,
+       "other_run_fp": {
+        "panel-core-serving-decode-r1": 1.0,
+        "panel-core-serving-decode-r4": 1.0
+       },
+       "other_run_fp_mean": 1.0,
+       "detection": {
+        "rho.5 (unpaced)": 1.0,
+        "rho.25": 1.0,
+        "rho.75": 1.0,
+        "lora (dev+cal)": 1.0,
+        "training (dev)": 1.0
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

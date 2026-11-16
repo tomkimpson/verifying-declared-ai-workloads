@@ -1,0 +1,179 @@
+{
+ "generated_at": "2026-10-02T01:48:47+00:00",
+ "generated_by": "scripts/declaration_choose.py",
+ "spec_task": "2.4",
+ "repo_commit": "3e7e41ce136657c310269ae1dbe1386c41b6fde7",
+ "heldout_repo_commit": "fc1e70bf2f3f8caf31076b02ee44d079a591b0f0",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "frozen": {
+  "family": "iforest",
+  "variant": "R1",
+  "alpha": 0.05,
+  "amplitude": false,
+  "threshold_rule": "(1 - alpha) quantile of calibration declared windows (D3 primary)",
+  "threshold": 0.6289591641951192,
+  "iforest_kwargs": {
+   "n_estimators": 500,
+   "random_state": 0,
+   "n_jobs": -1
+  },
+  "features": [
+   "env_cv",
+   "env_skew",
+   "env_kurtosis",
+   "env_p10_over_p50",
+   "env_p90_over_p50",
+   "env_p99_over_p50",
+   "env_iqr_over_median",
+   "env_ac_lag1",
+   "env_ac_peak",
+   "env_ac_peak_lag_s",
+   "env_spec_flatness",
+   "env_frac_0p5_2hz",
+   "env_frac_2_10hz",
+   "env_frac_10_50hz",
+   "env_frac_50_150hz",
+   "env_frac_150_250hz",
+   "wav_spec_flatness",
+   "wav_spec_centroid_hz",
+   "wav_spec_rolloff95_hz",
+   "wav_frac_34_100hz",
+   "wav_frac_100hz_1khz",
+   "wav_frac_1_10khz",
+   "wav_frac_10_20khz",
+   "wav_frac_20_50khz",
+   "wav_frac_50_100khz"
+  ],
+  "fit_runs": [
+   "panel-core-idle-r1",
+   "panel-core-serving-decode-r1",
+   "panel-serving-decode",
+   "panel-serving-prefill"
+  ],
+  "calibration_runs": [
+   "panel-core-idle-r4",
+   "panel-core-serving-decode-r4"
+  ],
+  "hop_s": 5.0
+ },
+ "evidence": {
+  "family": "iforest",
+  "variant": "R1",
+  "alpha": 0.05,
+  "check6": {
+   "threshold": 0.6289591641951192,
+   "n_positive": 850,
+   "positive_rate": 1.0,
+   "self_rate": 0.0058823529411764705,
+   "self_ci95": [
+    0.0058823529411764705,
+    0.0058823529411764705
+   ],
+   "ok_positive": true,
+   "ok_self": false,
+   "ok": false
+  },
+  "check4": {
+   "per_run": {
+    "panel-core-idle-r1": {
+     "condition": "idle",
+     "session": "2026-09-23",
+     "unseen_workload": true,
+     "n_windows": 170,
+     "fp_rate": 0.0,
+     "fp_ci95": [
+      0.0,
+      0.0
+     ],
+     "alpha_in_ci": false
+    },
+    "panel-core-serving-decode-r1": {
+     "condition": "serving-decode",
+     "session": "2026-09-23",
+     "unseen_workload": false,
+     "n_windows": 170,
+     "fp_rate": 0.0058823529411764705,
+     "fp_ci95": [
+      0.0,
+      0.005555555555555556
+     ],
+     "alpha_in_ci": false
+    },
+    "panel-serving-decode": {
+     "condition": "serving-decode",
+     "session": "2026-09-21",
+     "unseen_workload": false,
+     "n_windows": 170,
+     "fp_rate": 0.0058823529411764705,
+     "fp_ci95": [
+      0.0,
+      0.005555555555555556
+     ],
+     "alpha_in_ci": false
+    },
+    "panel-serving-prefill": {
+     "condition": "serving-prefill",
+     "session": "2026-09-21",
+     "unseen_workload": true,
+     "n_windows": 170,
+     "fp_rate": 1.0,
+     "fp_ci95": [
+      1.0,
+      1.0
+     ],
+     "alpha_in_ci": false
+    }
+   },
+   "like_for_like_runs": [
+    "panel-core-serving-decode-r1",
+    "panel-serving-decode"
+   ],
+   "fp_rate": 0.0058823529411764705,
+   "ci95": [
+    0.0058823529411764705,
+    0.0058823529411764705
+   ],
+   "ok": false,
+   "direction": "conservative",
+   "kill_3alpha_fires": false,
+   "literal": {
+    "fp_rate": 0.2529411764705882,
+    "ci95": [
+     0.0014705882352941176,
+     0.7514705882352941
+    ],
+    "ok": true,
+    "kill_3alpha_fires": true
+   }
+  },
+  "cal_fp_by_workload": {
+   "idle": 0.09411764705882353,
+   "serving-decode": 0.0058823529411764705
+  },
+  "stability": {
+   "threshold": 0.6289591641951192,
+   "ratio_ci95": [
+    0.8667919307495334,
+    1.019003238914743
+   ],
+   "implied_cal_rate_ci95": [
+    0.026470588235294117,
+    0.5235294117647059
+   ],
+   "max_factor": 1.1536794062391407,
+   "stable": true
+  },
+  "median_score_by_run": {
+   "dev:panel-core-idle-r1": 0.49590596910912743,
+   "dev:panel-core-serving-decode-r1": 0.421379104242557,
+   "dev:panel-serving-decode": 0.42941671518259694,
+   "dev:panel-serving-prefill": 0.4880218171033276,
+   "cal:panel-core-idle-r4": 0.6016507553150265,
+   "cal:panel-core-serving-decode-r4": 0.4362751631620153
+  }
+ },
+ "notes": [
+  "Checks 4 and 6 (self-scored) fail conservative for every candidate (amendment 2026-10-02b).",
+  "The isolation forest passes D3's <= 2x ratio test while Mahalanobis does not, but its scores are compressed in (0, 1]: the implied calibration rate under the run bootstrap spans the same range for both families (stability.implied_cal_rate_ci95)."
+ ]
+}

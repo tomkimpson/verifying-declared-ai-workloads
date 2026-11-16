@@ -1,0 +1,105 @@
+\section{Discussion}\label{s:discussion}
+
+The signature check worked when its reference held every declared workload. With no
+example of hidden training in its fit, $s_R$ flagged every hidden-training group, and it
+raised no alarm on test-day decode (\cref{s:works}). When the reference missed a declared
+workload, the check failed in one of two ways (\cref{s:monitoring}). A workload missing
+from both parts of the reference kept the monitor in alarm almost continuously while it
+ran. This failure was loud, so the verifier could see that something was wrong. A workload in
+the threshold set but not in the fit raised $\tau_\alpha$ and blinded the monitor. That
+monitor raised no more alarms on declared work than the working one, so the failure was
+silent. Such a workload could also mask a loud failure. Training in the reference also blinded the
+monitor. So a quiet monitor is no evidence of a working one. The signature check needs no examples of hidden
+training in its fit, but the verifier still needs them as positive controls, to test that
+the monitor works.
+
+\paragraph{Acquiring a reference and auditing the monitor.} The signature check is only as good as
+its reference. The reference is recorded on the monitored chip, where the operator
+controls the work. The verifier must therefore control how it is recorded.
+\begin{itemize}
+  \item \emph{Witness it.} Our reference recordings are our own honest runs. A real
+        verifier needs recordings during which the operator cannot train. Both parts of
+        the reference are targets. Training at a share of about $\alpha$ in the threshold
+        set takes detection of the unthrottled run to zero, and full fine-tuning at
+        \EfourShareHonest\% of the fit hides full fine-tuning (\cref{s:monitoring}).
+  \item \emph{Span sessions.} A reference from one session flags \SessOther\% of decode
+        from the other days (\cref{s:declaration}).
+  \item \emph{Test with held-out declared workloads, not only held-out attacks.} A
+        declared workload missing from the reference raises alarms
+        (\cref{s:declaration}), unless a workload in the threshold set but not in the
+        fit masks it (\cref{s:monitoring}).
+  \item \emph{Audit the monitor with positive controls that sit close to the
+        reference.} The silent monitor flags \TfourPosCtrl\% of honest training, so one
+        control run exposes it. But a monitor that flags a control can still miss other hidden work. At the share
+        of training in the threshold set that hides the unthrottled run, honest training
+        is still flagged (\cref{s:monitoring}). Honest training sits far from the
+        reference, so it cannot expose a raised threshold. A control must sit as close
+        to the reference as the hidden work it represents.
+\end{itemize}
+Anomaly detection is hard when normal behaviour is open-ended \citep{sommer2010}. An
+agreement can close it, by requiring the operator to declare every workload, so that
+anything else is an anomaly by rule. The reference then plays the role of the template in warhead verification, where
+the hard problem is to show that the template item is authentic \citep{yan2015}. A
+classifier fitted elsewhere, such as the hardened forest of \citet{gargiulo2026}, might
+screen recordings offered as declared work, but that forest also flags \GkHardPrefill\%
+of our declared prefill (\cref{s:missed}).
+
+\paragraph{What an alarm means.} An alarm from $s_R$ says only that the GPU ran work
+unlike its declaration. $s_R$ asks ``is this declared work?'', not ``is this
+training?''. Its score does not rank the work it flags, because co-location, honest
+training and non-AI work share one band (\cref{f:f7}). As a monitor it is in alarm for a fraction
+\ARoneBusy{} of the time on undeclared non-AI work, where the classifier, $s_C^{\mathrm{dev}}$, stays silent
+(\cref{t:t2}). Nor does an alarm show that a model was trained.
+% results/ceiling/s2.json: tests.r1.primary, rate_a = rate_b = 1.0
+The signature check flags every window of a run that discards every update, as it does
+for training that applies its updates. An alarm therefore works like an anomaly under
+nuclear safeguards~\citep[\S\S 11.24--11.26]{iaea2022glossary}. It opens an inquiry, in
+which the operator explains the departure or the verifier inspects. No conclusion is drawn until the
+operator has had the chance to explain~\citep[Art.~4.d]{iaea1997ap}. The false-alarm rate
+per hour sets how often the verifier must inquire, and so the cost of the regime
+(\cref{s:declaration}).
+
+\paragraph{Limits.}
+\begin{itemize}
+  \item \emph{Scale.} We use one model and one GPU, with one run per co-location share,
+        and we do not test one probe on several GPUs at once. Co-location is development
+        data from one session. The evasions did not adapt to the detector. Our corpus
+        has no diluted LoRA. The scale, the chip activity measured and the threat model
+        of \citet{scher2025} are wider than ours.
+  \item \emph{Code access.} \citet{scher2025} rely on temporary code access to
+        label the recordings, and to review the code after an alarm. We test neither.
+        Our reference recordings are our own honest runs, and we test only whether the
+        signal departs from them.
+  \item \emph{Hardware.} We test no transfer between chips. Every detector we fit,
+        the classifiers included, is fitted and scored on the GPU we monitor, and the
+        published forests of \citet{gargiulo2026} come from the same GPU model and probe
+        model. The default approach must transfer in practice, so our comparison
+        favours it. The signature check needs no transfer, but its reference must hold
+        across sessions.
+  \item \emph{Exposure.} The test day holds no prefill and only \ExpDecodeH~h of
+        declared decode, so the false-alarm bounds are loose, and declared prefill is a
+        risk we could not measure on held-out data.
+  \item \emph{Amplitude.} The unthrottled run draws a median AC RMS current of
+        \AcRmsUnpaced~A, against \AcRmsDecode~A for development decode, and the per-run interquartile ranges do not overlap. So
+        amplitude alone would separate this run from decode, and the run is not a hard
+        case for a detector that uses amplitude. Our features are amplitude-free and do
+        not use it. A harder test would match the amplitude of declared decode.
+  \item \emph{Design.} Our results depend on our split of the reference into a fit and
+        a threshold set (\cref{t:t7}), whereas \citet{scher2025} specify one baseline.
+        One short calibration run each of decode and idle sets $\tau_\alpha$
+        (\cref{t:corpus}). That idle run is unlike test idle, since $s_R$ flags
+        \RoneCalIdle\% of it but only \FprRoneIdle\% of test idle. Resampling whole calibration runs moves
+        $\tau_\alpha$ over [\TauRoneLo, \TauRoneHi].
+  \item \emph{Training data in view.} The signature check uses no training or evasion
+        examples in its reference, but three earlier choices drew on them. Its features
+        come from \citet{gargiulo2026}, who chose them to separate training from
+        inference. When we chose its design, we required each candidate to flag at least
+        \PosControlMin\% of honest-training windows from an unseen session. Every
+        candidate passed, so this requirement did not decide the choice. We also measured its detection on development data
+        before we scored any test data. Only its test false-positive rates and the monitor
+        results are held out.
+  \item \emph{Contamination.} We test contamination only in the exploratory checks of
+        \cref{s:monitoring}, with training drawn from our own runs.
+  \item \emph{Measurement chain.} Our measurement chain and that of \citet{gargiulo2026}
+        differ in sample rate, filtering and feature set (\cref{a:gk}).
+\end{itemize}

@@ -1,0 +1,84 @@
+{
+ "_note": "Fixed facts of the rig and protocol that no results script emits. Each value names its source; the paper's macros read them here (spec task 8.6). Not results.",
+ "probe": {
+  "model": "Micsig RCP120",
+  "sensitivity_mV_per_A": 50,
+  "band_lo_hz": 34,
+  "band_hi_mhz": 30,
+  "source": "datasheet figures, as in amodo-power-experiments spec §3 (never measured)"
+ },
+ "gpu": {
+  "name": "H200 NVL",
+  "count": 1,
+  "source": "amodo-power-experiments spec"
+ },
+ "model": {
+  "params_millions": 168,
+  "n_layer": 8,
+  "d_model": 1024,
+  "source": "amodo-power-experiments spec (one LM); dimensions are the LMSpec defaults in amodo code/workloads/model.py, a synthetic decoder-only transformer built in torch"
+ },
+ "sample_rate_sps": 199808,
+ "sample_rate_source": "amodo capture configuration; also the T5 chain note (spec §12, 2026-10-06)",
+ "envelope_frame_ms": 2,
+ "envelope_source": "amodo channel/envelope.py at 73ffebe (spec §3 measurement model)",
+ "r1_positive_control_min_pct": 99,
+ "r1_positive_control_source": "spec §3 check 6: R1's design candidates had to flag >= 99% of pure-training windows from a session R1 never saw",
+ "default_decision": 0.5,
+ "default_decision_source": "stage two's majority vote: code/detectors.py TwoStageForest.predict calls a window training iff stage one calls it AI and stage-two P(training) > 0.5, i.e. s_C > 0.5",
+ "colocation_share": {
+  "low": 0.25,
+  "mid": 0.5,
+  "high": 0.75,
+  "source": "commanded training share of the three concurrent runs; at 0.5 neither loop is paced (amodo spec/phases/05-workload-panel.md, amendment 2026-09-23)"
+ },
+ "gk": {
+  "rate_msps": 9.765625,
+  "decimated_ksps": 200,
+  "n_features": 30,
+  "accuracy": 0.97,
+  "macro_f1": 0.955,
+  "source": "Gargiulo & Kulp, arXiv 2609.00309, and the dataset README at revision bcd3f8dd",
+  "alias_khz": 10,
+  "alias_source": "spec §12 2026-10-09 and results/gk/t5.md: features above ~10 kHz differ (anti-alias FIR on G&K only)",
+  "trace_s": 5,
+  "trace_source": "Gargiulo & Kulp, arXiv 2609.00309: 930 genuine five-second traces, each one workload"
+ },
+ "harness_line_hz": 5,
+ "harness_line_source": "the ~200 ms harness modulation (notes/2026-10-01-5hz-line.md); line5hz_stage_a.json rule harness_hz",
+ "rt_window_s": [
+  5,
+  60
+ ],
+ "rt_window_source": "Rahman & Tajdari, arXiv 2606.19262 appendix A.3: 5, 15, 30 and 60 s sliding-window snapshots of NVML telemetry",
+ "chain_check": {
+  "train_var_frac_below_20khz": 0.99256,
+  "band_khz": 20,
+  "envelope_match_pct_vs_2msps": 0.3,
+  "capture_gb_per_h": 1.44,
+  "source": "amodo-power-experiments spec/spec.md at e17159d, tasks 3.4 (band fraction, envelope at 200 kS/s against a 2 MS/s reference) and 3.5 (capture budget)"
+ },
+ "digitiser": {
+  "model": "PicoScope 5464E",
+  "bits": 16,
+  "source": "amodo-power-experiments spec/spec.md §5 (instrument) and code/acquisition/ at 9679c88: streamed raw at the retained rate, no driver averaging and no anti-alias filter before the ADC"
+ },
+ "aliasing": {
+  "burst_rate_msps": 100,
+  "train_folded_pct": 0.32,
+  "idle_folded_ratio": 13.2,
+  "source": "amodo-power-experiments results/channel/out-of-band/out-of-band.json at 9679c88 (spec task 3.2): verdict.total_folded_fraction = 0.00324 (training) and verdict.idle_folded_fraction = 13.17, power above the 100 kHz retained Nyquist over in-band power, from 100 MS/s bursts, assuming zero rejection. The 20 kHz band fraction (chain_check) is from the same bursts (band-decomposition.json)"
+ },
+ "intervals": {
+  "block_windows": 12,
+  "block_s": 60,
+  "n_boot": 2000,
+  "episode_block": 4,
+  "onset_block_min": 10,
+  "source": "code/declaration.py BLOCK_WINDOWS, N_BOOT (circular block bootstrap of 5 s-hop windows; coverage.py and heldout.py reuse them); code/monitor.py EPISODE_BLOCK, N_BOOT_INTERVAL, ONSET_BLOCK = 600 windows of the 1 s hop. Thresholds are held fixed in every resample; code/monitor.py N_BOOT_BOUND and code/ceiling.py N_BOOT (10,000) for the episode lower bounds and the TOST interval",
+  "n_boot_bound": 10000
+ },
+ "repo_url": "https://github.com/tomkimpson/verifying-declared-ai-workloads",
+ "forest_trees": 500,
+ "forest_trees_source": "code/detectors.py FOREST_KWARGS and code/declaration.py IFOREST_KWARGS: n_estimators = 500, random_state = 0, scikit-learn defaults otherwise"
+}

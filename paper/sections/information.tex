@@ -1,0 +1,71 @@
+\subsection{The open questions, measured}\label{s:declaration}
+
+Our recordings bear on four questions that \citet{scher2025} leave open for the
+signature check: how stable the signature is over time, how often it raises an alarm,
+how finely workloads must be defined, and how specific the signature is.
+
+\paragraph{Stability over time.} The signature of decode stayed stable over the five days of recording. We recorded
+decode in \DecodeRuns{} runs over \DecodeSessions{} sessions, each on a different day.
+Three runs are in the reference of $s_R$, two in its fit and one in its threshold set.
+Across all \DecodeRuns{} runs, $s_R$ flags
+\DecodeFlagged{} of \DecodeWindows{} windows at $\tau_\alpha$, and each flagged window
+is the first window of its run. On the two test-day runs, which are outside the reference, its false-positive rate is
+\FprRoneDecode\%. Idle was less stable. $s_R$ flags \RoneCalIdle\% of calibration
+idle, but only \FprRoneIdle\% of test idle, recorded one day earlier. Because
+calibration idle scores above decode, it sets $\tau_\alpha$, and the false-positive rate on test
+decode stays well below $\alpha = \AlphaPct\%$.
+
+A reference recorded in one session holds less well. In an exploratory check, we
+fitted a reference to \SessRefWindows{} windows spread over about four minutes of one
+decode run, and repeated this for each of \SessRuns{} runs, one per day. Averaged over
+the three runs, this reference flags \SessOther\% of decode from the other days,
+against \SessSame\% of the rest of its own run. The two runs recorded to one protocol,
+two days apart, give \SessPair\% each way. This reference is far smaller than the
+reference of $s_R$, and it flags by a leave-one-out rule rather than $\tau_\alpha$, so
+the two do not compare directly. Still, the check suggests that a reference should span
+sessions, as the reference of $s_R$ does.
+
+\paragraph{Alarm frequency.} The alarm rate sets how often inspectors must investigate.
+On the test day, declared inference is decode only, and the
+monitors (\cref{s:monitor}) watch $E = \ExpDecodeH$~h of it (\cref{t:t2}):
+\begin{itemize}
+  \item $s_R$ raises no alarm: $F = \FRoneDecode$~h$^{-1}$ (95\% upper bound
+        \FupRoneDecode~h$^{-1}$), $A = \ARoneDecode$;
+  \item the classifier, $s_C^{\mathrm{dev}}$, raises $F = \FClfDecode$~h$^{-1}$ (upper bound
+        \FupClfDecode~h$^{-1}$), $A = \AClfDecode$.
+\end{itemize}
+This exposure is short, so these rates bound the alarm rate only loosely. On idle
+($E = \ExpIdleH$~h), both monitors stay near zero.
+
+\begin{table}[tp]
+  \centering
+  \footnotesize
+  \input{../figures/t2.tex}
+  \caption{False alarms on the test day, per background, with exposure $E$.
+    ``upper'': the 95\% upper bound on $F$, which assumes Poisson onsets. Overlapping
+    windows make onsets correlated, so this bound is approximate. The intervals on $A$
+    come from a block bootstrap (\cref{a:impl}). The test day holds no declared prefill. Non-AI work is undeclared, so $s_R$ is correct to alarm
+    on it.}
+  \label{t:t2}
+\end{table}
+
+\paragraph{Granularity.} The reference must hold each declared workload. When declared prefill
+is left out of the reference of $s_R$, $s_R$ flags \RonePrefillHoldout\% of it (one
+development run). This is expected, because prefill is limited by compute and decode
+by memory bandwidth, so the two load the GPU differently. With prefill
+in the fit, $s_R$ flags \PrefillInFitFlagged{} of \PrefillInFitN{} prefill windows.
+This rate is in-sample, because neither the calibration day nor the test day holds
+prefill. One fit can therefore hold decode, prefill and idle together. Each workload
+must be in the reference, but none needs a model of its own. A workload that is in the
+threshold set but not in the fit instead raises the threshold (\cref{s:monitoring}).
+
+\paragraph{Specificity.} The signature is specific, but by a thin margin. Under the complete reference, declared
+windows score from \DeclBandLo{} to \DeclBandHi{} on $s_R$, and co-location, honest
+training and non-AI windows from \HidBandLo{} to \HidBandHi{} (\cref{f:f7}). The two
+bands overlap only at the first window of each decode run. The hidden run that comes
+closest to declared work is the unthrottled co-location run. Its lowest score,
+\RoneUnpacedMin, is \RoneMargin{} above \TauRoneHi, the upper end of the 95\% interval
+of $\tau_\alpha$ under a bootstrap of the two calibration runs. With two runs, that end
+is the threshold that calibration idle alone would set. The signature check also
+does not fully separate this run from declared decode. Its AUC is \RoneAucDecode, and
+\RoneDecodeAboveMin\% of test decode windows score above the run's lowest score.

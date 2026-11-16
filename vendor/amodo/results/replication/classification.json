@@ -1,0 +1,3079 @@
+{
+  "generated_at": "2026-09-20T13:25:01.472602+00:00",
+  "generated_by": "scripts/classify_replication.py",
+  "spec_task": "4.3",
+  "provenance": {
+    "git_commit": "618ccd57e8b646bb74e39013804cf56ae52518b3",
+    "environment_lock_sha256": "b394404bdd220859e8e49d97666fb24c77fb37b8be5767ad19e4398dd77f8214",
+    "working_tree_modified_paths": []
+  },
+  "features_from": "results/replication/features.json",
+  "n_traces": 300,
+  "n_features": 25,
+  "n_groups": 5,
+  "split": "leave-one-group-out by group (configuration + non-AI type)",
+  "forest_kwargs": {
+    "n_estimators": 500,
+    "random_state": 0,
+    "n_jobs": -1
+  },
+  "gate_threshold_macro_f1": 0.85,
+  "kill_threshold_macro_f1": 0.6,
+  "verdict": "PASS",
+  "two_stage": {
+    "macro_f1": 0.9326599326599326,
+    "accuracy": 0.9333333333333333,
+    "per_class": {
+      "inference": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 100
+      },
+      "non-ai": {
+        "f1": 0.8888888888888888,
+        "precision": 1.0,
+        "recall": 0.8,
+        "support": 100
+      },
+      "training": {
+        "f1": 0.9090909090909091,
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "support": 100
+      }
+    },
+    "labels": [
+      "inference",
+      "non-ai",
+      "training"
+    ],
+    "confusion_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        80,
+        20
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "per_fold": [
+      {
+        "held_out_group": 0,
+        "n_test": 60,
+        "macro_f1": 0.5555555555555555,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "held_out_group": 1,
+        "n_test": 60,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "held_out_group": 2,
+        "n_test": 60,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "held_out_group": 3,
+        "n_test": 60,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "held_out_group": 4,
+        "n_test": 60,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      }
+    ],
+    "fold_classes": {
+      "0": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "1": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "2": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "3": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "4": [
+        "inference",
+        "non-ai",
+        "training"
+      ]
+    }
+  },
+  "single_stage": {
+    "macro_f1": 0.7712842712842712,
+    "accuracy": 0.8,
+    "per_class": {
+      "inference": {
+        "f1": 0.9090909090909091,
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "support": 100
+      },
+      "non-ai": {
+        "f1": 0.5714285714285714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "support": 100
+      },
+      "training": {
+        "f1": 0.8333333333333334,
+        "precision": 0.7142857142857143,
+        "recall": 1.0,
+        "support": 100
+      }
+    },
+    "labels": [
+      "inference",
+      "non-ai",
+      "training"
+    ],
+    "confusion_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        20,
+        40,
+        40
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "per_fold": [
+      {
+        "held_out_group": 0,
+        "n_test": 60,
+        "macro_f1": 0.5555555555555555,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "held_out_group": 1,
+        "n_test": 60,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "held_out_group": 2,
+        "n_test": 60,
+        "macro_f1": 0.5555555555555555,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "held_out_group": 3,
+        "n_test": 60,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      {
+        "held_out_group": 4,
+        "n_test": 60,
+        "macro_f1": 0.5555555555555555,
+        "accuracy": 0.6666666666666666
+      }
+    ],
+    "fold_classes": {
+      "0": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "1": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "2": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "3": [
+        "inference",
+        "non-ai",
+        "training"
+      ],
+      "4": [
+        "inference",
+        "non-ai",
+        "training"
+      ]
+    }
+  },
+  "ordering_controls": [
+    {
+      "variable": "absolute_host_monotonic_s",
+      "macro_f1": 0.27619047619047615,
+      "per_fold": [
+        0.16666666666666666,
+        0.16666666666666666,
+        0.18666666666666668,
+        0.24,
+        0.16666666666666666
+      ],
+      "can_see_a_repeating_within_group_drift": false
+    },
+    {
+      "variable": "seconds_since_group_start",
+      "macro_f1": 0.31969838844808046,
+      "per_fold": [
+        0.34820697044179744,
+        0.22308478691457415,
+        0.4492357907290588,
+        0.30402930402930406,
+        0.26824307144673276
+      ],
+      "can_see_a_repeating_within_group_drift": true
+    },
+    {
+      "variable": "rank_within_group",
+      "macro_f1": 0.2947876447876448,
+      "per_fold": [
+        0.31486090371107794,
+        0.22949929401542302,
+        0.3137679314149902,
+        0.34990780253938153,
+        0.2598410920919319
+      ],
+      "can_see_a_repeating_within_group_drift": true
+    }
+  ],
+  "nvml_only_control": {
+    "fields": [
+      "nvml_before.nvml_enforced_power_limit_w",
+      "nvml_before.nvml_mem_clock_mhz",
+      "nvml_before.nvml_memory_used_bytes",
+      "nvml_before.nvml_performance_state",
+      "nvml_before.nvml_power_w",
+      "nvml_before.nvml_sm_clock_mhz",
+      "nvml_before.nvml_temperature_c",
+      "nvml_before.nvml_throttle_reasons",
+      "nvml_before.nvml_utilization_gpu_pct",
+      "nvml_before.nvml_utilization_memory_pct",
+      "nvml_after.nvml_enforced_power_limit_w",
+      "nvml_after.nvml_mem_clock_mhz",
+      "nvml_after.nvml_memory_used_bytes",
+      "nvml_after.nvml_performance_state",
+      "nvml_after.nvml_power_w",
+      "nvml_after.nvml_sm_clock_mhz",
+      "nvml_after.nvml_temperature_c",
+      "nvml_after.nvml_throttle_reasons",
+      "nvml_after.nvml_utilization_gpu_pct",
+      "nvml_after.nvml_utilization_memory_pct",
+      "delta.nvml_enforced_power_limit_w",
+      "delta.nvml_mem_clock_mhz",
+      "delta.nvml_memory_used_bytes",
+      "delta.nvml_performance_state",
+      "delta.nvml_power_w",
+      "delta.nvml_sm_clock_mhz",
+      "delta.nvml_temperature_c",
+      "delta.nvml_throttle_reasons",
+      "delta.nvml_utilization_gpu_pct",
+      "delta.nvml_utilization_memory_pct"
+    ],
+    "macro_f1": 0.8545428072218986,
+    "per_fold": [
+      0.5243568691844555,
+      1.0,
+      1.0,
+      0.5555555555555555,
+      1.0
+    ],
+    "note": "the strongest construction available, not a subset: a high score here means the workloads differ in operating state, and does NOT bound the thermal content of the probe features"
+  },
+  "nvml_subset_sweep": [
+    {
+      "subset": "all fields, both ends and deltas",
+      "n_fields": 30,
+      "macro_f1": 0.8545428072218986
+    },
+    {
+      "subset": "power only",
+      "n_fields": 3,
+      "macro_f1": 0.8484222130356898
+    },
+    {
+      "subset": "temperature only",
+      "n_fields": 3,
+      "macro_f1": 0.5747347178356315
+    },
+    {
+      "subset": "power and temperature",
+      "n_fields": 6,
+      "macro_f1": 0.8357963875205255
+    },
+    {
+      "subset": "before the window only",
+      "n_fields": 10,
+      "macro_f1": 0.8348806366047746
+    },
+    {
+      "subset": "after the window only",
+      "n_fields": 10,
+      "macro_f1": 0.8545428072218986
+    },
+    {
+      "subset": "deltas only",
+      "n_fields": 10,
+      "macro_f1": 0.8829025810770617
+    }
+  ],
+  "capture_length_control": {
+    "macro_f1": 0.30575035063113604,
+    "per_fold": [
+      0.3904761904761904,
+      0.31478884213807073,
+      0.2380952380952381,
+      0.30439814814814814,
+      0.273015873015873
+    ],
+    "note": "does the number of retained samples predict the class? at or below the shuffle floor means no"
+  },
+  "composition_sensitivity": [
+    {
+      "dropped_non_ai_type": "fft",
+      "n_traces": 280,
+      "macro_f1": 0.9220779220779222,
+      "per_fold": [
+        0.5555555555555555,
+        1.0,
+        0.6666666666666666,
+        1.0,
+        1.0
+      ],
+      "fold_classes": {
+        "0": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "1": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "2": [
+          "inference",
+          "training"
+        ],
+        "3": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "4": [
+          "inference",
+          "non-ai",
+          "training"
+        ]
+      },
+      "passes_gate": true
+    },
+    {
+      "dropped_non_ai_type": "gemm",
+      "n_traces": 280,
+      "macro_f1": 0.9220779220779222,
+      "per_fold": [
+        0.6666666666666666,
+        1.0,
+        1.0,
+        0.5555555555555555,
+        1.0
+      ],
+      "fold_classes": {
+        "0": [
+          "inference",
+          "training"
+        ],
+        "1": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "2": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "3": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "4": [
+          "inference",
+          "non-ai",
+          "training"
+        ]
+      },
+      "passes_gate": true
+    },
+    {
+      "dropped_non_ai_type": "montecarlo",
+      "n_traces": 280,
+      "macro_f1": 0.9179660796249878,
+      "per_fold": [
+        0.5555555555555555,
+        1.0,
+        1.0,
+        0.9833229101521784,
+        0.6666666666666666
+      ],
+      "fold_classes": {
+        "0": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "1": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "2": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "3": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "4": [
+          "inference",
+          "training"
+        ]
+      },
+      "passes_gate": true
+    },
+    {
+      "dropped_non_ai_type": "sort",
+      "n_traces": 280,
+      "macro_f1": 0.7141414141414142,
+      "per_fold": [
+        0.5555555555555555,
+        0.5555555555555555,
+        1.0,
+        0.6666666666666666,
+        0.5555555555555555
+      ],
+      "fold_classes": {
+        "0": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "1": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "2": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "3": [
+          "inference",
+          "training"
+        ],
+        "4": [
+          "inference",
+          "non-ai",
+          "training"
+        ]
+      },
+      "passes_gate": false
+    },
+    {
+      "dropped_non_ai_type": "triad",
+      "n_traces": 280,
+      "macro_f1": 0.7141414141414142,
+      "per_fold": [
+        0.5555555555555555,
+        0.6666666666666666,
+        0.5555555555555555,
+        0.5555555555555555,
+        1.0
+      ],
+      "fold_classes": {
+        "0": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "1": [
+          "inference",
+          "training"
+        ],
+        "2": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "3": [
+          "inference",
+          "non-ai",
+          "training"
+        ],
+        "4": [
+          "inference",
+          "non-ai",
+          "training"
+        ]
+      },
+      "passes_gate": false
+    }
+  ],
+  "per_trace_predictions": [
+    {
+      "run_id": "rep-g0-inference-tiny-03",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-03",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-00",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-02",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-05",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-17",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-19",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-09",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-19",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-01",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-09",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-06",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-10",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-09",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-13",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-15",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-18",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-07",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-06",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-19",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-13",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-16",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-01",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-04",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-16",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-10",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-13",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-18",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-02",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-14",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-08",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-00",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-14",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-03",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-11",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-04",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-11",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-07",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-16",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-12",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-04",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-07",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-05",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-10",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-12",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-18",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-15",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-01",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-11",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-14",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-15",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-02",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-06",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-12",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-08",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-08",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-training-tiny-17",
+      "group": 0,
+      "subject": "tiny",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-05",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-non-ai-gemm-00",
+      "group": 0,
+      "subject": "gemm",
+      "true": "non-ai",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g0-inference-tiny-17",
+      "group": 0,
+      "subject": "tiny",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-01",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-03",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-02",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-11",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-training-small-07",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-06",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-08",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-10",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-training-small-16",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-06",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-06",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-03",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-17",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-12",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-19",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-00",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-18",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-08",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-09",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-inference-small-05",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-09",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-12",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-13",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-17",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-09",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-05",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-inference-small-14",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-15",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-16",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-inference-small-18",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-00",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-01",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-training-small-19",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-10",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-07",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-13",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-01",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-18",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-04",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-15",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-11",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-inference-small-16",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-19",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-03",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-inference-small-08",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-inference-small-07",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-14",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-inference-small-10",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-00",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-11",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-training-small-04",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-12",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-04",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-02",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-training-small-17",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-inference-small-13",
+      "group": 1,
+      "subject": "small",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-02",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-14",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g1-non-ai-triad-15",
+      "group": 1,
+      "subject": "triad",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g1-training-small-05",
+      "group": 1,
+      "subject": "small",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-12",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-17",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-06",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-02",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-05",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-13",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-09",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-07",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-16",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-19",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-11",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-18",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-18",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-04",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-13",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-14",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-08",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-02",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-04",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-13",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-03",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-01",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-06",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-08",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-08",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-06",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-training-wide-02",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-training-wide-12",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-17",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-07",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-10",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-training-wide-14",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-training-wide-18",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-15",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-01",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-16",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-05",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-14",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-04",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-05",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-00",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-19",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-17",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-19",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-11",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-03",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-00",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-10",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-01",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-15",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-07",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-10",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-00",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-training-wide-11",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-03",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-12",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-16",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g2-non-ai-fft-15",
+      "group": 2,
+      "subject": "fft",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-inference-wide-09",
+      "group": 2,
+      "subject": "wide",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g2-training-wide-09",
+      "group": 2,
+      "subject": "wide",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-11",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-00",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-14",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-14",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-05",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-training-deep-12",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-training-deep-01",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-16",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-07",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-17",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-17",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-02",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-10",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-00",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-training-deep-17",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-09",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-04",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-19",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-07",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-15",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-00",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-10",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-03",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-11",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-training-deep-09",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-10",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-05",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-05",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-training-deep-08",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-06",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-16",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-training-deep-14",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-training-deep-04",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-08",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-07",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-11",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-12",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-19",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-13",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-18",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-15",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-02",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-19",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-04",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-03",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-01",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-08",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-training-deep-03",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-12",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-18",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-06",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-18",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-training-deep-13",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-training-deep-02",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-09",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-training-deep-06",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-non-ai-sort-15",
+      "group": 3,
+      "subject": "sort",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "non-ai"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-13",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g3-training-deep-16",
+      "group": 3,
+      "subject": "deep",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g3-inference-deep-01",
+      "group": 3,
+      "subject": "deep",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-16",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-06",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-18",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-10",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-01",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-02",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-10",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-03",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-17",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-16",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-11",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-00",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-training-long-01",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-15",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-18",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-15",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-12",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-07",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-10",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-19",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-00",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-18",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-03",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-14",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-13",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-05",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-04",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-13",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-05",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-08",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-19",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-11",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-13",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-15",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-07",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-12",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-05",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-16",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-00",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-17",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-14",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-training-long-06",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-12",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-01",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-09",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-training-long-11",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-04",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-training-long-09",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-14",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-07",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-06",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-19",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-02",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-17",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-inference-long-09",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-training-long-02",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-04",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-inference-long-08",
+      "group": 4,
+      "subject": "long",
+      "true": "inference",
+      "two_stage": "inference",
+      "single_stage": "inference"
+    },
+    {
+      "run_id": "rep-g4-training-long-03",
+      "group": 4,
+      "subject": "long",
+      "true": "training",
+      "two_stage": "training",
+      "single_stage": "training"
+    },
+    {
+      "run_id": "rep-g4-non-ai-montecarlo-08",
+      "group": 4,
+      "subject": "montecarlo",
+      "true": "non-ai",
+      "two_stage": "non-ai",
+      "single_stage": "training"
+    }
+  ],
+  "throttle_exclusion": {
+    "n_throttled": 0,
+    "note": "no trace hit a clocks limit"
+  },
+  "label_shuffle_control": {
+    "n_shuffles": 5,
+    "macro_f1": [
+      0.30268617699697953,
+      0.31765888357457617,
+      0.35950091864042727,
+      0.3217993716910055,
+      0.3016519291561736
+    ],
+    "mean_macro_f1": 0.32065945601183243,
+    "max_macro_f1": 0.35950091864042727
+  },
+  "feature_importances": [
+    {
+      "feature": "env_p10_over_p50",
+      "importance": 0.15077425612406103
+    },
+    {
+      "feature": "env_ac_peak",
+      "importance": 0.14781874029266218
+    },
+    {
+      "feature": "env_spec_flatness",
+      "importance": 0.0947200059090114
+    },
+    {
+      "feature": "env_iqr_over_median",
+      "importance": 0.08581087647405179
+    },
+    {
+      "feature": "env_frac_0p5_2hz",
+      "importance": 0.0762702233306725
+    },
+    {
+      "feature": "env_p99_over_p50",
+      "importance": 0.058264798259672686
+    },
+    {
+      "feature": "wav_frac_50_100khz",
+      "importance": 0.05668049164791745
+    },
+    {
+      "feature": "wav_frac_34_100hz",
+      "importance": 0.05241847364094903
+    },
+    {
+      "feature": "env_frac_2_10hz",
+      "importance": 0.03690264675660185
+    },
+    {
+      "feature": "env_skew",
+      "importance": 0.03421708376846192
+    },
+    {
+      "feature": "env_ac_peak_lag_s",
+      "importance": 0.026650640955931573
+    },
+    {
+      "feature": "env_cv",
+      "importance": 0.024187940650358307
+    },
+    {
+      "feature": "wav_spec_centroid_hz",
+      "importance": 0.02402665601583305
+    },
+    {
+      "feature": "wav_spec_rolloff95_hz",
+      "importance": 0.019292011931537324
+    },
+    {
+      "feature": "env_kurtosis",
+      "importance": 0.013777284283139287
+    },
+    {
+      "feature": "wav_frac_100hz_1khz",
+      "importance": 0.013585096410968188
+    },
+    {
+      "feature": "env_frac_10_50hz",
+      "importance": 0.012468449154791759
+    },
+    {
+      "feature": "wav_frac_20_50khz",
+      "importance": 0.01224780484155619
+    },
+    {
+      "feature": "wav_frac_1_10khz",
+      "importance": 0.01134114218455993
+    },
+    {
+      "feature": "env_frac_50_150hz",
+      "importance": 0.010886372524879737
+    },
+    {
+      "feature": "env_p90_over_p50",
+      "importance": 0.010677316456393684
+    },
+    {
+      "feature": "env_ac_lag1",
+      "importance": 0.010425017705589847
+    },
+    {
+      "feature": "wav_spec_flatness",
+      "importance": 0.009177939508961794
+    },
+    {
+      "feature": "env_frac_150_250hz",
+      "importance": 0.004432127893511079
+    },
+    {
+      "feature": "wav_frac_10_20khz",
+      "importance": 0.002946603277926378
+    }
+  ]
+}

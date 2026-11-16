@@ -1,0 +1,86 @@
+{
+ "generated_by": "scripts/limits_ac_rms.py",
+ "spec_task": "13.2",
+ "preregistered": false,
+ "generated_at": "2026-11-12T23:50:37+00:00",
+ "repo_commit": "501d02cd52b22b8fae6125f1026c92ed3918dc84",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "windows": {
+  "development": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  },
+  "calibration": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  }
+ },
+ "splits_read": [
+  "development",
+  "calibration"
+ ],
+ "quantity": "ac_rms_a: AC RMS current (A) over each window; the probe has no DC response",
+ "notes": [
+  "exploratory, descriptive (spec 13.2); a disclosure for the Limits",
+  "the unpaced run is scored on its training windows; decode on all windows",
+  "runs come from different sessions; probe gain may not be comparable across sessions, and re-clamping between sessions is unchecked",
+  "the calibration decode run is listed as context; the spec's comparison is development decode"
+ ],
+ "unpaced_run": "panel-mixture-concurrent-0p5",
+ "development_decode_runs": [
+  "panel-serving-decode",
+  "panel-core-serving-decode-r1"
+ ],
+ "calibration_decode_runs": [
+  "panel-core-serving-decode-r4"
+ ],
+ "runs": {
+  "panel-mixture-concurrent-0p5": {
+   "session": "2026-09-22",
+   "split": "development",
+   "condition": "mixture-concurrent-0p5",
+   "n_windows": 170,
+   "median_a": 10.410032742208474,
+   "q25_a": 10.40463329249877,
+   "q75_a": 10.423173246575855
+  },
+  "panel-serving-decode": {
+   "session": "2026-09-21",
+   "split": "development",
+   "condition": "serving-decode",
+   "n_windows": 170,
+   "median_a": 5.31805671768922,
+   "q25_a": 5.313611954499946,
+   "q75_a": 5.321804673586913
+  },
+  "panel-core-serving-decode-r1": {
+   "session": "2026-09-23",
+   "split": "development",
+   "condition": "serving-decode",
+   "n_windows": 170,
+   "median_a": 5.253616561399946,
+   "q25_a": 5.249796525779809,
+   "q75_a": 5.257719896455046
+  },
+  "panel-core-serving-decode-r4": {
+   "session": "2026-09-25",
+   "split": "calibration",
+   "condition": "serving-decode",
+   "n_windows": 170,
+   "median_a": 5.261998431270733,
+   "q25_a": 5.257827129555871,
+   "q75_a": 5.26557845186143
+  }
+ },
+ "ratio_unpaced_over_decode": {
+  "panel-serving-decode": 1.9574881004149571,
+  "panel-core-serving-decode-r1": 1.9814983869767766,
+  "panel-core-serving-decode-r4": 1.9783420459314978
+ },
+ "ratio_unpaced_over_dev_decode_range": [
+  1.9574881004149571,
+  1.9814983869767766
+ ]
+}

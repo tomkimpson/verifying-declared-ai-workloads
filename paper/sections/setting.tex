@@ -1,0 +1,132 @@
+\section{Methods}\label{s:setting}
+
+\subsection{Threat model}\label{s:threat}
+The verifier owns the probe. From the GPU it receives only the probe's trace, and from
+the operator only the declaration. It also holds recordings of the declared work, made
+during runs that it observes or controls.
+The operator controls the software on the GPU, cannot touch the probe, and may hide
+training by the strategies of \cref{s:corpus}. We do not test an operator who adapts to
+the detector.
+
+\subsection{Channel}
+A single \GPU{} runs every workload. A verifier-owned Rogowski current probe (\Probe{},
+\ProbeSens{}~mV/A, \ProbeLo{}~Hz to \ProbeHi{}~MHz) is clamped to the GPU's auxiliary supply. We
+sample at \Fs{}~S/s with a \DigBits-bit \Digitiser{} and no anti-alias filter.
+\Cref{a:impl} bounds the variance that folds into the band. The probe is AC-coupled. It has no DC response, and there is no
+voltage channel. We therefore measure current, not power.
+
+\subsection{Corpus}\label{s:corpus}
+We use \NCaptures{} captures with \CorpusHours{}~h of current from a public
+corpus \citep{kimpson2026corpus}, all from one
+language model: a decoder-only transformer of \ModelLayers{} layers and width
+\ModelWidth, with \ModelParams{}M parameters, built directly in PyTorch. Captures fall into workload groups:
+\begin{itemize}
+  \item \emph{honest training}: full fine-tuning and LoRA. Some full fine-tuning runs add
+        checkpoint evaluation or a copying control, or discard every update;
+  \item \emph{time-sharing}: training and inference alternate in slots;
+  \item \emph{co-location}: training and inference run as two resident processes,
+        and the driver time-slices them. Each run sets a target training share
+        $\rho \in \{\RhoLo, \RhoMid, \RhoHi\}$, one run each. At $\rho = \RhoLo$
+        and $\RhoHi$ one process pauses between steps to hold the share; we call
+        these runs \emph{throttled}. At
+        $\rho = \RhoMid$ neither process pauses, and the driver alone sets the share.
+        We call this run \emph{unthrottled};
+  \item \emph{jitter}, \emph{padding} and \emph{power cap}: training with
+        perturbed step timing or a lowered power limit;
+  \item \emph{declared work}, the workloads of the declaration: serving decode
+        (generating tokens), serving prefill (reading prompts) and idle;
+  \item \emph{non-AI work}: dense GEMM, memory-bound kernels and periodic decoys.
+\end{itemize}
+Time-sharing, co-location, jitter, padding and power cap are the \emph{evasion groups}.
+We split the captures by whole days, so that no run spans two splits.
+$\mathcal{D}_{\mathrm{dev}}$ holds every day before the test day,
+$\mathcal{D}_{\mathrm{test}}$ the test day, and $\mathcal{D}_{\mathrm{cal}}$ the
+calibration day after it. Co-location exists only in
+$\mathcal{D}_{\mathrm{dev}}$. \Cref{t:corpus} counts runs, hours and windows per
+workload and split.
+
+Earlier studies use short recordings: \citet{gargiulo2026} record \GkTraceS{}-s traces
+at about \GkRateApprox{}~MS/s, one workload each, and \citet{rahman2026} use NVML
+windows of \RtWinLo{} to \RtWinHi{}~s. We record continuous hours at \Fs{}~S/s. A
+verifier watches a GPU for hours, and an evasion can start and stop inside a recording
+of declared work, so only continuous recordings let us test detectors as monitors
+(\cref{s:works}).
+
+\subsection{Windows and features}
+A window $x$ is \Win{}~s of trace. The hop between consecutive windows is \HopSnap{}~s
+for window-level results and \HopMon{}~s for the monitor. We define a window as
+\emph{training} iff it holds at least one
+complete optimizer step, following \citet{gargiulo2026}. Windows with only part
+of a step are left out of detection rates. Each window gives \NFeat{} amplitude-free
+features, adapted from \citet{gargiulo2026}, of the raw spectrum and of the envelope
+$e(t)$, the RMS of the raw trace over \EnvFrame{}~ms frames.
+
+\subsection{Detectors}\label{s:detectors}
+Each detector assigns a score $s(x)$ to a window $x$. Our detectors follow the two
+approaches of \citet{scher2025}.
+
+The \emph{signature check} $s_R$ is an isolation
+forest~\citep{liu2008}. It is fitted to the declared windows of
+$\mathcal{D}_{\mathrm{dev}}$ only: decode, prefill and idle. Its score is the negated isolation score, so a high $s_R$ means ``unlike the
+declaration''. It never sees training, evasion or non-AI work.
+
+The \emph{classifier} is the two-stage random forest of \citet{gargiulo2026}, with
+\ForestTrees{} trees per stage (settings in \cref{a:impl}). It learns from labelled examples of
+training, so it stands for the default approach, even where it is fitted to this GPU and
+its declared work. Stage one separates AI from non-AI
+work. Stage two then separates training from inference in the windows that stage one
+calls AI.
+The classifier's score is
+\begin{equation}
+  s_C(x) = \begin{cases}
+    \hat P(\text{training} \mid x, \text{AI}) & \text{stage one calls } x \text{ AI},\\
+    0 & \text{otherwise}.
+  \end{cases}
+\end{equation}
+We fit the classifier in three ways:
+\begin{itemize}
+  \item $s_C^{\mathrm{dev}}$ is fitted to $\mathcal{D}_{\mathrm{dev}}$ only. To test each
+        evasion as unseen, we hold its group out of the fit, so there is one fit per
+        evasion group; each group is scored by the fit that holds it out.
+        ``The classifier'' means $s_C^{\mathrm{dev}}$. Its window-level $\tau_\alpha$
+        and false-positive rates come from the fit that holds out co-location, and the
+        monitor uses the fit that holds out time-sharing (\cref{s:monitor});
+  \item the \emph{no-evasion fit} is $s_C^{\mathrm{dev}}$ with every evasion group
+        removed;
+  \item the \emph{replica} is fitted to \NRepTraces{} traces
+        recorded following the design of \citet{gargiulo2026}, where it reaches
+        macro-$F_1 = \SoneFone$ under leave-one-group-out.
+\end{itemize}
+$s_C^{\mathrm{dev}}$ and the no-evasion fit are fitted to our corpus, so the declared
+work is among their examples of work that is not training. The replica is fitted to
+none of the \NCaptures{} captures of \cref{s:corpus}: its traces, one workload each, were recorded separately on the
+same GPU and probe.
+
+\subsection{Thresholds}
+A detector flags $x$ iff $s(x) > \tau_\alpha$, with
+\begin{equation}\label{e:tau}
+  \tau_\alpha = Q_{1-\alpha}\bigl\{ s(x) : x \in \mathcal{D}_{\mathrm{cal}}^{\mathrm{decl}} \bigr\}, \quad \alpha = \Alpha.
+\end{equation}
+$Q_{1-\alpha}$ is the empirical quantile, with linear interpolation, and
+$\mathcal{D}_{\mathrm{cal}}^{\mathrm{decl}}$ is the declared windows of
+$\mathcal{D}_{\mathrm{cal}}$, one decode run and one idle run of equal length. $s_R$ and every
+classifier fit use the same $\tau_\alpha$ rule. For a set $W$ of
+training windows, detection is
+$d = |W|^{-1} \sum_{x \in W} \mathbb{I}[s(x) > \tau_\alpha]$. The false-positive rate
+is $d$ with $W$ the declared windows of $\mathcal{D}_{\mathrm{test}}$.
+
+For $s_R$, $\tau_\alpha$ is our choice of rule for what \citet{scher2025} call
+``sufficiently close to the baseline''. They
+specify one baseline, whereas we use two separate recordings of declared work: the fit
+($\mathcal{D}_{\mathrm{dev}}$) and the threshold set
+($\mathcal{D}_{\mathrm{cal}}^{\mathrm{decl}}$). Together they form the \emph{reference} of
+$s_R$. We tested no other rule. We varied only $\alpha$ (\cref{s:works}).
+
+\subsection{Monitor}\label{s:monitor}
+We run each detector over the test day as a monitor (\cref{f:f8}). This represents a verifier that
+observes the current trace continuously. The verifier does not raise an alarm on a
+single flagged window. Instead, an alarm starts when 3 of 5 consecutive windows are
+flagged, and ends after \Rearm{} unflagged windows in a row;
+\cref{s:works} varies this rule. We describe false
+alarms by two numbers: $F$, the alarm onsets per monitored hour, and $A$, the fraction
+of time in alarm.

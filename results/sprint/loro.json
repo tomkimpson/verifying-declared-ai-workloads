@@ -1,0 +1,82 @@
+{
+ "panel-mixture-concurrent-0p25": {
+  "all-other-runs": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 1.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 1.0
+  }
+ },
+ "panel-mixture-concurrent-0p5": {
+  "all-other-runs": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 1.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 0.0
+  }
+ },
+ "panel-mixture-concurrent-0p75": {
+  "all-other-runs": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 1.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 0.0
+  }
+ },
+ "panel-cadence-jitter-0p4": {
+  "all-other-runs": {
+   "truth_positive_rate": 0.8809523809523809,
+   "predicted_positive_rate": 0.881
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 0.8809523809523809,
+   "predicted_positive_rate": 0.881
+  }
+ },
+ "panel-serving-decode": {
+  "all-other-runs": {
+   "truth_positive_rate": 0.0,
+   "predicted_positive_rate": 0.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 0.0,
+   "predicted_positive_rate": 0.0
+  }
+ },
+ "panel-core-serving-decode-r1": {
+  "all-other-runs": {
+   "truth_positive_rate": 0.0,
+   "predicted_positive_rate": 0.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 0.0,
+   "predicted_positive_rate": 0.0
+  }
+ },
+ "panel-core-steady-gemm-r1": {
+  "all-other-runs": {
+   "truth_positive_rate": 0.0,
+   "predicted_positive_rate": 0.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 0.0,
+   "predicted_positive_rate": 0.0
+  }
+ },
+ "panel-training-arm2": {
+  "all-other-runs": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 1.0
+  },
+  "no-concurrent": {
+   "truth_positive_rate": 1.0,
+   "predicted_positive_rate": 1.0
+  }
+ }
+}

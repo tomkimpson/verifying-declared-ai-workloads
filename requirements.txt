@@ -1,0 +1,6 @@
+# Laptop environment (Python 3.13.12, miniconda), spec §5.
+numpy==2.4.4
+scipy==1.17.1
+scikit-learn==1.7.1
+pytest==9.1.1
+matplotlib==3.10.9

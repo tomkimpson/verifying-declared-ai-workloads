@@ -1,0 +1,77 @@
+{
+ "generated_by": "scripts/table_t3.py",
+ "spec_task": "8.5",
+ "source": {
+  "repo": "amodo-power-experiments",
+  "path": "results/replication/classification.json",
+  "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+  "sha256": "60b1ecc621719030d7b739ddcc604d84381304edfcb9bdeb112abc6b5a81eea9"
+ },
+ "n_traces": 300,
+ "n_features": 25,
+ "n_groups": 5,
+ "split": "leave-one-group-out by group (configuration + non-AI type)",
+ "forest_kwargs": {
+  "n_estimators": 500,
+  "random_state": 0,
+  "n_jobs": -1
+ },
+ "two_stage": {
+  "macro_f1": 0.9326599326599326,
+  "accuracy": 0.9333333333333333,
+  "per_class": {
+   "inference": {
+    "f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "support": 100
+   },
+   "non-ai": {
+    "f1": 0.8888888888888888,
+    "precision": 1.0,
+    "recall": 0.8,
+    "support": 100
+   },
+   "training": {
+    "f1": 0.9090909090909091,
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "support": 100
+   }
+  },
+  "labels": [
+   "inference",
+   "non-ai",
+   "training"
+  ],
+  "confusion_matrix": [
+   [
+    100,
+    0,
+    0
+   ],
+   [
+    0,
+    80,
+    20
+   ],
+   [
+    0,
+    0,
+    100
+   ]
+  ]
+ },
+ "label_shuffle_control": {
+  "n_shuffles": 5,
+  "macro_f1": [
+   0.30268617699697953,
+   0.31765888357457617,
+   0.35950091864042727,
+   0.3217993716910055,
+   0.3016519291561736
+  ],
+  "mean_macro_f1": 0.32065945601183243,
+  "max_macro_f1": 0.35950091864042727
+ }
+}

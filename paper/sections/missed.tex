@@ -1,0 +1,50 @@
+\subsection{Against the default approach}\label{s:missed}
+
+A classifier, like the signature check, works only if its fit covers the declared work.
+\Cref{t:t6} sets $s_R$ beside the three classifier fits. It lists what each detector
+learns from, its detection of the unthrottled co-location run at $\tau_\alpha$, and its
+false-positive rate on test decode.
+
+\begin{table*}[!tp]
+  \centering
+  \small
+  \input{../figures/t6.tex}
+  \caption{The data each detector learns from, its detection of the unthrottled run at
+    $\tau_\alpha$, and its false-positive rate on test decode. ``pub.'': traces recorded
+    on the same GPU and probe to the published design, not among the \NCaptures{}
+    captures of \cref{s:corpus}. An alarm of $s_R$ means ``undeclared''; an alarm of a
+    classifier means ``training''. The rows for the replica and the no-evasion fit are
+    exploratory.}
+  \label{t:t6}
+\end{table*}
+
+At its $\tau_\alpha$, the classifier, $s_C^{\mathrm{dev}}$, does nearly as well as $s_R$.
+It detects $\Xprime\%$ of co-location, and every window of every other group except
+jitter, where its weakest run is detected at \ClfJitterWorst\%. It stands for the
+default approach because it learns from examples of training. But it is fitted on the
+monitored GPU, declared work included, as the signature check is, so it needs no
+transfer between chips. It is therefore the most favourable case of the default
+approach. Even without evasion examples, as in the no-evasion fit, a classifier
+needs examples of honest training, whereas $s_R$ needs only recordings of the declared
+work.
+
+The threshold of $s_C^{\mathrm{dev}}$ is also fragile. The classifier scores
+\FracCalZero\% of calibration declared windows exactly zero, so
+$\tau_\alpha = \TauClf$. It then flags any window that stage one calls AI and that even
+one of its \ForestTrees{} stage-two trees votes as training. Small changes in declared
+work could therefore shift its flags.
+
+A classifier gives no guarantee on a declared workload that its fit has not seen. The
+replica, fitted to traces recorded to the published design, detects only
+\XzeroPrime\% of the unthrottled run at its $\tau_\alpha$, and flags \RepPrefill\% of
+development prefill. $s_C^{\mathrm{dev}}$, which has development prefill in its fit,
+flags \ClfDevPrefill\% of it. \citet{gargiulo2026} publish two forests fitted to their
+own corpus: a genuine forest, fitted to their training, inference and non-AI traces,
+and a hardened forest, which adds their adversarial traces. The two disagree on our
+windows (\cref{t:t5}). At their default threshold of \DefaultDecision, the hardened
+forest catches all three co-location runs, but it flags \GkHardPrefill\% of declared
+prefill windows as training. The genuine forest flags only \GkGenPrefill\% of prefill,
+but it misses the unthrottled run ($\GkGenMiss\%$). Nothing in either fit tells the
+verifier which outcome to expect. The replica's traces differ from ours in workload
+design and session, so its results do not rank the signature check against the default
+approach.

@@ -1,0 +1,96 @@
+{
+ "generated_by": "scripts/gk_own_check.py",
+ "generated_at": "2026-10-09T02:57:51+00:00",
+ "spec_task": "7.4",
+ "repo_commit": "3037d125707f5ad8a2aecaab92ef658601bc3f3a",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "features_generated_at": "2026-10-09T02:14:02+00:00",
+ "n_traces": 930,
+ "class_counts": {
+  "inference": 170,
+  "non-ai": 250,
+  "training": 510
+ },
+ "n_groups": 42,
+ "forest": {
+  "n_estimators": 500,
+  "random_state": [
+   0,
+   1
+  ],
+  "n_jobs": -1
+ },
+ "runs": [
+  {
+   "fold_seed": 0,
+   "forest_seed": 0,
+   "macro_f1": 0.9453008085568966,
+   "accuracy": 0.9580645161290322
+  },
+  {
+   "fold_seed": 0,
+   "forest_seed": 1,
+   "macro_f1": 0.9309122081826295,
+   "accuracy": 0.9483870967741935
+  },
+  {
+   "fold_seed": 1,
+   "forest_seed": 0,
+   "macro_f1": 0.8579514405039994,
+   "accuracy": 0.8774193548387097
+  },
+  {
+   "fold_seed": 1,
+   "forest_seed": 1,
+   "macro_f1": 0.8448701453925255,
+   "accuracy": 0.8688172043010752
+  },
+  {
+   "fold_seed": 2,
+   "forest_seed": 0,
+   "macro_f1": 0.870300908118241,
+   "accuracy": 0.8946236559139785
+  },
+  {
+   "fold_seed": 2,
+   "forest_seed": 1,
+   "macro_f1": 0.8728164420472112,
+   "accuracy": 0.896774193548387
+  },
+  {
+   "fold_seed": 3,
+   "forest_seed": 0,
+   "macro_f1": 0.9011802952061495,
+   "accuracy": 0.9096774193548387
+  },
+  {
+   "fold_seed": 3,
+   "forest_seed": 1,
+   "macro_f1": 0.9053176930596285,
+   "accuracy": 0.9139784946236559
+  }
+ ],
+ "macro_f1_mean": 0.89108124263341,
+ "macro_f1_range": [
+  0.8448701453925255,
+  0.9453008085568966
+ ],
+ "accuracy_mean": 0.9084677419354839,
+ "accuracy_range": [
+  0.8688172043010752,
+  0.9580645161290322
+ ],
+ "negative_control": {
+  "label_permutation_seed": 0,
+  "fold_seed": 0,
+  "forest_seed": 0,
+  "macro_f1": 0.30583586661784645,
+  "accuracy": 0.5010752688172043,
+  "failed": true
+ },
+ "gk_reported": {
+  "accuracy": 0.97,
+  "macro_f1": 0.955,
+  "protocol": "five-fold CV grouped by family, shuffled, averaged over four splits and two seeds; 30 features at 10 MHz (dataset README)"
+ }
+}

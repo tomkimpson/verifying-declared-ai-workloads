@@ -1,0 +1,127 @@
+{
+ "generated_by": "scripts/plot_f6_operating_point.py",
+ "source": "results/heldout/operating_point.json",
+ "source_repo_commit": "1d2e0a2b5cbed538b19bbeea8a6406ee93eeb47f",
+ "annotated": {
+  "classifier": {
+   "tau_d": 0.5,
+   "tau_alpha": 0.0,
+   "auc_unpaced_vs_test_declared": 1.0,
+   "auc_unpaced_vs_test_decode": 1.0,
+   "percent_above_tau_d_tau_alpha": {
+    "idle (dev)": [
+     "0",
+     "0"
+    ],
+    "decode (dev)": [
+     "0",
+     "1.5"
+    ],
+    "prefill (dev)": [
+     "0",
+     "4"
+    ],
+    "idle (test)": [
+     "0",
+     "0"
+    ],
+    "decode (test)": [
+     "0",
+     "1.5"
+    ],
+    "$\\rho$ = 0.25": [
+     "100",
+     "100"
+    ],
+    "$\\rho$ = 0.5, unthrottled": [
+     "0",
+     "100"
+    ],
+    "$\\rho$ = 0.75": [
+     "100",
+     "100"
+    ]
+   }
+  },
+  "no_evasion": {
+   "tau_d": 0.5,
+   "tau_alpha": 0.0,
+   "auc_unpaced_vs_test_declared": 1.0,
+   "auc_unpaced_vs_test_decode": 1.0,
+   "percent_above_tau_d_tau_alpha": {
+    "idle (dev)": [
+     "0",
+     "0"
+    ],
+    "decode (dev)": [
+     "0",
+     "2"
+    ],
+    "prefill (dev)": [
+     "0",
+     "3"
+    ],
+    "idle (test)": [
+     "0",
+     "0"
+    ],
+    "decode (test)": [
+     "0",
+     "5"
+    ],
+    "$\\rho$ = 0.25": [
+     "38",
+     "100"
+    ],
+    "$\\rho$ = 0.5, unthrottled": [
+     "0",
+     "100"
+    ],
+    "$\\rho$ = 0.75": [
+     "100",
+     "100"
+    ]
+   }
+  },
+  "replica": {
+   "tau_d": 0.5,
+   "tau_alpha": 0.0,
+   "auc_unpaced_vs_test_declared": 0.503,
+   "auc_unpaced_vs_test_decode": 0.503,
+   "percent_above_tau_d_tau_alpha": {
+    "idle (dev)": [
+     "0",
+     "0"
+    ],
+    "decode (dev)": [
+     "0",
+     "0"
+    ],
+    "prefill (dev)": [
+     "0",
+     "100"
+    ],
+    "idle (test)": [
+     "0",
+     "0"
+    ],
+    "decode (test)": [
+     "0",
+     "0"
+    ],
+    "$\\rho$ = 0.25": [
+     "36",
+     "100"
+    ],
+    "$\\rho$ = 0.5, unthrottled": [
+     "0.6",
+     "0.6"
+    ],
+    "$\\rho$ = 0.75": [
+     "100",
+     "100"
+    ]
+   }
+  }
+ }
+}

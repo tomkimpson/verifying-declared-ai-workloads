@@ -1,0 +1,300 @@
+{
+ "generated_by": "scripts/h1_5hz_stage_a.py",
+ "generated_at": "2026-10-03T04:39:56+00:00",
+ "repo_commit": "a7d44406e2babe2d8348f84840d5a753055f5404",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "rule": {
+  "harness_hz": 5.0,
+  "absent_below_snr": 5.0,
+  "search_hz": 0.02,
+  "guard_hz": 0.05,
+  "noise_half_width_hz": 0.5,
+  "missed_run": "panel-mixture-concurrent-0p5",
+  "serving_runs": [
+   "panel-serving-decode",
+   "panel-core-serving-decode-r1"
+  ]
+ },
+ "missed_run_line_absent": false,
+ "serving_carries_line": true,
+ "verdict": "Stage B due: the rejection rule does not hold",
+ "runs": {
+  "panel-mixture-concurrent-0p25": {
+   "condition": "mixture-concurrent-0p25",
+   "intervals": [
+    {
+     "t0_s": 18.9427726208,
+     "t1_s": 195.7726326717527,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.82986005095268,
+     "harness_snr": 31.146341205299258,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 239.35216467884402,
+     "micro_step_peak_hz": 5.228745053186442
+    },
+    {
+     "t0_s": 198.94293704959998,
+     "t1_s": 375.76932432449024,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.82638727489027,
+     "harness_snr": 50.61150293285213,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 587.9993012549171,
+     "micro_step_peak_hz": 5.224934014517938
+    },
+    {
+     "t0_s": 378.9431915648,
+     "t1_s": 555.7027704837458,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.7595789189458,
+     "harness_snr": 33.995359387623445,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 332.59587163023605,
+     "micro_step_peak_hz": 5.224934014517938
+    },
+    {
+     "t0_s": 558.9434210559999,
+     "t1_s": 735.8069699746428,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.8635489186429,
+     "harness_snr": 31.08090033636269,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 426.61583781491066,
+     "micro_step_peak_hz": 5.224934014517938
+    },
+    {
+     "t0_s": 738.9436705664,
+     "t1_s": 892.7499846720237,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 153.80631410562376,
+     "harness_snr": 31.509844867847978,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 354.81558444415003,
+     "micro_step_peak_hz": 5.228745053186442
+    }
+   ],
+   "step_duration_s": 0.7646989145333691,
+   "step_period_s": 2.2979349398200952,
+   "micro_step_hz": 5.230816892738576,
+   "harness_snr_max": 50.61150293285213,
+   "harness_snr_median": 31.509844867847978,
+   "micro_step_snr_median": 354.81558444415003
+  },
+  "panel-mixture-concurrent-0p5": {
+   "condition": "mixture-concurrent-0p5",
+   "intervals": [
+    {
+     "t0_s": 18.936576678399998,
+     "t1_s": 195.14012158217,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.20354490377,
+     "harness_snr": 106.07609669924142,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 95.64929417946962,
+     "micro_step_peak_hz": 5.213500898512429
+    },
+    {
+     "t0_s": 198.93685121279998,
+     "t1_s": 375.13596927247727,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.1991180596773,
+     "harness_snr": 115.29401095752995,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 66.79293788753895,
+     "micro_step_peak_hz": 5.213500898512429
+    },
+    {
+     "t0_s": 378.93707069439995,
+     "t1_s": 555.1401617686334,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.2030910742335,
+     "harness_snr": 152.96225734755515,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 55.73355723729672,
+     "micro_step_peak_hz": 5.213500898512429
+    },
+    {
+     "t0_s": 558.9373152,
+     "t1_s": 735.0511582912152,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 176.11384309121524,
+     "harness_snr": 110.8005778861282,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 133.4106157739428,
+     "micro_step_peak_hz": 5.213500898512429
+    },
+    {
+     "t0_s": 738.937599744,
+     "t1_s": 892.7190448112934,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 153.78144506729348,
+     "harness_snr": 111.42203665365857,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 140.91371554395198,
+     "micro_step_peak_hz": 5.217311937180932
+    }
+   ],
+   "step_duration_s": 0.764719463752563,
+   "step_period_s": 0.7695657457799996,
+   "micro_step_hz": 5.230676332431187,
+   "harness_snr_max": 152.96225734755515,
+   "harness_snr_median": 111.42203665365857,
+   "micro_step_snr_median": 95.64929417946962
+  },
+  "panel-mixture-concurrent-0p75": {
+   "condition": "mixture-concurrent-0p75",
+   "intervals": [
+    {
+     "t0_s": 18.9442590464,
+     "t1_s": 194.69791198925867,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.75365294285868,
+     "harness_snr": 56.63476973578499,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 1985.6358639948116,
+     "micro_step_peak_hz": 9.218902539109331
+    },
+    {
+     "t0_s": 198.94444849919998,
+     "t1_s": 374.5657166596746,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.6212681604746,
+     "harness_snr": 55.07464162224028,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 1419.4830207435582,
+     "micro_step_peak_hz": 9.222713577777833
+    },
+    {
+     "t0_s": 378.9446729856,
+     "t1_s": 554.6363643017733,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.69169131617326,
+     "harness_snr": 57.099120254385056,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 1223.386844075678,
+     "micro_step_peak_hz": 9.222713577777833
+    },
+    {
+     "t0_s": 558.9448574336,
+     "t1_s": 734.6143276287903,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.66947019519034,
+     "harness_snr": 63.38884699874112,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 1271.4421874452128,
+     "micro_step_peak_hz": 9.222713577777833
+    },
+    {
+     "t0_s": 738.9450719104,
+     "t1_s": 892.074523408493,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 153.12945149809298,
+     "harness_snr": 44.76188633581354,
+     "harness_peak_hz": 5.000082733076248,
+     "micro_step_snr": 1183.9600305811236,
+     "micro_step_peak_hz": 9.222713577777833
+    }
+   ],
+   "step_duration_s": 0.43309459134923145,
+   "step_period_s": 0.4332972716485983,
+   "micro_step_hz": 9.23585766226886,
+   "harness_snr_max": 63.38884699874112,
+   "harness_snr_median": 56.63476973578499,
+   "micro_step_snr_median": 1271.4421874452128
+  },
+  "panel-serving-decode": {
+   "condition": "serving-decode",
+   "intervals": [
+    {
+     "t0_s": 18.9697334784,
+     "t1_s": 194.52741213579986,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55767865739986,
+     "harness_snr": 1822.6562021310085,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 198.96986787839998,
+     "t1_s": 374.52667671583237,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55680883743238,
+     "harness_snr": 1806.3061456473238,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 378.969987264,
+     "t1_s": 554.5286949432826,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55870767928263,
+     "harness_snr": 1831.1408368437437,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 558.9701366784,
+     "t1_s": 734.5283982546579,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.5582615762579,
+     "harness_snr": 1842.1466676552445,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 738.9703761792,
+     "t1_s": 892.0845545150092,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 153.11417833580924,
+     "harness_snr": 1882.048397194835,
+     "harness_peak_hz": 5.000082733076248
+    }
+   ],
+   "harness_snr_max": 1882.048397194835,
+   "harness_snr_median": 1831.1408368437437
+  },
+  "panel-core-serving-decode-r1": {
+   "condition": "serving-decode",
+   "intervals": [
+    {
+     "t0_s": 18.967115967999998,
+     "t1_s": 194.52495536849918,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55783940049918,
+     "harness_snr": 1646.7794447480844,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 198.967375488,
+     "t1_s": 374.52554041535774,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55816492735775,
+     "harness_snr": 1510.8428126787037,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 378.9676149888,
+     "t1_s": 554.5256839294739,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55806894067388,
+     "harness_snr": 1548.3063868728354,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 558.9678444799999,
+     "t1_s": 734.5265321667189,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 175.55868768671894,
+     "harness_snr": 1677.3948687801528,
+     "harness_peak_hz": 5.000082733076248
+    },
+    {
+     "t0_s": 738.9681690624,
+     "t1_s": 892.0838611193647,
+     "bin_spacing_hz": 0.0038110386685032372,
+     "record_s": 153.1156920569647,
+     "harness_snr": 1506.1064266506082,
+     "harness_peak_hz": 5.000082733076248
+    }
+   ],
+   "harness_snr_max": 1677.3948687801528,
+   "harness_snr_median": 1548.3063868728354
+  }
+ }
+}

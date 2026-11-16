@@ -1,0 +1,2919 @@
+{
+ "generated_by": "scripts/h1_coverage.py",
+ "generated_at": "2026-10-02T11:42:40+00:00",
+ "repo_commit": "bf5cd06b2f945717924399e5e474c7fc10dbf181",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "preregistration_sha256": "b6b0a2c968a1fe86b6a9672806422061f361f9be5d1c71ceb6fbfd24dd20e725",
+ "windows": {
+  "development": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  },
+  "calibration": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  },
+  "test": {
+   "window_s": 5.0,
+   "hop_s": 5.0,
+   "repo_commit": "970f9fc226c6377e56633d8e3590517a871b9589"
+  }
+ },
+ "features": [
+  "env_cv",
+  "env_skew",
+  "env_kurtosis",
+  "env_p10_over_p50",
+  "env_p90_over_p50",
+  "env_p99_over_p50",
+  "env_iqr_over_median",
+  "env_ac_lag1",
+  "env_ac_peak",
+  "env_ac_peak_lag_s",
+  "env_spec_flatness",
+  "env_frac_0p5_2hz",
+  "env_frac_2_10hz",
+  "env_frac_10_50hz",
+  "env_frac_50_150hz",
+  "env_frac_150_250hz",
+  "wav_spec_flatness",
+  "wav_spec_centroid_hz",
+  "wav_spec_rolloff95_hz",
+  "wav_frac_34_100hz",
+  "wav_frac_100hz_1khz",
+  "wav_frac_1_10khz",
+  "wav_frac_10_20khz",
+  "wav_frac_20_50khz",
+  "wav_frac_50_100khz"
+ ],
+ "flag": "predict == 'training'; rate over windows labelled training, partial excluded",
+ "level1_replica": {
+  "honest": {
+   "pooled": {
+    "n_runs": 20,
+    "n_training": 3925,
+    "detection": 1.0,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-cadence-baseline-jitter-0p05": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-baseline-jitter-0p1": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-baseline-jitter-0p2": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-baseline-jitter-0p4": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-baseline-pad-half": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-lora-r1": {
+     "condition": "lora",
+     "split": "development",
+     "session": "2026-09-23",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-lora-r2": {
+     "condition": "lora",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-lora-r3": {
+     "condition": "lora",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-lora-r4": {
+     "condition": "lora",
+     "split": "calibration",
+     "session": "2026-09-25",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-training-r1": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-23",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-training-r2": {
+     "condition": "training",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-training-r3": {
+     "condition": "training",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-core-training-r4": {
+     "condition": "training",
+     "split": "calibration",
+     "session": "2026-09-25",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-lora": {
+     "condition": "lora",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-training-15min": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-training-15min-nosampler": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-training-arm1": {
+     "condition": "training",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-training-arm2": {
+     "condition": "training-discarded",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-training-arm3": {
+     "condition": "training-copying",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-training-checkpoint-eval-60min": {
+     "condition": "training-checkpoint-eval",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 695,
+     "n_training": 695,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 695
+     }
+    }
+   }
+  },
+  "time-sharing": {
+   "pooled": {
+    "n_runs": 10,
+    "n_training": 1036,
+    "detection": 0.9961389961389961,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     0.9920316076121047,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-episodes-timeshared-0p25": {
+     "condition": "mixture-timeshared-0p25",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 44,
+     "n_partial": 44,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.25882352941176473,
+     "predicted": {
+      "non-ai": 126,
+      "training": 44
+     }
+    },
+    "panel-episodes-timeshared-0p25-slot60": {
+     "condition": "mixture-timeshared-0p25-slot60",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 45,
+     "n_partial": 15,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.2647058823529412,
+     "predicted": {
+      "non-ai": 125,
+      "training": 45
+     }
+    },
+    "panel-episodes-timeshared-0p5": {
+     "condition": "mixture-timeshared-0p5",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 88,
+     "n_partial": 43,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5176470588235295,
+     "predicted": {
+      "inference": 1,
+      "non-ai": 81,
+      "training": 88
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot120": {
+     "condition": "mixture-timeshared-0p5-slot120",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 90,
+     "n_partial": 5,
+     "detection": 0.9777777777777777,
+     "detection_ci95": [
+      0.9444444444444444,
+      1.0
+     ],
+     "flag_rate_all": 0.5176470588235295,
+     "predicted": {
+      "non-ai": 82,
+      "training": 88
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot30": {
+     "condition": "mixture-timeshared-0p5-slot30",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 87,
+     "n_partial": 29,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5117647058823529,
+     "predicted": {
+      "non-ai": 83,
+      "training": 87
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot480": {
+     "condition": "mixture-timeshared-0p5-slot480",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 566,
+     "n_training": 288,
+     "n_partial": 4,
+     "detection": 0.9930555555555556,
+     "detection_ci95": [
+      0.9826388888888888,
+      1.0
+     ],
+     "flag_rate_all": 0.5053003533568905,
+     "predicted": {
+      "non-ai": 280,
+      "training": 286
+     }
+    },
+    "panel-episodes-timeshared-0p75": {
+     "condition": "mixture-timeshared-0p75",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 131,
+     "n_partial": 39,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7705882352941177,
+     "predicted": {
+      "non-ai": 39,
+      "training": 131
+     }
+    },
+    "panel-mixture-timeshared-0p25": {
+     "condition": "mixture-timeshared-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 44,
+     "n_partial": 44,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.25882352941176473,
+     "predicted": {
+      "non-ai": 126,
+      "training": 44
+     }
+    },
+    "panel-mixture-timeshared-0p5": {
+     "condition": "mixture-timeshared-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 88,
+     "n_partial": 43,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5176470588235295,
+     "predicted": {
+      "non-ai": 82,
+      "training": 88
+     }
+    },
+    "panel-mixture-timeshared-0p75": {
+     "condition": "mixture-timeshared-0p75",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 131,
+     "n_partial": 39,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7705882352941177,
+     "predicted": {
+      "non-ai": 39,
+      "training": 131
+     }
+    }
+   }
+  },
+  "co-location": {
+   "pooled": {
+    "n_runs": 3,
+    "n_training": 510,
+    "detection": 0.4568627450980392,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     0.0058823529411764705,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-mixture-concurrent-0p25": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.36470588235294116,
+     "detection_ci95": [
+      0.3352941176470588,
+      0.3941176470588235
+     ],
+     "flag_rate_all": 0.36470588235294116,
+     "predicted": {
+      "inference": 108,
+      "training": 62
+     }
+    },
+    "panel-mixture-concurrent-0p5": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.0058823529411764705,
+     "detection_ci95": [
+      0.0,
+      0.01764705882352941
+     ],
+     "flag_rate_all": 0.0058823529411764705,
+     "predicted": {
+      "non-ai": 169,
+      "training": 1
+     }
+    },
+    "panel-mixture-concurrent-0p75": {
+     "condition": "mixture-concurrent-0p75",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  },
+  "jitter": {
+   "pooled": {
+    "n_runs": 4,
+    "n_training": 657,
+    "detection": 0.7777777777777778,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     0.32733224222585927,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-cadence-jitter-0p05": {
+     "condition": "cadence-jitter-0p05",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p1": {
+     "condition": "cadence-jitter-0p1",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p2": {
+     "condition": "cadence-jitter-0p2",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.9470588235294117,
+     "detection_ci95": [
+      0.9176470588235294,
+      0.9764705882352941
+     ],
+     "flag_rate_all": 0.9470588235294117,
+     "predicted": {
+      "inference": 9,
+      "training": 161
+     }
+    },
+    "panel-cadence-jitter-0p4": {
+     "condition": "cadence-jitter-0p4",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 168,
+     "n_training": 147,
+     "n_partial": 1,
+     "detection": 0.06802721088435375,
+     "detection_ci95": [
+      0.04081632653061224,
+      0.10204081632653061
+     ],
+     "flag_rate_all": 0.05952380952380952,
+     "predicted": {
+      "inference": 137,
+      "non-ai": 21,
+      "training": 10
+     }
+    }
+   }
+  },
+  "padding": {
+   "pooled": {
+    "n_runs": 1,
+    "n_training": 170,
+    "detection": 1.0,
+    "interval_method": "within-run block",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-cadence-pad-half": {
+     "condition": "cadence-pad-half",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  },
+  "power cap": {
+   "pooled": {
+    "n_runs": 2,
+    "n_training": 340,
+    "detection": 0.8794117647058823,
+    "interval_method": "stratified block (within-run variation only)",
+    "detection_ci95": [
+     0.8470588235294118,
+     0.9088235294117647
+    ]
+   },
+   "per_run": {
+    "panel-powercap-50": {
+     "condition": "powercap-50",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.7588235294117647,
+     "detection_ci95": [
+      0.6941176470588235,
+      0.8176470588235294
+     ],
+     "flag_rate_all": 0.7588235294117647,
+     "predicted": {
+      "inference": 41,
+      "training": 129
+     }
+    },
+    "panel-powercap-70": {
+     "condition": "powercap-70",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  }
+ },
+ "level2_held_out": {
+  "time-sharing": {
+   "pooled": {
+    "n_runs": 10,
+    "n_training": 1036,
+    "detection": 0.9961389961389961,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     0.9920316076121047,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-episodes-timeshared-0p25": {
+     "condition": "mixture-timeshared-0p25",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 44,
+     "n_partial": 44,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.25882352941176473,
+     "predicted": {
+      "inference": 126,
+      "training": 44
+     }
+    },
+    "panel-episodes-timeshared-0p25-slot60": {
+     "condition": "mixture-timeshared-0p25-slot60",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 45,
+     "n_partial": 15,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.2647058823529412,
+     "predicted": {
+      "inference": 125,
+      "training": 45
+     }
+    },
+    "panel-episodes-timeshared-0p5": {
+     "condition": "mixture-timeshared-0p5",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 88,
+     "n_partial": 43,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5176470588235295,
+     "predicted": {
+      "inference": 82,
+      "training": 88
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot120": {
+     "condition": "mixture-timeshared-0p5-slot120",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 90,
+     "n_partial": 5,
+     "detection": 0.9777777777777777,
+     "detection_ci95": [
+      0.9444444444444444,
+      1.0
+     ],
+     "flag_rate_all": 0.5176470588235295,
+     "predicted": {
+      "inference": 82,
+      "training": 88
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot30": {
+     "condition": "mixture-timeshared-0p5-slot30",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 87,
+     "n_partial": 29,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5117647058823529,
+     "predicted": {
+      "inference": 83,
+      "training": 87
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot480": {
+     "condition": "mixture-timeshared-0p5-slot480",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 566,
+     "n_training": 288,
+     "n_partial": 4,
+     "detection": 0.9930555555555556,
+     "detection_ci95": [
+      0.9826388888888888,
+      1.0
+     ],
+     "flag_rate_all": 0.5053003533568905,
+     "predicted": {
+      "inference": 280,
+      "training": 286
+     }
+    },
+    "panel-episodes-timeshared-0p75": {
+     "condition": "mixture-timeshared-0p75",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 131,
+     "n_partial": 39,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7705882352941177,
+     "predicted": {
+      "inference": 39,
+      "training": 131
+     }
+    },
+    "panel-mixture-timeshared-0p25": {
+     "condition": "mixture-timeshared-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 44,
+     "n_partial": 44,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.25882352941176473,
+     "predicted": {
+      "inference": 126,
+      "training": 44
+     }
+    },
+    "panel-mixture-timeshared-0p5": {
+     "condition": "mixture-timeshared-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 88,
+     "n_partial": 43,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5176470588235295,
+     "predicted": {
+      "inference": 82,
+      "training": 88
+     }
+    },
+    "panel-mixture-timeshared-0p75": {
+     "condition": "mixture-timeshared-0p75",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 131,
+     "n_partial": 39,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7705882352941177,
+     "predicted": {
+      "inference": 39,
+      "training": 131
+     }
+    }
+   }
+  },
+  "co-location": {
+   "pooled": {
+    "n_runs": 3,
+    "n_training": 510,
+    "detection": 0.6666666666666666,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     0.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-mixture-concurrent-0p25": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-mixture-concurrent-0p5": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.0,
+     "detection_ci95": [
+      0.0,
+      0.0
+     ],
+     "flag_rate_all": 0.0,
+     "predicted": {
+      "inference": 170
+     }
+    },
+    "panel-mixture-concurrent-0p75": {
+     "condition": "mixture-concurrent-0p75",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  },
+  "jitter": {
+   "pooled": {
+    "n_runs": 4,
+    "n_training": 657,
+    "detection": 0.9710806697108066,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     0.9067103109656302,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-cadence-jitter-0p05": {
+     "condition": "cadence-jitter-0p05",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p1": {
+     "condition": "cadence-jitter-0p1",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p2": {
+     "condition": "cadence-jitter-0p2",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p4": {
+     "condition": "cadence-jitter-0p4",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 168,
+     "n_training": 147,
+     "n_partial": 1,
+     "detection": 0.8707482993197279,
+     "detection_ci95": [
+      0.8231292517006803,
+      0.9183673469387755
+     ],
+     "flag_rate_all": 0.7619047619047619,
+     "predicted": {
+      "non-ai": 40,
+      "training": 128
+     }
+    }
+   }
+  },
+  "padding": {
+   "pooled": {
+    "n_runs": 1,
+    "n_training": 170,
+    "detection": 1.0,
+    "interval_method": "within-run block",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-cadence-pad-half": {
+     "condition": "cadence-pad-half",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  },
+  "power cap": {
+   "pooled": {
+    "n_runs": 2,
+    "n_training": 340,
+    "detection": 1.0,
+    "interval_method": "stratified block (within-run variation only)",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-powercap-50": {
+     "condition": "powercap-50",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-powercap-70": {
+     "condition": "powercap-70",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  }
+ },
+ "level2_seen_leave_one_run_out": {
+  "time-sharing": {
+   "pooled": {
+    "n_runs": 10,
+    "n_training": 1036,
+    "detection": 1.0,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-episodes-timeshared-0p25": {
+     "condition": "mixture-timeshared-0p25",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 44,
+     "n_partial": 44,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.25882352941176473,
+     "predicted": {
+      "inference": 126,
+      "training": 44
+     }
+    },
+    "panel-episodes-timeshared-0p25-slot60": {
+     "condition": "mixture-timeshared-0p25-slot60",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 45,
+     "n_partial": 15,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.2647058823529412,
+     "predicted": {
+      "inference": 125,
+      "training": 45
+     }
+    },
+    "panel-episodes-timeshared-0p5": {
+     "condition": "mixture-timeshared-0p5",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 88,
+     "n_partial": 43,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7470588235294118,
+     "predicted": {
+      "inference": 43,
+      "training": 127
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot120": {
+     "condition": "mixture-timeshared-0p5-slot120",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 90,
+     "n_partial": 5,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5294117647058824,
+     "predicted": {
+      "inference": 80,
+      "training": 90
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot30": {
+     "condition": "mixture-timeshared-0p5-slot30",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 87,
+     "n_partial": 29,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.5117647058823529,
+     "predicted": {
+      "inference": 83,
+      "training": 87
+     }
+    },
+    "panel-episodes-timeshared-0p5-slot480": {
+     "condition": "mixture-timeshared-0p5-slot480",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 566,
+     "n_training": 288,
+     "n_partial": 4,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.508833922261484,
+     "predicted": {
+      "inference": 278,
+      "training": 288
+     }
+    },
+    "panel-episodes-timeshared-0p75": {
+     "condition": "mixture-timeshared-0p75",
+     "split": "test",
+     "session": "2026-09-24",
+     "n_windows": 170,
+     "n_training": 131,
+     "n_partial": 39,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7705882352941177,
+     "predicted": {
+      "inference": 39,
+      "training": 131
+     }
+    },
+    "panel-mixture-timeshared-0p25": {
+     "condition": "mixture-timeshared-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 44,
+     "n_partial": 44,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.25882352941176473,
+     "predicted": {
+      "inference": 126,
+      "training": 44
+     }
+    },
+    "panel-mixture-timeshared-0p5": {
+     "condition": "mixture-timeshared-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 88,
+     "n_partial": 43,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7647058823529411,
+     "predicted": {
+      "inference": 40,
+      "training": 130
+     }
+    },
+    "panel-mixture-timeshared-0p75": {
+     "condition": "mixture-timeshared-0p75",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 131,
+     "n_partial": 39,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.7705882352941177,
+     "predicted": {
+      "inference": 39,
+      "training": 131
+     }
+    }
+   }
+  },
+  "co-location": {
+   "pooled": {
+    "n_runs": 3,
+    "n_training": 510,
+    "detection": 1.0,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-mixture-concurrent-0p25": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-mixture-concurrent-0p5": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-mixture-concurrent-0p75": {
+     "condition": "mixture-concurrent-0p75",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  },
+  "jitter": {
+   "pooled": {
+    "n_runs": 4,
+    "n_training": 657,
+    "detection": 1.0,
+    "interval_method": "run-level",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-cadence-jitter-0p05": {
+     "condition": "cadence-jitter-0p05",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p1": {
+     "condition": "cadence-jitter-0p1",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p2": {
+     "condition": "cadence-jitter-0p2",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-cadence-jitter-0p4": {
+     "condition": "cadence-jitter-0p4",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 168,
+     "n_training": 147,
+     "n_partial": 1,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 0.875,
+     "predicted": {
+      "non-ai": 21,
+      "training": 147
+     }
+    }
+   }
+  },
+  "padding": null,
+  "power cap": {
+   "pooled": {
+    "n_runs": 2,
+    "n_training": 340,
+    "detection": 1.0,
+    "interval_method": "stratified block (within-run variation only)",
+    "detection_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "per_run": {
+    "panel-powercap-50": {
+     "condition": "powercap-50",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    },
+    "panel-powercap-70": {
+     "condition": "powercap-70",
+     "split": "development",
+     "session": "2026-09-21",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  }
+ },
+ "gk_reference": {
+  "strategy": "diluted LoRA",
+  "detection_range": [
+   0.48,
+   0.88
+  ],
+  "detector": "hardened, unseen strategy",
+  "source": "arXiv 2609.00309 Table 1"
+ },
+ "fit_manifests": {
+  "level2/time-sharing": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p25": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p25-slot60": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p5": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p5-slot120": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p5-slot30": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p5-slot480": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-episodes-timeshared-0p75": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-mixture-timeshared-0p25": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-mixture-timeshared-0p5": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/time-sharing/panel-mixture-timeshared-0p75": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "level2/co-location": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/co-location/panel-mixture-concurrent-0p25": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/co-location/panel-mixture-concurrent-0p5": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/co-location/panel-mixture-concurrent-0p75": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "level2/jitter": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/jitter/panel-cadence-jitter-0p05": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/jitter/panel-cadence-jitter-0p1": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/jitter/panel-cadence-jitter-0p2": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/jitter/panel-cadence-jitter-0p4": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "level2/padding": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "level2/power cap": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/power cap/panel-powercap-50": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-70",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ],
+  "seen/power cap/panel-powercap-70": [
+   "panel-cadence-baseline-jitter-0p05",
+   "panel-cadence-baseline-jitter-0p1",
+   "panel-cadence-baseline-jitter-0p2",
+   "panel-cadence-baseline-jitter-0p4",
+   "panel-cadence-baseline-pad-half",
+   "panel-cadence-jitter-0p05",
+   "panel-cadence-jitter-0p1",
+   "panel-cadence-jitter-0p2",
+   "panel-cadence-jitter-0p4",
+   "panel-cadence-pad-half",
+   "panel-core-idle-r1",
+   "panel-core-idle-r4",
+   "panel-core-lora-r1",
+   "panel-core-lora-r2",
+   "panel-core-lora-r3",
+   "panel-core-lora-r4",
+   "panel-core-memory-bound-r1",
+   "panel-core-memory-bound-r4",
+   "panel-core-serving-decode-r1",
+   "panel-core-serving-decode-r4",
+   "panel-core-steady-gemm-r1",
+   "panel-core-steady-gemm-r4",
+   "panel-core-training-r1",
+   "panel-core-training-r2",
+   "panel-core-training-r3",
+   "panel-core-training-r4",
+   "panel-episodes-timeshared-0p25",
+   "panel-episodes-timeshared-0p25-slot60",
+   "panel-episodes-timeshared-0p5",
+   "panel-episodes-timeshared-0p5-slot120",
+   "panel-episodes-timeshared-0p5-slot30",
+   "panel-episodes-timeshared-0p5-slot480",
+   "panel-episodes-timeshared-0p75",
+   "panel-lora",
+   "panel-mixture-concurrent-0p25",
+   "panel-mixture-concurrent-0p5",
+   "panel-mixture-concurrent-0p75",
+   "panel-mixture-timeshared-0p25",
+   "panel-mixture-timeshared-0p5",
+   "panel-mixture-timeshared-0p75",
+   "panel-periodic-0p5s",
+   "panel-periodic-5s",
+   "panel-powercap-50",
+   "panel-serving-decode",
+   "panel-serving-prefill",
+   "panel-training-15min",
+   "panel-training-15min-nosampler",
+   "panel-training-arm1",
+   "panel-training-arm2",
+   "panel-training-arm3",
+   "panel-training-checkpoint-eval-60min"
+  ]
+ }
+}

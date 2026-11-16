@@ -1,0 +1,641 @@
+{
+ "generated_by": "scripts/h1_5hz_stage_b.py",
+ "generated_at": "2026-10-03T04:41:57+00:00",
+ "repo_commit": "9e1f0c175b60ccb241a6c9b7eaec1fd92a178f85",
+ "corpus_commit": "73ffebeb8c8055cfa85b5edb59e5d26bb94f41c6",
+ "preregistration_sha256": "b6b0a2c968a1fe86b6a9672806422061f361f9be5d1c71ceb6fbfd24dd20e725",
+ "removal": {
+  "half_width_hz": 0.02,
+  "variants": {
+   "fundamental": [
+    5.0
+   ],
+   "harmonics_to_25hz": [
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0
+   ]
+  },
+  "primary": "fundamental"
+ },
+ "specificity_rule": {
+  "serving_harness_snr_below": 5.0,
+  "serving_aggregate": "median over each run's intervals",
+  "own_lines_keep_fraction": 0.8,
+  "own_lines_aggregate": "median over intervals; one-sided"
+ },
+ "specificity": {
+  "fundamental": {
+   "serving_harness_snr_after": {
+    "panel-serving-decode": 3.622946835644224,
+    "panel-core-serving-decode-r1": 4.053703621433008
+   },
+   "serving_harness_snr_after_max": {
+    "panel-serving-decode": 11.312057471897981,
+    "panel-core-serving-decode-r1": 8.89720113424616
+   },
+   "missed_harness_snr_after": 0.856953942139801,
+   "missed_own_line_kept": 1.126539473677461,
+   "honest_own_line_kept": 1.0068512818586817,
+   "passes": true,
+   "serving_every_interval_below": false
+  },
+  "harmonics_to_25hz": {
+   "serving_harness_snr_after": {
+    "panel-serving-decode": 3.667537175977882,
+    "panel-core-serving-decode-r1": 4.055192489704581
+   },
+   "serving_harness_snr_after_max": {
+    "panel-serving-decode": 11.284371452933321,
+    "panel-core-serving-decode-r1": 8.869780949001388
+   },
+   "missed_harness_snr_after": 0.8584663517278213,
+   "missed_own_line_kept": 1.133009394317728,
+   "honest_own_line_kept": 1.0069276170123,
+   "passes": true,
+   "serving_every_interval_below": false
+  }
+ },
+ "rescored": {
+  "panel-mixture-concurrent-0p5": {
+   "original": {
+    "level1_replica": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.0058823529411764705,
+     "detection_ci95": [
+      0.0,
+      0.01764705882352941
+     ],
+     "flag_rate_all": 0.0058823529411764705,
+     "predicted": {
+      "non-ai": 169,
+      "training": 1
+     }
+    },
+    "level2_held_out": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.0,
+     "detection_ci95": [
+      0.0,
+      0.0
+     ],
+     "flag_rate_all": 0.0,
+     "predicted": {
+      "inference": 170
+     }
+    }
+   },
+   "fundamental": {
+    "level1_replica": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.011764705882352941,
+     "detection_ci95": [
+      0.0,
+      0.029411764705882353
+     ],
+     "flag_rate_all": 0.011764705882352941,
+     "predicted": {
+      "non-ai": 168,
+      "training": 2
+     }
+    },
+    "level2_held_out": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.0,
+     "detection_ci95": [
+      0.0,
+      0.0
+     ],
+     "flag_rate_all": 0.0,
+     "predicted": {
+      "inference": 170
+     }
+    }
+   },
+   "harmonics_to_25hz": {
+    "level1_replica": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.011764705882352941,
+     "detection_ci95": [
+      0.0,
+      0.029411764705882353
+     ],
+     "flag_rate_all": 0.011764705882352941,
+     "predicted": {
+      "non-ai": 168,
+      "training": 2
+     }
+    },
+    "level2_held_out": {
+     "condition": "mixture-concurrent-0p5",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.0,
+     "detection_ci95": [
+      0.0,
+      0.0
+     ],
+     "flag_rate_all": 0.0,
+     "predicted": {
+      "inference": 170
+     }
+    }
+   }
+  },
+  "panel-mixture-concurrent-0p25": {
+   "original": {
+    "level1_replica": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.36470588235294116,
+     "detection_ci95": [
+      0.3352941176470588,
+      0.3941176470588235
+     ],
+     "flag_rate_all": 0.36470588235294116,
+     "predicted": {
+      "inference": 108,
+      "training": 62
+     }
+    },
+    "level2_held_out": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   },
+   "fundamental": {
+    "level1_replica": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.36470588235294116,
+     "detection_ci95": [
+      0.3352941176470588,
+      0.3941176470588235
+     ],
+     "flag_rate_all": 0.36470588235294116,
+     "predicted": {
+      "inference": 108,
+      "training": 62
+     }
+    },
+    "level2_held_out": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   },
+   "harmonics_to_25hz": {
+    "level1_replica": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 0.36470588235294116,
+     "detection_ci95": [
+      0.3352941176470588,
+      0.3941176470588235
+     ],
+     "flag_rate_all": 0.36470588235294116,
+     "predicted": {
+      "inference": 108,
+      "training": 62
+     }
+    },
+    "level2_held_out": {
+     "condition": "mixture-concurrent-0p25",
+     "split": "development",
+     "session": "2026-09-22",
+     "n_windows": 170,
+     "n_training": 170,
+     "n_partial": 0,
+     "detection": 1.0,
+     "detection_ci95": [
+      1.0,
+      1.0
+     ],
+     "flag_rate_all": 1.0,
+     "predicted": {
+      "training": 170
+     }
+    }
+   }
+  }
+ },
+ "line_snrs": {
+  "panel-mixture-concurrent-0p5": {
+   "own_line_hz": 5.230676332431187,
+   "intervals": [
+    {
+     "before": {
+      "harness": 106.07609669924156,
+      "own": 95.6492941794696
+     },
+     "fundamental": {
+      "harness": 0.8439886082988525,
+      "own": 107.75270552256032
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.8427611564651181,
+      "own": 108.37154886519905
+     }
+    },
+    {
+     "before": {
+      "harness": 115.29401095752964,
+      "own": 66.79293788753905
+     },
+     "fundamental": {
+      "harness": 1.0446317603098672,
+      "own": 73.057995137669
+     },
+     "harmonics_to_25hz": {
+      "harness": 1.0429042168234184,
+      "own": 72.23748411120678
+     }
+    },
+    {
+     "before": {
+      "harness": 152.96225734755546,
+      "own": 55.73355723729668
+     },
+     "fundamental": {
+      "harness": 0.856953942139801,
+      "own": 61.16431176175872
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.8584663517278213,
+      "own": 60.51047660698083
+     }
+    },
+    {
+     "before": {
+      "harness": 110.80057788612835,
+      "own": 133.41061577394274
+     },
+     "fundamental": {
+      "harness": 0.26303506953413897,
+      "own": 144.56841218257335
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.25936514129335414,
+      "own": 144.24109604069704
+     }
+    },
+    {
+     "before": {
+      "harness": 111.42203665365854,
+      "own": 140.91371554395232
+     },
+     "fundamental": {
+      "harness": 1.6604151536195866,
+      "own": 154.86379003233205
+     },
+     "harmonics_to_25hz": {
+      "harness": 1.637762426761816,
+      "own": 153.6671654727279
+     }
+    }
+   ],
+   "unmodified_max_rel_err": 0.0
+  },
+  "panel-mixture-concurrent-0p25": {
+   "own_line_hz": 5.230816892738576,
+   "intervals": [
+    {
+     "before": {
+      "harness": 31.14634120529926,
+      "own": 239.35216467884425
+     },
+     "fundamental": {
+      "harness": 0.18697041468687556,
+      "own": 277.61007661701393
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.1859477622740349,
+      "own": 274.98084954990935
+     }
+    },
+    {
+     "before": {
+      "harness": 50.61150293285224,
+      "own": 587.999301254917
+     },
+     "fundamental": {
+      "harness": 0.18246296841271337,
+      "own": 674.188765185476
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.19446913970608143,
+      "own": 659.4578585319855
+     }
+    },
+    {
+     "before": {
+      "harness": 33.99535938762348,
+      "own": 332.59587163023554
+     },
+     "fundamental": {
+      "harness": 0.4260866568738067,
+      "own": 385.9157555904282
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.4257616147619203,
+      "own": 377.0500564794597
+     }
+    },
+    {
+     "before": {
+      "harness": 31.080900336362653,
+      "own": 426.61583781491123
+     },
+     "fundamental": {
+      "harness": 0.4762220032835612,
+      "own": 463.8286211956933
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.4482445150752277,
+      "own": 454.729166306449
+     }
+    },
+    {
+     "before": {
+      "harness": 31.50984486784801,
+      "own": 354.81558444414935
+     },
+     "fundamental": {
+      "harness": 0.07607996986060692,
+      "own": 381.5792189867226
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.0729559014891055,
+      "own": 379.5996771219733
+     }
+    }
+   ],
+   "unmodified_max_rel_err": 0.0
+  },
+  "panel-serving-decode": {
+   "own_line_hz": null,
+   "intervals": [
+    {
+     "before": {
+      "harness": 1822.6562021310117
+     },
+     "fundamental": {
+      "harness": 8.870112950732343
+     },
+     "harmonics_to_25hz": {
+      "harness": 8.843965312951692
+     }
+    },
+    {
+     "before": {
+      "harness": 1806.3061456473306
+     },
+     "fundamental": {
+      "harness": 3.32457547712738
+     },
+     "harmonics_to_25hz": {
+      "harness": 3.320992697146156
+     }
+    },
+    {
+     "before": {
+      "harness": 1831.1408368437458
+     },
+     "fundamental": {
+      "harness": 1.7453454482982709
+     },
+     "harmonics_to_25hz": {
+      "harness": 1.7538329886751072
+     }
+    },
+    {
+     "before": {
+      "harness": 1842.1466676552402
+     },
+     "fundamental": {
+      "harness": 3.622946835644224
+     },
+     "harmonics_to_25hz": {
+      "harness": 3.667537175977882
+     }
+    },
+    {
+     "before": {
+      "harness": 1882.0483971948347
+     },
+     "fundamental": {
+      "harness": 11.312057471897981
+     },
+     "harmonics_to_25hz": {
+      "harness": 11.284371452933321
+     }
+    }
+   ],
+   "unmodified_max_rel_err": 0.0
+  },
+  "panel-core-serving-decode-r1": {
+   "own_line_hz": null,
+   "intervals": [
+    {
+     "before": {
+      "harness": 1646.7794447480858
+     },
+     "fundamental": {
+      "harness": 1.9053054546791963
+     },
+     "harmonics_to_25hz": {
+      "harness": 1.8785397567625204
+     }
+    },
+    {
+     "before": {
+      "harness": 1510.8428126787046
+     },
+     "fundamental": {
+      "harness": 4.053703621433008
+     },
+     "harmonics_to_25hz": {
+      "harness": 4.072610134060833
+     }
+    },
+    {
+     "before": {
+      "harness": 1548.3063868728425
+     },
+     "fundamental": {
+      "harness": 1.22087771612308
+     },
+     "harmonics_to_25hz": {
+      "harness": 1.2272853964745207
+     }
+    },
+    {
+     "before": {
+      "harness": 1677.3948687801487
+     },
+     "fundamental": {
+      "harness": 4.062536744286384
+     },
+     "harmonics_to_25hz": {
+      "harness": 4.055192489704581
+     }
+    },
+    {
+     "before": {
+      "harness": 1506.1064266506098
+     },
+     "fundamental": {
+      "harness": 8.89720113424616
+     },
+     "harmonics_to_25hz": {
+      "harness": 8.869780949001388
+     }
+    }
+   ],
+   "unmodified_max_rel_err": 0.0
+  },
+  "panel-training-arm1": {
+   "own_line_hz": 11.653233059914838,
+   "intervals": [
+    {
+     "before": {
+      "harness": 1037.8998334837675,
+      "own": 514726.62293714203
+     },
+     "fundamental": {
+      "harness": 0.10163044557226122,
+      "own": 518253.16011105175
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.10096859981000886,
+      "own": 518292.4518468851
+     }
+    },
+    {
+     "before": {
+      "harness": 1162.4348706938586,
+      "own": 600419.2293459447
+     },
+     "fundamental": {
+      "harness": 1.7276824123880832,
+      "own": 600258.9598276531
+     },
+     "harmonics_to_25hz": {
+      "harness": 1.7386370904867732,
+      "own": 602575.1623003926
+     }
+    },
+    {
+     "before": {
+      "harness": 1107.0151353486324,
+      "own": 447750.2175158292
+     },
+     "fundamental": {
+      "harness": 0.06776667048018578,
+      "own": 450152.3504168142
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.06463289015567844,
+      "own": 449512.6292411813
+     }
+    },
+    {
+     "before": {
+      "harness": 1126.1979562424276,
+      "own": 621367.553059925
+     },
+     "fundamental": {
+      "harness": 0.6837417450697267,
+      "own": 617966.612854823
+     },
+     "harmonics_to_25hz": {
+      "harness": 0.6757237100813442,
+      "own": 610240.6025354249
+     }
+    },
+    {
+     "before": {
+      "harness": 771.5589433782753,
+      "own": 471861.0213287965
+     },
+     "fundamental": {
+      "harness": 2.6606898245457646,
+      "own": 470170.43056539644
+     },
+     "harmonics_to_25hz": {
+      "harness": 2.638809711411225,
+      "own": 469977.9135539508
+     }
+    }
+   ],
+   "unmodified_max_rel_err": 0.0
+  }
+ }
+}

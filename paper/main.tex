@@ -1,0 +1,186 @@
+%%%%%%%% ICML 2026 two-column format, [preprint] mode for arXiv %%%%%%%%
+% Same template as tomkimpson/power-to-flops (paper/main.tex at 66f6f95). Style
+% files are verbatim from that repo.
+
+\documentclass{article}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{placeins}  % \FloatBarrier: appendix floats stay in their section
+\graphicspath{{../figures/}}
+
+% hyperref makes hyperlinks in the resulting PDF.
+\usepackage{hyperref}
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% [preprint] shows authors and drops the review-mode footer — arXiv version.
+% Swap to plain \usepackage{icml2026} for a blind submission, or
+% \usepackage[accepted]{icml2026} for camera-ready.
+\usepackage[preprint]{icml2026}
+\captionsetup[table]{position=below}  % table captions sit under their tables
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{subcaption}
+
+% Let page-wide floats take most of a page, so the tall F1 does not queue the rest.
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.8}
+% Let column floats sit above text rather than alone in a centred float column.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.8}
+\usepackage{dblfloatfix}
+
+\input{numbers}  % every number in the prose (scripts/paper_numbers.py)
+
+% Short form of the title for the running header:
+\icmltitlerunning{Verifying Declared AI Workloads from GPU Supply Current}
+
+\begin{document}
+
+\twocolumn[
+  \icmltitle{Verifying Declared AI Workloads from GPU Supply Current}
+
+  \begin{icmlauthorlist}
+    \icmlauthor{Tom Kimpson}{unimelb,mats}
+  \end{icmlauthorlist}
+
+  \icmlaffiliation{unimelb}{School of Mathematics and Statistics, The University of Melbourne, Parkville, VIC, Australia}
+  \icmlaffiliation{mats}{Machine Alignment, Transparency \& Security (MATS)}
+
+  \icmlcorrespondingauthor{Tom Kimpson}{tom.kimpson@unimelb.edu.au}
+
+  % Keywords populate the PDF metadata; they are not shown in the document.
+  \icmlkeywords{AI governance, compute verification, declared workloads, hidden training, side channels, current sensing, anomaly detection, one-class models}
+
+  \vskip 0.3in
+]
+
+% Creates the first-column footnote with affiliations; required even if empty.
+\printAffiliationsAndNotice{}
+
+\begin{abstract}
+An agreement on AI compute needs a way to check that each GPU runs only the work its
+operator declares. We show that an external observer can identify departures from the
+declared work on one NVIDIA \GPU{} GPU from its supply current alone, with no
+examples of hidden training to learn from. We record \CorpusHours{}~h of current with a clamp-on
+probe, covering declared work (inference and idle), honest training, and training hidden
+by five evasion strategies. A one-class model learns only from recordings of the
+declared work, its reference. It flags \Ztwo\% of training that runs beside declared
+inference. As a monitor on a held-out day, it detects all \EpScored{} hidden training
+episodes, with a median delay of \EpDelayRone{}~s, and raises no alarm in
+\ExpDecodeH{}~h of declared inference. The check needs a complete reference. With
+idle missing from the reference, the monitor is in alarm for \TfourIdleADecode\% of
+declared idle. With idle used only to set the alarm threshold, the monitor misses all
+\EpScored{} episodes and raises no alarm on declared inference. Training in the
+reference has the same silent effect. These results come from one GPU
+and one model. They indicate that a declaration can replace a catalogue of evasions, and
+that the security of the check then rests on how the verifier obtains the reference.
+\end{abstract}
+
+
+
+\section{Introduction}\label{s:intro}
+
+Agreements on AI compute will need a way to check how a GPU is
+used~\citep{shavit2023,baker2025}. The operator states the work that a GPU runs, its
+\emph{declaration}. The verifier does not trust the declaration, and must check that
+the GPU runs nothing else, such as hidden training. \citet{scher2025} describe two ways to use physical measures of chip activity, such as power draw, to perform this check. In their
+\emph{default approach}, the verifier fits a classifier on many workloads that it labels and
+runs on its own chips, then applies it to the operator's chips. Such a classifier must transfer from the chips it
+was fitted on to the chips it monitors. In their alternative approach, the verifier's inspectors,
+with temporary access to the operator's code, confirm that the chips run only the declared
+work and record their activity while they do. This recording is a signature of the work. Later, the verifier
+monitors the chips' activity and investigates when it departs from the
+signatures~\citep{scher2025}. We call this a \emph{signature check}. It needs no transfer between chips, and it is harder to
+evade, because the operator's chips must look like the declared work, not merely unlike
+training~\citep{scher2025}. A related
+proposal counts the chip-hours whose signature matches a verified workload, with
+signatures taken from the verifier's own hardware or from a model of the
+workload~\citep{baker2025}.
+
+Existing empirical studies of hidden training have focused on the default approach.
+\citet{gargiulo2026}
+measure the current drawn by a GPU. A random forest fitted to these traces tells
+training from inference and non-AI work with 97\% accuracy on model families it has
+not seen. \citet{rahman2026} reach 98\% from sliding windows of on-chip telemetry
+across nine GPU types. Both studies test their classifiers against operators who try to
+hide training. Detection stays high against most evasions but falls against some that
+the classifiers were not fitted to: to 43\% for white-box diluted low-rank adaptation in
+\citet{rahman2026}, and to 48--88\% for diluted low-rank adaptation in
+\citet{gargiulo2026}. A second test in \citet{gargiulo2026}, which flags the
+brief dip in current left by each optimizer update, raises detection of diluted low-rank
+adaptation to at least 98\%.
+
+We found no empirical study of how well a signature check works. Power signatures do
+identify workloads on high-performance computing systems~\citep{copos2020,kohler2021,karimi2024},
+but those studies assume an operator who does not try to hide work~\citep{scher2025}. \citet{scher2025} name several uncertainties
+in the signature check, among them which chip activity to measure, how stable signatures
+stay over time, how often inspectors can investigate an alarm, how finely to define
+workloads, and whether the chip activity of each workload is specific enough to tell it apart.
+Unlike the default approach, the signature check uses the operator's declaration, because
+its signatures are recordings of the declared work. Declared work has helped
+in related settings. A bound on hidden compute from power draw tightens sharply once the
+verifier can re-run the declared work \citep{kimpson2026}. In simulated datacentre power
+traces, a tracker with its threshold set on declared work detects at least 96\% of training
+runs hidden in declared inference, at a 1\% false-alarm rate \citep{kimpson2026datacentre}.
+
+In this work we test the signature check on one \GPU{}. A current probe owned by the
+verifier is clamped to the GPU's auxiliary supply and records \CorpusHours{}~h of current
+(\cref{s:setting}). We record declared work
+(serving decode, serving prefill and idle), honest training, and several evasion
+strategies, in particular \emph{co-location}: training runs as a second process beside
+the declared inference and uses the capacity that inference leaves spare. We fit
+classifiers to labelled examples of training to stand for the default approach. Our signature
+check is a one-class model fitted only to recordings of the declared work, with its threshold set
+on separate recordings of that work, so it needs no examples of training. Together these recordings form its
+\emph{reference}. The signature check is only as good
+as its reference. A declared workload can be missing from the reference, or else an operator can try to corrupt the reference, for example by running training while it is recorded. We therefore
+test the signature check with an incomplete reference and with training in its
+reference. We also run it continuously over a held-out test day, as a monitor, and ask
+whether a verifier can tell from its alarms that the reference is incomplete or corrupt.
+
+\Cref{s:setting} describes the recordings, the detectors and the monitor.
+\Cref{s:works} tests the check with a complete reference, and \cref{s:monitoring} with an
+incomplete one or one that holds training (\cref{f:f8,f:f10}). \Cref{s:declaration} takes up
+the questions of \citet{scher2025} that our recordings bear on: stability over time,
+alarm frequency, granularity and specificity. \Cref{s:missed} compares the check with
+the classifiers. \Cref{s:discussion} draws the lessons for verifiers.
+
+\input{sections/setting}
+\section{Results}\label{s:results}
+
+\input{sections/works}
+\input{sections/monitoring}
+\input{sections/information}
+\input{sections/missed}
+\input{sections/discussion}
+
+\bibliography{references}
+\bibliographystyle{icml2026}
+
+\appendix
+\crefalias{section}{appendix}
+% Appendix tables and figures are numbered A1, A2, ... so a main-text citation shows where they are.
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\theHtable}{A\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\theHfigure}{A\arabic{figure}}
+\crefname{appendix}{Appendix}{Appendices}
+\Crefname{appendix}{Appendix}{Appendices}
+\onecolumn
+\input{sections/appendix}
+\FloatBarrier
+
+\end{document}
