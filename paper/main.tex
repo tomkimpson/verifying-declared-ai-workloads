@@ -69,22 +69,7 @@
 \printAffiliationsAndNotice{}
 
 \begin{abstract}
-An agreement on AI compute needs a way to check that each GPU runs only the work its
-operator declares. We show that an external observer can identify departures from the
-declared work on one NVIDIA \GPU{} GPU from its supply current alone, with no
-examples of hidden training to learn from. We record \CorpusHours{}~h of current with a clamp-on
-probe, covering declared work (inference and idle), honest training, and training hidden
-by five evasion strategies. A one-class model learns only from recordings of the
-declared work, its reference. It flags \Ztwo\% of training that runs beside declared
-inference. As a monitor on a held-out day, it detects all \EpScored{} hidden training
-episodes, with a median delay of \EpDelayRone{}~s, and raises no alarm in
-\ExpDecodeH{}~h of declared inference. The check needs a complete reference. With
-idle missing from the reference, the monitor is in alarm for \TfourIdleADecode\% of
-declared idle. With idle used only to set the alarm threshold, the monitor misses all
-\EpScored{} episodes and raises no alarm on declared inference. Training in the
-reference has the same silent effect. These results come from one GPU
-and one model. They indicate that a declaration can replace a catalogue of evasions, and
-that the security of the check then rests on how the verifier obtains the reference.
+Frontier AI governance policies require compute verification techniques that allow an external observer to confirm that an operator does not run prohibited workloads, such as training. Off-chip, analogue hardware signals, such as power draw, have been proposed as a potential information channel for compute verification. Such signals can be measured externally, without the operator's cooperation. We show that the supply current drawn by a GPU can be used to verify the work declared by the GPU operator, without requiring examples of prohibited workloads or evasion strategies to learn from. We record \CorpusHours{}~h of GPU current with a Rogowski coil under idle, training and inference workloads, and with training hidden by five evasion strategies. We show that a one-class model fitted to the current draw of permitted, declared work (idle and inference) flags at least \RoneMinGroup\% of windows of prohibited training, including training hidden by the five evasion strategies. As a continuous monitor across successive windows, it detects all \EpScored{} episodes of prohibited training hidden by time-sharing with declared inference, with a median delay of \EpDelayRone{}~s, and raises one alarm in \ExpDeclH{}~h of declared work. Incomplete or corrupt recordings of the declared work (the reference) can undermine verification. An incomplete reference fails loudly; with idle missing from the reference, the monitor is in alarm for \TfourIdleADecode\% of declared idle. A corrupt reference can fail silently; if the operator runs training while the reference is recorded, the monitor can miss hidden training while raising no alarm on declared work. While these results come from one GPU and one model, they suggest that operator declarations together with external analogue sensing might offer a practical route to compute verification. 
 \end{abstract}
 
 

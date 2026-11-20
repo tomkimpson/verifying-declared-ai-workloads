@@ -393,6 +393,26 @@ path = ["backgrounds", "idle", "r1", "exposure_h"]
 fmt = "{:.2f}"
 
 [[n]]
+# Monitored hours of test-day declared work: decode plus idle.
+name = "ExpDeclH"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds"]
+keys = ["declared inference", "idle"]
+each = ["r1", "exposure_h"]
+reduce = "sum"
+fmt = "{:.1f}"
+
+[[n]]
+# s_R alarm onsets on test-day declared work: decode plus idle.
+name = "OnsetsRoneDecl"
+src = "results/monitor/false_alarms.json"
+path = ["backgrounds"]
+keys = ["declared inference", "idle"]
+each = ["r1", "onsets"]
+reduce = "sum"
+fmt = "{}"
+
+[[n]]
 name = "EpTotal"
 src = "results/monitor/episodes.json"
 path = ["detectors", "r1", "cells"]
