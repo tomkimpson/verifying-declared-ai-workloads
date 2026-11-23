@@ -1,8 +1,10 @@
-\subsection{The open questions, measured}\label{s:declaration}
+\subsection{The open questions}\label{s:declaration}
 
-Our recordings bear on four questions that \citet{scher2025} leave open for the
-signature check: how stable the signature is over time, how often it raises an alarm,
-how finely workloads must be defined, and how specific the signature is.
+A verifier who adopts the signature check must still settle four questions
+raised by \citet{scher2025} (\cref{s:intro}). Does the signature stay stable
+over time? How often will the check raise an alarm? How finely must workloads
+be defined? And is the signature specific enough to separate declared work from
+hidden work? We answer each in turn from the corpus of \cref{s:corpus}.
 
 \paragraph{Stability over time.} The signature of decode stayed stable over the five days of recording. We recorded
 decode in \DecodeRuns{} runs over \DecodeSessions{} sessions, each on a different day.
@@ -15,15 +17,12 @@ idle, but only \FprRoneIdle\% of test idle, recorded one day earlier. Because
 calibration idle scores above decode, it sets $\tau_\alpha$, and the false-positive rate on test
 decode stays well below $\alpha = \AlphaPct\%$.
 
-A reference recorded in one session holds less well. In an exploratory check, we
+A reference recorded on a single day does not carry over to other days. In an exploratory check, we
 fitted a reference to \SessRefWindows{} windows spread over about four minutes of one
 decode run, and repeated this for each of \SessRuns{} runs, one per day. Averaged over
 the three runs, this reference flags \SessOther\% of decode from the other days,
 against \SessSame\% of the rest of its own run. The two runs recorded to one protocol,
-two days apart, give \SessPair\% each way. This reference is far smaller than the
-reference of $s_R$, and it flags by a leave-one-out rule rather than $\tau_\alpha$, so
-the two do not compare directly. Still, the check suggests that a reference should span
-sessions, as the reference of $s_R$ does.
+two days apart, give \SessPair\% each way. This reference is not directly comparable to the reference of $s_R$ because it is shorter and flags by a leave-one-out rule rather than $\tau_\alpha$. Nevertheless, this check suggests that the reference should be recorded over several sessions, as the reference of $s_R$ is.
 
 \paragraph{Alarm frequency.} The alarm rate sets how often inspectors must investigate.
 On the test day, declared inference is decode only, and the
@@ -55,8 +54,9 @@ development run). This is expected, because prefill is limited by compute and de
 by memory bandwidth, so the two load the GPU differently. With prefill
 in the fit, $s_R$ flags \PrefillInFitFlagged{} of \PrefillInFitN{} prefill windows.
 This rate is in-sample, because neither the calibration day nor the test day holds
-prefill. One fit can therefore hold decode, prefill and idle together. Each workload
-must be in the reference, but none needs a model of its own. A workload that is in the
+prefill. One detector, fitted to decode, prefill and idle together, can therefore
+accept all three. The verifier must record every declared workload, but does not
+need a separate detector for each. A workload that is in the
 threshold set but not in the fit instead raises the threshold (\cref{s:monitoring}).
 
 \paragraph{Specificity.} The signature is specific, but by a thin margin. Under the complete reference, declared

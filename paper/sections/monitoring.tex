@@ -73,14 +73,8 @@ now holds decode and idle, which is our default. Idle is now in the threshold se
 but not in the fit. It scores high
 and lifts $\tau_\alpha$ to \TauDecOnlyPooled{} (\cref{f:f8}d; \cref{f:f7} shows the
 scores). The monitor then detects \TfourMisCoPooled\% of co-location and misses all
-\EpScored{} episodes. On test-day decode it raises no alarm, as the complete reference
-does. This monitor fails silently. It does not flag hidden training, and nothing in its alarms
-tells the verifier that it is failing.
-
-A silent failure can also hide a loud one. Prefill is missing from this fit too, and
-with decode alone in the threshold set every prefill window is flagged (\cref{t:t7}).
-But $\tau_\alpha$ now sits above the prefill scores, and \DecOnlyPrefillPooled\% of
-prefill windows are flagged. So a missing workload raises alarms only if nothing else
+\EpScored{} episodes. It raises no alarm on test-day decode, just as the complete reference
+does. We see that this monitor then fails silently; it does not alert on hidden training, and the verifier has no way to know that it is failing. Prefill is also missing from this fit. Accordingly, with decode alone in the threshold set every prefill window is flagged (\cref{t:t7}). However $\tau_\alpha$ now sits above the prefill scores, and so \DecOnlyPrefillPooled\% of prefill windows are flagged. That is, a missing workload raises alarms only if nothing else
 has raised the threshold.
 
 A verifier can expose the silent monitor with a positive control. It gives the monitor

@@ -69,77 +69,58 @@
 \printAffiliationsAndNotice{}
 
 \begin{abstract}
-Frontier AI governance policies require compute verification techniques that allow an external observer to confirm that an operator does not run prohibited workloads, such as training. Off-chip, analogue hardware signals, such as power draw, have been proposed as a potential information channel for compute verification. Such signals can be measured externally, without the operator's cooperation. We show that the supply current drawn by a GPU can be used to verify the work declared by the GPU operator, without requiring examples of prohibited workloads or evasion strategies to learn from. We record \CorpusHours{}~h of GPU current with a Rogowski coil under idle, training and inference workloads, and with training hidden by five evasion strategies. We show that a one-class model fitted to the current draw of permitted, declared work (idle and inference) flags at least \RoneMinGroup\% of windows of prohibited training, including training hidden by the five evasion strategies. As a continuous monitor across successive windows, it detects all \EpScored{} episodes of prohibited training hidden by time-sharing with declared inference, with a median delay of \EpDelayRone{}~s, and raises one alarm in \ExpDeclH{}~h of declared work. Incomplete or corrupt recordings of the declared work (the reference) can undermine verification. An incomplete reference fails loudly; with idle missing from the reference, the monitor is in alarm for \TfourIdleADecode\% of declared idle. A corrupt reference can fail silently; if the operator runs training while the reference is recorded, the monitor can miss hidden training while raising no alarm on declared work. While these results come from one GPU and one model, they suggest that operator declarations together with external analogue sensing might offer a practical route to compute verification. 
+Frontier AI governance agreements require compute verification techniques that allow an external observer to confirm that a hardware operator does not run prohibited workloads. Off-chip, analogue hardware signals, such as power draw, have been proposed as a potential information channel for compute verification. Such signals can be measured externally, without the operator's cooperation. We show that the supply current drawn by a GPU can be used to verify the work declared by the GPU operator, without requiring examples of prohibited workloads or evasion strategies. We record \CorpusHours{}~h of GPU current with a Rogowski coil under idle, training and inference workloads. We consider five evasion strategies an operator might use to disguise prohibited training. We show that a one-class model fitted to the current draw of permitted, declared work (idle and inference) flags at least \RoneMinGroup\% of windows of prohibited training, including training hidden by the five evasion strategies. As a continuous monitor across successive windows, it detects all \EpScored{} episodes of prohibited training hidden by time-sharing with declared inference, with a median delay of \EpDelayRone{}~s, and raises one alarm in \ExpDeclH{}~h of declared work. Incomplete or corrupt recordings of the declared work can undermine verification. An incomplete recording fails loudly; with idle missing, the monitor is in alarm for \TfourIdleADecode\% of declared idle. A corrupt recording can fail silently; if the operator runs training during the recording, the monitor can miss hidden training while raising no alarm on declared work. These results suggest that operator declarations together with external analogue sensing might offer a practical route to compute verification. 
 \end{abstract}
 
 
 
 \section{Introduction}\label{s:intro}
 
-Agreements on AI compute will need a way to check how a GPU is
-used~\citep{shavit2023,baker2025}. The operator states the work that a GPU runs, its
+Agreements on AI compute will need methods to verify how GPUs are used \citep{shavit2023,baker2025}. The operator states the work that a GPU runs, its
 \emph{declaration}. The verifier does not trust the declaration, and must check that
-the GPU runs nothing else, such as hidden training. \citet{scher2025} describe two ways to use physical measures of chip activity, such as power draw, to perform this check. In their
-\emph{default approach}, the verifier fits a classifier on many workloads that it labels and
-runs on its own chips, then applies it to the operator's chips. Such a classifier must transfer from the chips it
-was fitted on to the chips it monitors. In their alternative approach, the verifier's inspectors,
-with temporary access to the operator's code, confirm that the chips run only the declared
-work and record their activity while they do. This recording is a signature of the work. Later, the verifier
-monitors the chips' activity and investigates when it departs from the
-signatures~\citep{scher2025}. We call this a \emph{signature check}. It needs no transfer between chips, and it is harder to
-evade, because the operator's chips must look like the declared work, not merely unlike
-training~\citep{scher2025}. A related
-proposal counts the chip-hours whose signature matches a verified workload, with
-signatures taken from the verifier's own hardware or from a model of the
-workload~\citep{baker2025}.
+the GPU runs nothing else, such as hidden training. 
 
-Existing empirical studies of hidden training have focused on the default approach.
+Off-chip analogue signals, such as power draw, can be measured externally by the verifier. There are two broad approaches to using such signals for compute verification \citep{scher2025}. In the \emph{default approach}, the verifier runs labelled examples of permitted and
+prohibited work on its own chips, including prohibited work disguised by the evasion
+strategies it anticipates, and fits a classifier to the resulting signals. The classifier
+is then applied to the operator's chips. It must transfer from the chips it was fitted on
+to the chips it monitors, and it is fitted only to the evasions the verifier anticipated. In the alternative approach, which we term the \emph{signature check}, the verifier, with temporary access to the operator's hardware, records signatures of permitted workloads. Later, the verifier monitors the chips' activity and flags any signals that depart from the recorded signatures. This approach needs no examples of prohibited work and no classifier that transfers
+between chips. It is also harder to evade, because the signals must look specifically like the declared
+work, rather than merely unlike training. \citet{baker2025} propose a hybrid, in which signatures
+of permitted work are recorded on the verifier's own hardware, and so must transfer to the
+operator's chips.
+
+
+Existing empirical studies of verification to identify hidden training have focused on the default approach.
 \citet{gargiulo2026}
-measure the current drawn by a GPU. A random forest fitted to these traces tells
+measure the current drawn by a GPU. A random forest fitted to current traces identifies
 training from inference and non-AI work with 97\% accuracy on model families it has
-not seen. \citet{rahman2026} reach 98\% from sliding windows of on-chip telemetry
+not seen. Similarly, \citet{rahman2026} reach 98\% from sliding windows of on-chip telemetry
 across nine GPU types. Both studies test their classifiers against operators who try to
-hide training. Detection stays high against most evasions but falls against some that
+hide training. Detection stays high against most evasion strategies, but falls against some that
 the classifiers were not fitted to: to 43\% for white-box diluted low-rank adaptation in
 \citet{rahman2026}, and to 48--88\% for diluted low-rank adaptation in
-\citet{gargiulo2026}. A second test in \citet{gargiulo2026}, which flags the
-brief dip in current left by each optimizer update, raises detection of diluted low-rank
-adaptation to at least 98\%.
+\citet{gargiulo2026}, though a second test there, which flags each optimiser update,
+restores detection to at least 98\%.
 
-We found no empirical study of how well a signature check works. Power signatures do
+We found no empirical study of a signature check built on off-chip signals. Power signatures do
 identify workloads on high-performance computing systems~\citep{copos2020,kohler2021,karimi2024},
-but those studies assume an operator who does not try to hide work~\citep{scher2025}. \citet{scher2025} name several uncertainties
-in the signature check, among them which chip activity to measure, how stable signatures
-stay over time, how often inspectors can investigate an alarm, how finely to define
-workloads, and whether the chip activity of each workload is specific enough to tell it apart.
-Unlike the default approach, the signature check uses the operator's declaration, because
-its signatures are recordings of the declared work. Declared work has helped
-in related settings. A bound on hidden compute from power draw tightens sharply once the
-verifier can re-run the declared work \citep{kimpson2026}. In simulated datacentre power
-traces, a tracker with its threshold set on declared work detects at least 96\% of training
-runs hidden in declared inference, at a 1\% false-alarm rate \citep{kimpson2026datacentre}.
+but those studies assume an operator who does not try to hide work. There are several uncertainties in the signature check \citep{scher2025}: the verifier must choose which chip activity to measure, and how stable signatures stay over time; the verifier must decide how often to investigate an alarm, how finely to define workloads, and whether the chip activity of each workload is specific enough to tell it apart.
 
-In this work we test the signature check on one \GPU{}. A current probe owned by the
-verifier is clamped to the GPU's auxiliary supply and records \CorpusHours{}~h of current
+In this work we test the signature check on one NVIDIA \GPU{}. A current probe is clamped to the GPU's auxiliary supply and records \CorpusHours{}~h of current
 (\cref{s:setting}). We record declared work
 (serving decode, serving prefill and idle), honest training, and several evasion
 strategies, in particular \emph{co-location}: training runs as a second process beside
 the declared inference and uses the capacity that inference leaves spare. We fit
-classifiers to labelled examples of training to stand for the default approach. Our signature
+classifiers to labelled examples of training to stand for the default approach
+(\cref{s:missed}). Our signature
 check is a one-class model fitted only to recordings of the declared work, with its threshold set
-on separate recordings of that work, so it needs no examples of training. Together these recordings form its
-\emph{reference}. The signature check is only as good
+on separate recordings of that work, so it needs no examples of training or evasion. Together these recordings form its
+\emph{reference}. We first test the check with a complete reference (\cref{s:works}).
+The signature check is only as good
 as its reference. A declared workload can be missing from the reference, or else an operator can try to corrupt the reference, for example by running training while it is recorded. We therefore
-test the signature check with an incomplete reference and with training in its
-reference. We also run it continuously over a held-out test day, as a monitor, and ask
-whether a verifier can tell from its alarms that the reference is incomplete or corrupt.
-
-\Cref{s:setting} describes the recordings, the detectors and the monitor.
-\Cref{s:works} tests the check with a complete reference, and \cref{s:monitoring} with an
-incomplete one or one that holds training (\cref{f:f8,f:f10}). \Cref{s:declaration} takes up
-the questions of \citet{scher2025} that our recordings bear on: stability over time,
-alarm frequency, granularity and specificity. \Cref{s:missed} compares the check with
-the classifiers. \Cref{s:discussion} draws the lessons for verifiers.
+test the signature check with an incomplete reference and with the reference corrupted by training (\cref{s:monitoring}). We also run the signature check continuously over a held-out test day, as a monitor, and ask whether a verifier can tell from its alarms that the reference is incomplete or corrupt. We measure four of the uncertainties listed above(\cref{s:declaration}). 
+We close with the lessons for verifiers (\cref{s:discussion}).
 
 \input{sections/setting}
 \section{Results}\label{s:results}
