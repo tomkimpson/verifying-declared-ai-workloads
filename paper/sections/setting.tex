@@ -1,7 +1,7 @@
 \section{Methods}\label{s:setting}
 
 \subsection{Measurement}
-Every AI workload is executed by a single \GPU{}. A Rogowski current probe (\Probe{},
+Every AI workload is executed by a single \GPU{} hosted by \citet{amodo2026}. A Rogowski current probe (\Probe{},
 \ProbeSens{}~mV/A, \ProbeLo{}~Hz to \ProbeHi{}~MHz) is attached to the GPU's auxiliary supply. A \DigBits-bit \Digitiser{} samples the probe at \Fs{}~S/s, with no anti-alias filter \footnote{Without an anti-alias filter, current above the Nyquist frequency (about 100 kHz) aliases into the recorded band. Under training this adds at most\AliasTrainPct \% to the in-band variance, but under idle it may exceed the in-band variance by up to \AliasIdleX{} times (\cref{a:impl}).} We note that the probe is AC-coupled, with no voltage channel, and so measures current rather than power. 
 
 \subsection{Threat model}\label{s:threat}
